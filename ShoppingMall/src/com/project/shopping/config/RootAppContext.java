@@ -19,6 +19,7 @@ public class RootAppContext {
 		return new UserBean();
 	}
 	
+	//메일 전송 정보를 담고있는 객체
 	@Bean(name = "mailSender")
 	public JavaMailSenderImpl mailSender() {
 		JavaMailSenderImpl jsi = new JavaMailSenderImpl();

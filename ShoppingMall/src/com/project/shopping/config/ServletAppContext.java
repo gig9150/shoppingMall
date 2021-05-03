@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperFactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -22,7 +23,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.project.shopping.beans.UserBean;
 import com.project.shopping.interceptor.CheckLoginInterceptor;
+import com.project.shopping.interceptor.TopMenuInterceptor;
+import com.project.shopping.mapper.TopMenuMapper;
 import com.project.shopping.mapper.UserMapper;
+import com.project.shopping.service.TopMenuService;
 
 @Configuration
 @EnableWebMvc
@@ -32,6 +36,9 @@ public class ServletAppContext implements WebMvcConfigurer {
 	
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
+	
+	@Autowired
+	private TopMenuService topMenuService;
 	
 	@Value("${db.classname}")
 	private String db_classname;
@@ -64,10 +71,10 @@ public class ServletAppContext implements WebMvcConfigurer {
 	@Bean
 	public BasicDataSource dataSource() {
 		BasicDataSource source = new BasicDataSource();
-		source.setDriverClassName(db_classname);
-		source.setUrl(db_url);
-		source.setUsername(db_username);
-		source.setPassword(db_password);
+		source.setDriverClassName("oracle.jdbc.OracleDriver");
+		source.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
+		source.setUsername("shopping");
+		source.setPassword("mall");
 		
 		return source;
 	}
@@ -80,9 +87,17 @@ public class ServletAppContext implements WebMvcConfigurer {
 		return factory;
 	}
 	
+	//매퍼 등록 
 	@Bean
-	public MapperFactoryBean<UserMapper> getTopMenuMapper(SqlSessionFactory factory){
+	public MapperFactoryBean<UserMapper> getUserMapper(SqlSessionFactory factory){
 		MapperFactoryBean<UserMapper> factoryBean = new MapperFactoryBean<UserMapper>(UserMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	
+	@Bean
+	public MapperFactoryBean<TopMenuMapper> getTopMenuMapper(SqlSessionFactory factory){
+		MapperFactoryBean<TopMenuMapper> factoryBean = new MapperFactoryBean<TopMenuMapper>(TopMenuMapper.class);
 		factoryBean.setSqlSessionFactory(factory);
 		return factoryBean;
 	}
@@ -105,11 +120,16 @@ public class ServletAppContext implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		// TODO Auto-generated method stub
+		
 		WebMvcConfigurer.super.addInterceptors(registry);
+		
+		//공통 메뉴바 인터셉터
+		TopMenuInterceptor topMenuInterceptor = new TopMenuInterceptor(topMenuService);
+		registry.addInterceptor(topMenuInterceptor).addPathPatterns("/**");
 		
 		//로그인 체크 인터셉터 등록 
 		CheckLoginInterceptor checkLoginInterceptor = new CheckLoginInterceptor(loginUserBean);
-		registry.addInterceptor(checkLoginInterceptor).addPathPatterns("/user/logout");
+		registry.addInterceptor(checkLoginInterceptor).addPathPatterns("/user/modify","/user/logout");
 	}
 	
 	

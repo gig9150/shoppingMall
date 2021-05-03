@@ -1,5 +1,7 @@
 package com.project.shopping.service;
 
+import java.util.HashMap;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +65,11 @@ public class UserService {
 	
 	public void deleteUserInfo(int user_idx) {
 		userDao.deleteUserInfo(user_idx);
+	}
+	
+	//유저 정보를 임시 비밀번호로 변경
+	public void updateUserTempPw(HashMap<String, String> map) {
+		userDao.updateUserTempPw(map);
 	}
 	
 }

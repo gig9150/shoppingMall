@@ -1,4 +1,6 @@
 package com.project.shopping.dao;
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -33,5 +35,9 @@ public class UserDao {
 	
 	public void deleteUserInfo(int user_idx) {
 		userMapper.deleteUserInfo(user_idx);
+	}
+	
+	public void updateUserTempPw(HashMap<String, String> map) {
+		userMapper.updateUserTempPw(map);
 	}
 }

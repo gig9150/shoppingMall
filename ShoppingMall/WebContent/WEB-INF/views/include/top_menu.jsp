@@ -105,115 +105,12 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav ml-auto">
-          <li class="nav-item dropdown megaDropMenu ">
-            <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown" data-hover="dropdown" data-delay="300" data-close-others="true" aria-expanded="false">Man</a>
-            <ul class="dropdown-menu row">
-              <li class="col-md-3 col-12">
-                <ul class="list-unstyled">
-                  <li>OUTER</li>
-                  <li class=""><a href="product-grid-left-sidebar.html">Products Sidebar Left</a></li>
-                  <li class=""><a href="product-grid-right-sidebar.html">Products Sidebar Right</a></li>
-                  <li class=""><a href="product-grid-3-col-filter.html">Products 3 Columns V1</a></li>
-                  <li class=""><a href="product-grid-3-col.html">Products 3 Columns V2</a></li>
-                  <li class=""><a href="product-grid-4-col.html">${sessionScope.UserId}</a></li>
-                </ul>
-              </li>
-              <li class="col-md-3 col-12">
-                <ul class="list-unstyled">
-                  <li>TOP</li>
-                  <li class=""><a href="product-list-left-sidebar.html">Products Sidebar Left</a></li>
-                  <li class=""><a href="product-list-right-sidebar.html">Products Sidebar Right</a></li>
-                  <li class="listHeading">Others</li>
-                  <li class=""><a href="single-product.html">Single Product</a></li>
-                  <li class=""><a href="cart-page.html">Cart Page</a></li>
-                </ul>
-              </li>
-              <li class="col-md-3 col-12">
-                <ul class="list-unstyled">
-                  <li>SHOES</li>
-                  <li class=""><a href="checkout-step-1.html">Step 1 - Shipping</a></li>
-                  <li class=""><a href="checkout-step-2.html">Step 2 - Payment</a></li>
-                  <li class=""><a href="checkout-step-3.html">Step 3 - Review</a></li>
-                  <li class=""><a href="checkout-step-4.html">Step 4 - Complete</a></li>
-                </ul>
-              </li>
-              <li class="col-md-3 col-12">
-                <a href="#" class="menu-photo">
-                	<img src="${root}/assets/img/menu-photo.jpg" alt="menu-img">
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown megaDropMenu ">
-            <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown" data-hover="dropdown" data-delay="300" data-close-others="true" aria-expanded="false">Woman</a>
-            <ul class="dropdown-menu row">
-              <li class="col-md-3 col-12">
-                <ul class="list-unstyled">
-                  <li>OUTER</li>
-                  <li class=""><a href="product-grid-left-sidebar.html">Products Sidebar Left</a></li>
-                  <li class=""><a href="product-grid-right-sidebar.html">Products Sidebar Right</a></li>
-                  <li class=""><a href="product-grid-3-col-filter.html">Products 3 Columns V1</a></li>
-                  <li class=""><a href="product-grid-3-col.html">Products 3 Columns V2</a></li>
-                  <li class=""><a href="product-grid-4-col.html">Products 4 Columns</a></li>
-                </ul>
-              </li>
-              <li class="col-md-3 col-12">
-                <ul class="list-unstyled">
-                  <li>TOP</li>
-                  <li class=""><a href="product-list-left-sidebar.html">Products Sidebar Left</a></li>
-                  <li class=""><a href="product-list-right-sidebar.html">Products Sidebar Right</a></li>
-                  <li class="listHeading">Others</li>
-                  <li class=""><a href="single-product.html">Single Product</a></li>
-                  <li class=""><a href="cart-page.html">Cart Page</a></li>
-                </ul>
-              </li>
-              <li class="col-md-3 col-12">
-                <ul class="list-unstyled">
-                  <li>SHOES</li>
-                  <li class=""><a href="checkout-step-1.html">Step 1 - Shipping</a></li>
-                  <li class=""><a href="checkout-step-2.html">Step 2 - Payment</a></li>
-                  <li class=""><a href="checkout-step-3.html">Step 3 - Review</a></li>
-                  <li class=""><a href="checkout-step-4.html">Step 4 - Complete</a></li>
-                </ul>
-              </li>
-              <li class="col-md-3 col-12">
-                <a href="#" class="menu-photo">
-                	<img src="${root}/assets/img/menu-photo.jpg" alt="menu-img">
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown active">
-            <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACC</a>
-            <ul class="dropdown-menu dropdown-menu-left">
-              <li class=""><a href="about-us.html">About Us</a></li>
-              <li class=""><a href="${root}/user/join">Register</a></li>
-              <li class="active"><a href="${root}/user/login">Login</a></li>
-              <li class=""><a href="lost-password.html">Password Recovery</a></li>
-              <li class=""><a href="privacy-policy.html">Privacy Policy</a></li>
-              <li class=""><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
-              <li><a href="404.html">404 Not Found</a></li>
-              <li><a href="coming-soon.html">Coming Soon</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown ">
-            <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SALE</a>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li class=""><a href="blog-right-sidebar.html">Right Sidebar</a></li>
-              <li class=""><a href="blog-left-sidebar.html">Left Sidebar</a></li>
-              <li class=""><a href="blog-fullwidth.html">Full Width</a></li>
-              <li class=""><a href="blog-single-fullwidth.html">Single Post</a></li>
-              <li class=""><a href="blog-single-right-sidebar.html">Single Right Sidebar</a></li>
-              <li class=""><a href="blog-single-left-sidebar.html">Single Left Sidebar</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown ">
-            <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MYPAGE</a>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li class=""><a href="account-dashboard.html"></a></li>
-              
-            </ul>
-          </li>
+        <!-- top menu -->
+        	<c:forEach items="${topMenulist}" var="obj">
+	        	<li class="nav-item dropdown ">
+	            <a href="${root}/goods/main?goods_category_idx=${obj.goods_category_idx}" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">${goods_category_name}</a>
+	          </li>
+        	</c:forEach>
         </ul>
       </div><!-- /.navbar-collapse -->
       <div class="version2">

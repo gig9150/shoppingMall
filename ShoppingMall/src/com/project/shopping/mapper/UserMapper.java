@@ -1,5 +1,7 @@
 package com.project.shopping.mapper;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -40,4 +42,9 @@ public interface UserMapper {
 	@Delete("DELETE FROM USER_INFO " +
 			"WHERE USER_IDX = #{user_idx}")
 	void deleteUserInfo(int user_idx);
+	
+	@Update("UPDATE USER_INFO " +
+			"SET USER_PW = #{temporaryPw} " +
+			"WHERE USER_ID = #{user_id}")
+	void updateUserTempPw(HashMap<String, String> map);
 }

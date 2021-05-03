@@ -2,6 +2,7 @@ package com.project.shopping.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 import javax.mail.internet.MimeMessage;
@@ -184,14 +185,13 @@ public class UserController {
 		char pwArray[] = new char[] {
                 '1','2','3','4','5','6','7','8','9','0',
                 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-                'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-                '!','@','#','$','%','^','&','*','(',')'};
+                'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 
-		String temparayPw = "";
+		String temporaryPw = "";
 		
 		for (int i = 0; i < 10; i++) {
 			int selectRandomPw = (int)(Math.random()*(pwArray.length));
-			temparayPw += pwArray[selectRandomPw];
+			temporaryPw += pwArray[selectRandomPw];
 		}
 		
 		// 메일 제목, 내용
@@ -201,31 +201,42 @@ public class UserController {
 		content += "<h3 style='color: blue;'>";
 		content += " 임시 비밀번호 입니다. 비밀번호를 변경하여 사용하세요.</h3>";
 		content += "<p>임시 비밀번호 : ";
-		content += temparayPw + "</p></div>";
-		
-		
+		content += temporaryPw + "</p></div>";
 		// 보내는 사람,받는사람은 파라미터로 받아주기 
 		String from = "gig9150@naver.com";
 		
-		try {
-
-			MimeMessage mail = mailSender.createMimeMessage();
-			MimeMessageHelper mailHelper = new MimeMessageHelper(mail,true,"UTF-8");
-
-			// 메일 내용을 채워줌
-			mailHelper.setFrom(from);	// 보내는 사람 셋팅
-			mailHelper.setTo(to);		// 받는 사람 셋팅
-			mailHelper.setSubject(subject);	// 제목 셋팅
-			mailHelper.setText(content,true);	// 내용 셋팅
-
-			// 메일 전송
-			mailSender.send(mail);
+		boolean chk = userService.checkuserIdExist(user_id);
+		
+		if(!chk) {
+			try {
+				
+				MimeMessage mail = mailSender.createMimeMessage();
+				MimeMessageHelper mailHelper = new MimeMessageHelper(mail,true,"UTF-8");
+				
+				// 메일 내용을 채워줌
+				mailHelper.setFrom(from);	// 보내는 사람 셋팅
+				mailHelper.setTo(to);		// 받는 사람 셋팅
+				mailHelper.setSubject(subject);	// 제목 셋팅
+				mailHelper.setText(content,true);	// 내용 셋팅
+				
+				// 메일 전송
+				mailSender.send(mail);
+				
+				//회원 비밀번호 정보 변경
+				HashMap<String, String> map = new HashMap<String, String>();
+				map.put("user_id", user_id);
+				map.put("temporaryPw", temporaryPw);
+				userService.updateUserTempPw(map);
+				
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 			
-		} catch(Exception e) {
-			e.printStackTrace();
+			return "user/lost_password_success";
+		}else {
+			return "user/lost_password_fail";
 		}
-        
-		return "user/lost_password_success";
 	}
 	
 	// 유효성 검사 등록
