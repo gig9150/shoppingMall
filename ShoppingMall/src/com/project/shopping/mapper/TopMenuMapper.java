@@ -2,10 +2,12 @@ package com.project.shopping.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import com.project.shopping.beans.GoodsCategoryBean;
 
+@Mapper
 public interface TopMenuMapper {
 
 	// top menu 내용 얻어오기

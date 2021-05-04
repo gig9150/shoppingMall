@@ -5,6 +5,8 @@ import javax.annotation.Resource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.annotation.MapperScan;
 import org.mybatis.spring.mapper.MapperFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,6 +34,7 @@ import com.project.shopping.service.TopMenuService;
 @EnableWebMvc
 @ComponentScan("com.project.shopping")
 @PropertySource("/WEB-INF/properties/db.properties")
+@MapperScan("com.project.shopping.mapper")
 public class ServletAppContext implements WebMvcConfigurer {
 	
 	@Resource(name = "loginUserBean")
@@ -76,6 +79,8 @@ public class ServletAppContext implements WebMvcConfigurer {
 		source.setUsername("shopping");
 		source.setPassword("mall");
 		
+		System.out.println(db_classname);
+		
 		return source;
 	}
 	
@@ -101,7 +106,8 @@ public class ServletAppContext implements WebMvcConfigurer {
 		factoryBean.setSqlSessionFactory(factory);
 		return factoryBean;
 	}
-	
+
+
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
 		return new PropertySourcesPlaceholderConfigurer();

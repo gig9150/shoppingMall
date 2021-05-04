@@ -153,6 +153,7 @@ ALTER TABLE wishlist
 	REFERENCES USER_INFO (user_idx)
 ;
 
+--TOPMENU
 insert into goods_category values(1,'OUTER');
 insert into goods_category values(2,'TOP');
 insert into goods_category values(3,'SHIRT');

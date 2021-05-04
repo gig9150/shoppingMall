@@ -108,7 +108,7 @@
         <!-- top menu -->
         	<c:forEach items="${topMenulist}" var="obj">
 	        	<li class="nav-item dropdown ">
-	            <a href="${root}/goods/main?goods_category_idx=${obj.goods_category_idx}" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">${goods_category_name}</a>
+	            <a href="${root}/goods/main?goods_category_idx=${obj.goods_category_idx}" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">${obj.goods_category_name}</a>
 	          </li>
         	</c:forEach>
         </ul>
