@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -33,27 +34,27 @@ import com.project.shopping.service.TopMenuService;
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.project.shopping")
-@PropertySource("/WEB-INF/properties/db.properties")
+@PropertySource("/WEB-INF/properties/database.properties")
 @MapperScan("com.project.shopping.mapper")
 public class ServletAppContext implements WebMvcConfigurer {
 	
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
 	
+	@Value("${database.classname}")
+	private String classname;
+	
+	@Value("${database.url}")
+	private String url;
+	
+	@Value("${database.username}")
+	private String username;
+	
+	@Value("${database.password}")
+	private String password;
+	
 	@Autowired
 	private TopMenuService topMenuService;
-	
-	@Value("${db.classname}")
-	private String db_classname;
-	
-	@Value("${db.url}")
-	private String db_url;
-	
-	@Value("${db.username}")
-	private String db_username;
-	
-	@Value("${db.password}")
-	private String db_password;
 	
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
@@ -74,12 +75,10 @@ public class ServletAppContext implements WebMvcConfigurer {
 	@Bean
 	public BasicDataSource dataSource() {
 		BasicDataSource source = new BasicDataSource();
-		source.setDriverClassName("oracle.jdbc.OracleDriver");
-		source.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-		source.setUsername("shopping");
-		source.setPassword("mall");
-		
-		System.out.println(db_classname);
+		source.setDriverClassName(classname);
+		source.setUrl(url);
+		source.setUsername(username);
+		source.setPassword(password);
 		
 		return source;
 	}
