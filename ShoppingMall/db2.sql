@@ -1,7 +1,6 @@
 
 /* Drop Tables */
 
-DROP TABLE goods_size CASCADE CONSTRAINTS;
 DROP TABLE orders CASCADE CONSTRAINTS;
 DROP TABLE review CASCADE CONSTRAINTS;
 DROP TABLE wishlist CASCADE CONSTRAINTS;
@@ -23,6 +22,7 @@ CREATE TABLE goods
 	goods_content varchar2(1000) NOT NULL,
 	goods_price varchar2(50) NOT NULL,
 	goods_file varchar2(500),
+	goods_date date NOT NULL,
 	PRIMARY KEY (goods_idx)
 );
 
@@ -32,15 +32,6 @@ CREATE TABLE goods_category
 	goods_category_idx number(5) NOT NULL,
 	goods_category_name varchar2(50) NOT NULL,
 	PRIMARY KEY (goods_category_idx)
-);
-
-
-CREATE TABLE goods_size
-(
-	goods_size_idx number(5) NOT NULL,
-	goods_idx number(5) NOT NULL,
-	goods_size_name varchar2(50) NOT NULL,
-	PRIMARY KEY (goods_size_idx)
 );
 
 
@@ -100,12 +91,6 @@ CREATE TABLE wishlist
 
 /* Create Foreign Keys */
 
-ALTER TABLE goods_size
-	ADD FOREIGN KEY (goods_idx)
-	REFERENCES goods (goods_idx)
-;
-
-
 ALTER TABLE orders
 	ADD FOREIGN KEY (goods_idx)
 	REFERENCES goods (goods_idx)
@@ -153,11 +138,19 @@ ALTER TABLE wishlist
 	REFERENCES USER_INFO (user_idx)
 ;
 
---TOPMENU
+-- TOPMENU
 insert into goods_category values(1,'OUTER');
 insert into goods_category values(2,'TOP');
 insert into goods_category values(3,'SHIRT');
 insert into goods_category values(4,'KNIT');
 insert into goods_category values(5,'PANTS');
 insert into goods_category values(6,'SHOES');
+
+-- SEQUENCE
+create sequence GOODS_SEQ
+start with 0
+increment by 1
+minvalue 0;
+
+
 

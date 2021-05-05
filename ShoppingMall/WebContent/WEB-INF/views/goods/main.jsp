@@ -40,6 +40,39 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <!-- 페이지네이션 색상 지정  -->
+    
+    <style>
+			.pagination > li > a
+			{
+			    background-color: white;
+			    color: #47bac1;
+			}
+			
+			.pagination > li > a:focus,
+			.pagination > li > a:hover,
+			.pagination > li > span:focus,
+			.pagination > li > span:hover
+			{
+			    color: #5a5a5a;
+			    background-color: #eee;
+			    border-color: #ddd;
+			}
+			
+			.pagination > .active > a
+			{
+			    color: white;
+			    background-color: #47bac1 !Important;
+			    border: solid 1px #47bac1 !Important;
+			}
+			
+			.pagination > .active > a:hover
+			{
+			    background-color: #5A4181 !Important;
+			    border: solid 1px #5A4181;
+			}   	
+    </style>
 
   </head>
 
@@ -57,256 +90,89 @@
               <h1>${goodsCategoryName}</h1>
             </div>
             <div class="col-3">
-              <select name="guiest_id1" id="guiest_id1" class="select-drop">
-                <option value="0">Default sorting</option>
-                <option value="1">Sort by popularity</option>
-                <option value="2">Sort by rating</option>
-                <option value="3">Sort by newness</option>
-                <option value="3">Sort by price</option>
-              </select>
+	            <form method="get" >
+	            	<input type="hidden" name="goods_category_idx" value="${goods_category_idx}">
+	              <select name="guiest_id1" id="guiest_id1" class="select-drop" onchange="this.form.submit()">
+	                <option value="0">Default sorting</option>
+	                <option value="1">Sort by popularity</option>
+	                <option value="2">Sort by newness</option>
+	                <option value="3">Sort by price</option>
+	              </select>
+	             </form>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4 ">
-              <div class="productBox">
-                <div class="productImage clearfix">
-                  <img src="${root}/assets/img/products/products-01.jpg" alt="products-img">
-                  <div class="productMasking">
-                    <ul class="list-inline btn-group" role="group">
-                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
-                      <li><a href="javascript:void(0)" class="btn btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!" class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-                      <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="productCaption clearfix">
-                  <a href="single-product.html">
-                    <h5>Nike Sportswear</h5>
-                  </a>
-                  <h3>$199</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 ">
-              <div class="productBox">
-                <div class="productImage clearfix">
-                  <img src="${root}/assets/img/products/products-02.jpg" alt="products-img">
-                  <div class="productMasking">
-                    <ul class="list-inline btn-group" role="group">
-                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
-                      <li><a href="javascript:void(0)" class="btn btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!" class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-                      <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="productCaption clearfix">
-                  <a href="single-product.html">
-                    <h5>Dip Dyed Sweater</h5>
-                  </a>
-                  <h3>$249</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 ">
-              <div class="productBox">
-                <div class="productImage clearfix">
-                  <img src="${root}/assets/img/products/products-03.jpg" alt="products-img">
-                  <div class="productMasking">
-                    <ul class="list-inline btn-group" role="group">
-                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
-                      <li><a href="javascript:void(0)" class="btn btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!" class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-                      <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="productCaption clearfix">
-                  <a href="single-product.html">
-                    <h5>Scarf Ring Corner</h5>
-                  </a>
-                  <h3>$179</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 ">
-              <div class="productBox">
-                <div class="productImage clearfix">
-                  <img src="${root}/assets/img/products/products-04.jpg" alt="products-img">
-                  <div class="productMasking">
-                    <ul class="list-inline btn-group" role="group">
-                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
-                      <li><a href="javascript:void(0)" class="btn btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!" class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-                      <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="productCaption clearfix">
-                  <a href="single-product.html">
-                    <h5>Sun Buddies</h5>
-                  </a>
-                  <h3>$149</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 ">
-              <div class="productBox">
-                <div class="productImage clearfix">
-                  <img src="${root}/assets/img/products/products-05.jpg" alt="products-img">
-                  <div class="productMasking">
-                    <ul class="list-inline btn-group" role="group">
-                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
-                      <li><a href="javascript:void(0)" class="btn btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!" class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-                      <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="productCaption clearfix">
-                  <a href="single-product.html">
-                    <h5>Nike Sportswear</h5>
-                  </a>
-                  <h3>$199</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 ">
-              <div class="productBox">
-                <div class="productImage clearfix">
-                  <img src="${root}/assets/img/products/products-06.jpg" alt="products-img">
-                  <div class="productMasking">
-                    <ul class="list-inline btn-group" role="group">
-                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
-                      <li><a href="javascript:void(0)" class="btn btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!" class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-                      <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="productCaption clearfix">
-                  <a href="single-product.html">
-                    <h5>Dip Dyed Sweater</h5>
-                  </a>
-                  <h3>$249</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 ">
-              <div class="productBox">
-                <div class="productImage clearfix">
-                  <img src="${root}/assets/img/products/products-07.jpg" alt="products-img">
-                  <div class="productMasking">
-                    <ul class="list-inline btn-group" role="group">
-                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
-                      <li><a href="javascript:void(0)" class="btn btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!" class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-                      <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="productCaption clearfix">
-                  <a href="single-product.html">
-                    <h5>Scarf Ring Corner</h5>
-                  </a>
-                  <h3>$179</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 ">
-              <div class="productBox">
-                <div class="productImage clearfix">
-                  <img src="${root}/assets/img/products/products-08.jpg" alt="products-img">
-                  <div class="productMasking">
-                    <ul class="list-inline btn-group" role="group">
-                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
-                      <li><a href="javascript:void(0)" class="btn btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!" class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-                      <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="productCaption clearfix">
-                  <a href="single-product.html">
-                    <h5>Sun Buddies</h5>
-                  </a>
-                  <h3>$149</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 ">
-              <div class="productBox">
-                <div class="productImage clearfix">
-                  <img src="${root}/assets/img/products/products-09.jpg" alt="products-img">
-                  <div class="productMasking">
-                    <ul class="list-inline btn-group" role="group">
-                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
-                      <li><a href="javascript:void(0)" class="btn btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!" class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-                      <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="productCaption clearfix">
-                  <a href="single-product.html">
-                    <h5>Nike Sportswear</h5>
-                  </a>
-                  <h3>$199</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 ">
-              <div class="productBox">
-                <div class="productImage clearfix">
-                  <img src="${root}/assets/img/products/products-10.jpg" alt="products-img">
-                  <div class="productMasking">
-                    <ul class="list-inline btn-group" role="group">
-                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
-                      <li><a href="javascript:void(0)" class="btn btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!" class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-                      <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="productCaption clearfix">
-                  <a href="single-product.html">
-                    <h5>Dip Dyed Sweater</h5>
-                  </a>
-                  <h3>$249</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 ">
-              <div class="productBox">
-                <div class="productImage clearfix">
-                  <img src="${root}/assets/img/products/products-11.jpg" alt="products-img">
-                  <div class="productMasking">
-                    <ul class="list-inline btn-group" role="group">
-                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
-                      <li><a href="javascript:void(0)" class="btn btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!" class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-                      <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="productCaption clearfix">
-                  <a href="single-product.html">
-                    <h5>Scarf Ring Corner</h5>
-                  </a>
-                  <h3>$179</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 ">
-              <div class="productBox">
-                <div class="productImage clearfix">
-                  <img src="${root}/assets/img/products/products-12.jpg" alt="products-img">
-                  <div class="productMasking">
-                    <ul class="list-inline btn-group" role="group">
-                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
-                      <li><a href="javascript:void(0)" class="btn btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!" class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-                      <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="productCaption clearfix">
-                  <a href="single-product.html">
-                    <h5>Sun Buddies</h5>
-                  </a>
-                  <h3>$149</h3>
-                </div>
-              </div>
-            </div>
+            <c:forEach items="${goodsList}" var="obj">
+	            <div class="col-md-4 ">
+	              <div class="productBox">
+	                <div class="productImage clearfix">
+	                  <img src="${root}/upload/${obj.goods_file}" alt="products-img">
+	                  <div class="productMasking">
+	                    <ul class="list-inline btn-group" role="group">
+	                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
+	                      <li><a href="javascript:void(0)" class="btn btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!" class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
+	                      <li><a class="btn btn-default" href="${root}/goods/detail" ><i class="fa fa-eye"></i></a></li>
+	                    </ul>
+	                  </div>
+	                </div>
+	                <div class="productCaption clearfix">
+	                  <a href="${root}/goods/detail">
+	                    <h5>${obj.goods_name}</h5>
+	                  </a>
+	                  <h3>${obj.goods_price}</h3>
+	                </div>
+	              </div>
+	            </div>
+	           </c:forEach>
+          </div>
+          
+          <!-- 페이징 처리  -->
+          <div class="row justify-content-md-center">
+          	<ul class="pagination">
+          		<c:choose>
+          			<c:when test="${pageBean.prevPage <= 0}">
+          				<li class="page-item"><a class="page-link" href="#" aria-label="Previous">
+						        <span aria-hidden="true">&laquo;</span>
+						        <span class="sr-only">Previous</span>
+					      	</a></li>
+          			</c:when>
+          			<c:otherwise>
+          				<li class="page-item">
+          				<a class="page-link" href="${root}/goods/main?goods_category_idx=${goods_category_idx}&page=${pageBean.prevPage}" aria-label="Previous">
+						        <span aria-hidden="true">&laquo;</span>
+						        <span class="sr-only">Previous</span>
+					      	</a></li>
+          			</c:otherwise>
+          		</c:choose>
+          		<c:forEach var="idx" begin="${pageBean.min}" end="${pageBean.max}">
+          			<c:choose>
+          				<c:when test="${idx == pageBean.page}">
+          					<li class="page-item active"><a class="page-link" href="${root}/goods/main?page=${idx}&goods_category_idx=${goods_category_idx}">${idx}</a></li>
+          				</c:when>
+          				<c:otherwise>
+          					<li class="page-item"><a class="page-link" href="${root}/goods/main?page=${idx}&goods_category_idx=${goods_category_idx}">${idx}</a></li>
+          				</c:otherwise>
+          			</c:choose>	
+          		</c:forEach>
+          		<c:choose>
+          			<c:when test="${pageBean.max >= pageBean.pageCnt}">
+          				<li class="page-item">
+						      <a class="page-link" href="#" aria-label="Next">
+						        <span aria-hidden="true">&raquo;</span>
+						        <span class="sr-only">Next</span>
+						      </a>
+						    	</li>
+          			</c:when>
+          			<c:otherwise>
+          				<li class="page-item">
+						      <a class="page-link" href="${root}/goods/main?page=${pageBean.nextPage}&goods_category_idx=${goods_category_idx}" aria-label="Next">
+						        <span aria-hidden="true">&raquo;</span>
+						        <span class="sr-only">Next</span>
+						      </a>
+						    	</li>
+          			</c:otherwise>
+          		</c:choose>
+          	</ul>
           </div>
         </div>
       </section>
@@ -479,6 +345,7 @@
 		<script src="${root}/assets/plugins/velocity/velocity.min.js"></script>
 		<script src="${root}/assets/plugins/rateyo/jquery.rateyo.min.js"></script>
 		<script src="${root}/assets/js/custom.js"></script>
+
 
 	</body>
 </html>

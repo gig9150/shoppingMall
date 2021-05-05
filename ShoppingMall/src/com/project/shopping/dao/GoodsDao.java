@@ -1,8 +1,12 @@
 package com.project.shopping.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.project.shopping.beans.GoodsBean;
 import com.project.shopping.mapper.goodsMapper;
 
 @Repository
@@ -13,5 +17,15 @@ public class GoodsDao {
 	
 	public String getBoardInfoName(int goods_category_idx) {
 		return goodsMapper.getBoardInfoName(goods_category_idx);
+	}
+	
+	//페이징을 위한 전체 글 갯수 
+	public int getGoodsCnt(int goods_category_idx) {
+		return goodsMapper.getGoodsCnt(goods_category_idx);
+	}
+	
+	//메인페이지 상품정보 얻어오기 
+	public List<GoodsBean> getGoodsList(int goods_category_idx,RowBounds rowBounds){
+		return goodsMapper.getGoodsList(goods_category_idx, rowBounds);
 	}
 }
