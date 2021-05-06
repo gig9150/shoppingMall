@@ -36,6 +36,7 @@ public class GoodsService {
 		return pageBean;
 		
 	}
+	
 	//상품정보 가져오기
 	public List<GoodsBean> getGoodsList(int goods_category_idx,int page,int guiest_id1){
 		int start = (page - 1) * listCnt;
@@ -44,12 +45,16 @@ public class GoodsService {
 		if(guiest_id1 == 0) {
 			return goodsDao.getGoodsList(goods_category_idx, rowBounds);
 		}else if(guiest_id1 == 1) {
-			
+			return goodsDao.getPopuGoodsList(goods_category_idx, rowBounds);
 		}else if(guiest_id1 == 2) {
-			
+			return goodsDao.getNeweGoodsList(goods_category_idx, rowBounds);
 		}else {
-			
+			return goodsDao.getPriceGoodsList(goods_category_idx, rowBounds);
 		}
+	}
+	
+	public GoodsBean getGoodsInfo(int goods_idx) {
+		return goodsDao.getGoodsInfo(goods_idx);
 	}
 	
 	

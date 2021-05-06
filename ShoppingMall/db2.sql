@@ -152,5 +152,64 @@ start with 0
 increment by 1
 minvalue 0;
 
+create sequence ORDERS_SEQ
+start with 0
+increment by 1
+minvalue 0;
 
+create sequence USER_SEQ
+start with 0
+increment by 1
+minvalue 0;
+
+--배송 상태 INSERT
+
+INSERT INTO ORDERS_STATUS VALUES(1,'발송 준비중');
+INSERT INTO ORDERS_STATUS VALUES(2,'발송 완료');
+INSERT INTO ORDERS_STATUS VALUES(3,'배송 중 ');
+INSERT INTO ORDERS_STATUS VALUES(4,'배송 완료');
+
+-- ORDERS INSERT
+
+INSERT INTO ORDERS VALUES(ORDERS_SEQ.NEXTVAL,1,23,1,'a','a',1);
+INSERT INTO ORDERS VALUES(ORDERS_SEQ.NEXTVAL,1,23,2,'a','a',1);
+INSERT INTO ORDERS VALUES(ORDERS_SEQ.NEXTVAL,1,23,2,'a','a',1);
+INSERT INTO ORDERS VALUES(ORDERS_SEQ.NEXTVAL,1,23,2,'a','a',1);
+INSERT INTO ORDERS VALUES(ORDERS_SEQ.NEXTVAL,1,23,3,'a','a',1);
+INSERT INTO ORDERS VALUES(ORDERS_SEQ.NEXTVAL,1,23,3,'a','a',1);
+INSERT INTO ORDERS VALUES(ORDERS_SEQ.NEXTVAL,1,23,1,'a','a',1);
+INSERT INTO ORDERS VALUES(ORDERS_SEQ.NEXTVAL,1,23,2,'a','a',1);
+INSERT INTO ORDERS VALUES(ORDERS_SEQ.NEXTVAL,1,23,3,'a','a',1);
+
+-- GOODS TABLE ADD COLUMN GOODS_SELL(판매량 집계)
+
+ALTER TABLE GOODS ADD goods_sell number(20);
+
+-- goods 테이블 자료형 변경
+
+ALTER TABLE GOODS MODIFY goods_sell NOT NULL;
+ALTER TABLE GOODS MODIFY goods_price number(20);
+
+--테스트용 데이터 
+
+INSERT INTO GOODS VALUES(GOODS_SEQ.NEXTVAL,1,'인기순','d',100,'test.jpg',sysdate,0);
+INSERT INTO GOODS VALUES(GOODS_SEQ.NEXTVAL,1,'날짜순','d',100,'test.jpg','2010-01-01',0);
+INSERT INTO GOODS VALUES(GOODS_SEQ.NEXTVAL,1,'가격순','d',1000000,'test.jpg',sysdate,0);
+
+commit;
+
+--상품 사이즈 테이블 추가
+
+CREATE TABLE goods_size
+(
+	goods_size_idx number(5) NOT NULL,
+	goods_idx number(5) NOT NULL,
+	goods_size_num number(5) NOT NULL,
+	goods_size_name  varchar2(10) NOT NULL,
+	goods_size_length number(10) NOT NULL,
+	goods_size_shoulder number(10) NOT NULL,
+	goods_size_chest number(10) NOT NULL,
+	goods_size_sleeve number(10) NOT NULL,
+	PRIMARY KEY (goods_size_idx)
+);
 

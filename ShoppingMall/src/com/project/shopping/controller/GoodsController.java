@@ -38,14 +38,24 @@ public class GoodsController {
 		PageBean pageBean =  goodsService.getGoodsCnt(goods_category_idx, page);
 		model.addAttribute("pageBean",pageBean);
 		model.addAttribute("page",page);
-		
+		model.addAttribute("guiest_id1",guiest_id1);
 		
 		return "goods/main";
 		
 	}
 	
 	@GetMapping("/detail")
-	public String detail() {
+	public String detail(@RequestParam("goods_idx")int goods_idx,
+						@RequestParam(value = "page",defaultValue = "1")int page,
+						@RequestParam("goods_category_idx")int goods_category_idx,
+						Model model) {
+		//상품정보 
+		GoodsBean goodsBean = goodsService.getGoodsInfo(goods_idx);
+		model.addAttribute("goodsBean",goodsBean);
+		//다시 목록으로 돌아올것을 생각해서 필요한 정보 담기 
+		model.addAttribute("goods_category_idx",goods_category_idx);
+		model.addAttribute("page",page);
+		
 		return "goods/detail";
 	}
 	

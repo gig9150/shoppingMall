@@ -135,7 +135,7 @@
                 <div class="media-body">
                   <ul class="list-inline">
                     <li class="mb-4 mb-md-0">
-                      <a href="index.html"><i class="fa fa-reply" aria-hidden="true"></i>
+                      <a href="${root}/goods/main?page=${page}&goods_catrgory_idx=${goods_category_idx}"><i class="fa fa-reply" aria-hidden="true"></i>
                         Continue Shopping
                       </a>
                     </li>
@@ -164,25 +164,18 @@
                       </span>
                     </li>
                   </ul>
-
-                  <h2>Old Skool Navy</h2>
-                  <h3>$149</h3>
+									<!-- 본격적인 상품정보 -->
+                  <h2>${goodsBean.goods_name}</h2>
+                  <h3>${goodsBean.goods_price}</h3>
                   <p>Mauris lobortis augue ex, ut faucibus nisi mollis ac. Sed volutpat scelerisque ex ut ullamcorper. Cras at velit quis sapien dapibus laoreet a id odio. Sed sit amet accumsan ante, eu congue metus. Aenean eros tortor, cursus quis feugiat sed vestibulum.</p>
                   <div class="row">
                     <div class="col-12">
                       <span class="quick-drop resizeWidth quantityWidth single-quick-drop">
                         <select name="guiest_id3" id="guiest_id3" class="select-drop">
-                          <option value="0">Size</option>
-                          <option value="1">6.5</option>
-                          <option value="2">7</option>
-                          <option value="3">8</option>
-                          <option value="4">8.5</option>
-                          <option value="5">9.5</option>
-                          <option value="6">10</option>
-                          <option value="7">11</option>
-                          <option value="8">12</option>
-                          <option value="9">12.5</option>
-                          <option value="10">13</option>
+                          <option value="S">S</option>
+                          <option value="M">M</option>
+                          <option value="S">L</option>
+                          <option value="M">XL</option>
                         </select>
                       </span>
                     </div>

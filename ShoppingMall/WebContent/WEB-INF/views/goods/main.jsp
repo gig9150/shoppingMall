@@ -92,11 +92,12 @@
             <div class="col-3">
 	            <form method="get" >
 	            	<input type="hidden" name="goods_category_idx" value="${goods_category_idx}">
+	            	<!-- select 값 유지  -->
 	              <select name="guiest_id1" id="guiest_id1" class="select-drop" onchange="this.form.submit()">
-	                <option value="0">Default sorting</option>
-	                <option value="1">Sort by popularity</option>
-	                <option value="2">Sort by newness</option>
-	                <option value="3">Sort by price</option>
+	                <option value="0" <c:if test="${guiest_id1 == 0}">selected</c:if>>Default sorting</option>
+	                <option value="1" <c:if test="${guiest_id1 == 1}">selected</c:if>>Sort by popularity</option>
+	                <option value="2" <c:if test="${guiest_id1 == 2}">selected</c:if>>Sort by newness</option>
+	                <option value="3" <c:if test="${guiest_id1 == 3}">selected</c:if>>Sort by price</option>
 	              </select>
 	             </form>
             </div>
@@ -111,7 +112,7 @@
 	                    <ul class="list-inline btn-group" role="group">
 	                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
 	                      <li><a href="javascript:void(0)" class="btn btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!" class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-	                      <li><a class="btn btn-default" href="${root}/goods/detail" ><i class="fa fa-eye"></i></a></li>
+	                      <li><a class="btn btn-default" href="${root}/goods/detail?goods_idx=#{obj.goods_idx}&page=#{requestScope.page}& " ><i class="fa fa-eye"></i></a></li>
 	                    </ul>
 	                  </div>
 	                </div>

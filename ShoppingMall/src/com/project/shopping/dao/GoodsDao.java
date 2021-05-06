@@ -28,4 +28,24 @@ public class GoodsDao {
 	public List<GoodsBean> getGoodsList(int goods_category_idx,RowBounds rowBounds){
 		return goodsMapper.getGoodsList(goods_category_idx, rowBounds);
 	}
+	
+	//메인페이지 상품정보(인기순)
+	public List<GoodsBean> getPopuGoodsList(int goods_category_idx,RowBounds rowBounds){
+		return goodsMapper.getPopuGoodsList(goods_category_idx, rowBounds);
+	}
+	
+	//메인페이지 상품정보(날짜순)
+	public List<GoodsBean> getNeweGoodsList(int goods_category_idx,RowBounds rowBounds){
+		return goodsMapper.getNeweGoodsList(goods_category_idx, rowBounds);
+	}
+	
+	//메인페이지 상품정보(가격순)
+	public List<GoodsBean> getPriceGoodsList(int goods_category_idx,RowBounds rowBounds){
+		return goodsMapper.getPriceGoodsList(goods_category_idx, rowBounds);
+	}
+	
+	//상품정보 디테일페이지
+	public GoodsBean getGoodsInfo(int goods_idx) {
+		return goodsMapper.getGoodsInfo(goods_idx);
+	}
 }
