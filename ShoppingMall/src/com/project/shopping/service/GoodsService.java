@@ -10,6 +10,7 @@ import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Service;
 
 import com.project.shopping.beans.GoodsBean;
+import com.project.shopping.beans.GoodsSizeBean;
 import com.project.shopping.beans.PageBean;
 import com.project.shopping.dao.GoodsDao;
 
@@ -55,6 +56,10 @@ public class GoodsService {
 	
 	public GoodsBean getGoodsInfo(int goods_idx) {
 		return goodsDao.getGoodsInfo(goods_idx);
+	}
+	
+	public List<GoodsSizeBean> getGoodsSizeList(int goods_idx){
+		return goodsDao.getGoodsSizeList(goods_idx);
 	}
 	
 	

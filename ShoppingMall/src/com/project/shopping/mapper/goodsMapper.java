@@ -54,12 +54,12 @@ public interface goodsMapper {
 			"WHERE GOODS_IDX = #{goods_idx}")
 	GoodsBean getGoodsInfo(int goods_idx);
 	
-	@Select("SELECT GOODS_SIZE_NAME,GOODS_SIZE_LENGTH,GOODS_SIZE_SHOULDER," +
-			"GOODS_SIZE_CHEST,GOOS_SIZE_SLEEVE " +
-			"FROM GOODS_SIZE" +
+	@Select("SELECT GOODS_SIZE_NAME,GOODS_SIZE_LENGTH,GOODS_SIZE_SHOULDER, " +
+			"GOODS_SIZE_CHEST,GOODS_SIZE_SLEEVE " +
+			"FROM GOODS_SIZE " +
 			"WHERE GOODS_IDX = #{goods_idx} " +
 			"ORDER BY GOODS_SIZE_NUM ASC")
-	List<GoodsSizeBean> getGoodsSizeList(int goods_size);
+	List<GoodsSizeBean> getGoodsSizeList(int goods_idx);
 	
 	
 }

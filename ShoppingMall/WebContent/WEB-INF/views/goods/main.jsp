@@ -112,7 +112,7 @@
 	                    <ul class="list-inline btn-group" role="group">
 	                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
 	                      <li><a href="javascript:void(0)" class="btn btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!" class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-	                      <li><a class="btn btn-default" href="${root}/goods/detail?goods_idx=#{obj.goods_idx}&page=#{requestScope.page}& " ><i class="fa fa-eye"></i></a></li>
+	                      <li><a class="btn btn-default" href="${root}/goods/detail?goods_idx=${obj.goods_idx}&page=${requestScope.page}&goods_category_idx=${goods_category_idx} " ><i class="fa fa-eye"></i></a></li>
 	                    </ul>
 	                  </div>
 	                </div>

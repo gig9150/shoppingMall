@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.shopping.beans.GoodsBean;
+import com.project.shopping.beans.GoodsSizeBean;
 import com.project.shopping.beans.PageBean;
 import com.project.shopping.service.GoodsService;
 
@@ -55,6 +56,9 @@ public class GoodsController {
 		//다시 목록으로 돌아올것을 생각해서 필요한 정보 담기 
 		model.addAttribute("goods_category_idx",goods_category_idx);
 		model.addAttribute("page",page);
+		//상품에 대한 사이즈정보
+		List<GoodsSizeBean> sizelist = goodsService.getGoodsSizeList(goods_idx);
+		model.addAttribute("sizeList",sizelist);
 		
 		return "goods/detail";
 	}

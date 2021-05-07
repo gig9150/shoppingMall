@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project.shopping.beans.GoodsBean;
+import com.project.shopping.beans.GoodsSizeBean;
 import com.project.shopping.mapper.goodsMapper;
 
 @Repository
@@ -47,5 +48,10 @@ public class GoodsDao {
 	//상품정보 디테일페이지
 	public GoodsBean getGoodsInfo(int goods_idx) {
 		return goodsMapper.getGoodsInfo(goods_idx);
+	}
+	
+	//상품에 대한 사이즈정도
+	public List<GoodsSizeBean> getGoodsSizeList(int goods_idx){
+		return goodsMapper.getGoodsSizeList(goods_idx);
 	}
 }

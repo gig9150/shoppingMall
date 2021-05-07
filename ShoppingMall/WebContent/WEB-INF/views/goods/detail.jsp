@@ -167,7 +167,28 @@
 									<!-- 본격적인 상품정보 -->
                   <h2>${goodsBean.goods_name}</h2>
                   <h3>${goodsBean.goods_price}</h3>
-                  <p>Mauris lobortis augue ex, ut faucibus nisi mollis ac. Sed volutpat scelerisque ex ut ullamcorper. Cras at velit quis sapien dapibus laoreet a id odio. Sed sit amet accumsan ante, eu congue metus. Aenean eros tortor, cursus quis feugiat sed vestibulum.</p>
+                  <table class="table">
+										<thead>
+											<tr>
+												<th>사이즈</th>
+												<th>S</th>
+												<th>M</th>
+												<th>L</th>
+												<th>XL</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row">1</th>
+												<td>Mark</td>
+												<td>Otto</td>
+												<td>@mdo</td>
+											</tr>
+											<c:forEach items="${sizeLists}" var="">
+											
+											</c:forEach>
+										</tbody>
+									</table>
                   <div class="row">
                     <div class="col-12">
                       <span class="quick-drop resizeWidth quantityWidth single-quick-drop">
@@ -274,72 +295,20 @@
                               <table class="table">
                                 <thead>
                                   <tr>
-                                    <th>Inches</th>
-                                    <th>US size</th>
-                                    <th>EN size</th>
+                                    <th>총장</th>
+                                    <th>어깨너비</th>
+                                    <th>가슴단면</th>
+                                    <th>소매길이</th>
                                   </tr>
                                 </thead>
 
                                 <tbody>
-                                  <tr>
-                                    <td class="">9.65</td>
-                                    <td class="">6.5</td>
-                                    <td class="">39</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td class="">9.84</td>
-                                    <td class="">7</td>
-                                    <td class="">40</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td class="">10.04</td>
-                                    <td class="">8</td>
-                                    <td class="">41</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td class="">10.24</td>
-                                    <td class="">8.5</td>
-                                    <td class="">42</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td class="">10.43</td>
-                                    <td class="">9.5</td>
-                                    <td class="">43</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td class="">10.63</td>
-                                    <td class="">10.0</td>
-                                    <td class="">44</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td class="">10.83</td>
-                                    <td class="">11.0</td>
-                                    <td class="">45</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td class="">11.02</td>
-                                    <td class="">12.0</td>
-                                    <td class="">46</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td class="">11.2</td>
-                                    <td class="">12.5</td>
-                                    <td class="">47</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td class="">11.42</td>
-                                    <td class="">13</td>
-                                    <td class="">48</td>
-                                  </tr>
+																	<tr>
+                                    <td class="">1</td>
+                                    <td class="">2</td>
+                                    <td class="">3</td>
+                                    <td class="">4</td>
+																	</tr>
                                 </tbody>
                               </table>
                             </div>
