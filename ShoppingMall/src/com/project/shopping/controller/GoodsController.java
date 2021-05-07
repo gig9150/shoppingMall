@@ -57,8 +57,8 @@ public class GoodsController {
 		model.addAttribute("goods_category_idx",goods_category_idx);
 		model.addAttribute("page",page);
 		//상품에 대한 사이즈정보
-		List<GoodsSizeBean> sizelist = goodsService.getGoodsSizeList(goods_idx);
-		model.addAttribute("sizeList",sizelist);
+		List<GoodsSizeBean> sizeList = goodsService.getGoodsSizeList(goods_idx);
+		model.addAttribute("sizeList",sizeList);
 		
 		return "goods/detail";
 	}

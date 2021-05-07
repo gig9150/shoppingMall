@@ -49,6 +49,7 @@ public interface goodsMapper {
 			"ORDER BY GOODS_PRICE DESC ")
 	List<GoodsBean> getPriceGoodsList(int goods_category_idx,RowBounds rowBounds);
 	
+	//상품 정보 
 	@Select("SELECT GOODS_NAME,GOODS_CONTENT,GOODS_PRICE,GOODS_FILE " +
 			"FROM GOODS " +
 			"WHERE GOODS_IDX = #{goods_idx}")

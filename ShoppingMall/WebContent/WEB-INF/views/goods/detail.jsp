@@ -135,33 +135,9 @@
                 <div class="media-body">
                   <ul class="list-inline">
                     <li class="mb-4 mb-md-0">
-                      <a href="${root}/goods/main?page=${page}&goods_catrgory_idx=${goods_category_idx}"><i class="fa fa-reply" aria-hidden="true"></i>
+                      <a href="${root}/goods/main?page=${page}&goods_category_idx=${goods_category_idx}"><i class="fa fa-reply" aria-hidden="true"></i>
                         Continue Shopping
                       </a>
-                    </li>
-
-                    <li class="share-all mr-0">
-                      <a class="social-link" href="javascript:void(0)"><i class="fa fa-plus" aria-hidden="true"></i>
-                          Share This
-                      </a>
-
-                      <span class="all-link">
-                        <a class="SingleSocialIcon" href="javascript:void(0)">
-                          <i class="fa fa-facebook" aria-hidden="true"></i>
-                        </a>
-
-                        <a class="SingleSocialIcon" href="javascript:void(0)">
-                          <i class="fa fa-twitter" aria-hidden="true"></i>
-                        </a>
-
-                        <a class="SingleSocialIcon" href="javascript:void(0)">
-                          <i class="fa fa-instagram" aria-hidden="true"></i>
-                        </a>
-
-                        <a class="SingleSocialIcon" href="javascript:void(0)">
-                          <i class="fa fa-google-plus" aria-hidden="true"></i>
-                        </a>
-                      </span>
                     </li>
                   </ul>
 									<!-- 본격적인 상품정보 -->
@@ -170,22 +146,23 @@
                   <table class="table">
 										<thead>
 											<tr>
-												<th>사이즈</th>
-												<th>S</th>
-												<th>M</th>
-												<th>L</th>
-												<th>XL</th>
+												<th>cm</th>
+												<th>총장</th>
+												<th>어깨너비</th>
+												<th>가슴단면</th>
+												<th>소매길이</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<th scope="row">1</th>
-												<td>Mark</td>
-												<td>Otto</td>
-												<td>@mdo</td>
-											</tr>
-											<c:forEach items="${sizeLists}" var="">
-											
+											<!-- size 테이블에서 리스트로 담아와 뿌려주기. -->
+											<c:forEach items="${sizeList}" var="obj">
+												<tr>
+													<th scope="row">${obj.goods_size_name}</th>
+													<td>${obj.goods_size_length }</td>
+													<td>${obj.goods_size_shoulder }</td>
+													<td>${obj.goods_size_chest }</td>
+													<td>${obj.goods_size_sleeve }</td>
+												</tr>
 											</c:forEach>
 										</tbody>
 									</table>
@@ -193,10 +170,9 @@
                     <div class="col-12">
                       <span class="quick-drop resizeWidth quantityWidth single-quick-drop">
                         <select name="guiest_id3" id="guiest_id3" class="select-drop">
-                          <option value="S">S</option>
-                          <option value="M">M</option>
-                          <option value="S">L</option>
-                          <option value="M">XL</option>
+                          <c:forEach items="${sizeList}" var="obj">
+                          	<option value="${obj.goods_size_name}">${obj.goods_size_name}</option>
+                          </c:forEach>
                         </select>
                       </span>
                     </div>
@@ -212,7 +188,7 @@
                                   <tr class="border-0">
                                     <td class="count-input border-0 p-0">
                                       <a class="incr-btn" data-action="decrease" href="#"><i class="fa fa-minus"></i></a>
-                                      <input class="quantity" type="text" value="1">
+                                      <input name = "quantity" class="quantity" type="text" value="1">
                                       <a class="incr-btn" data-action="increase" href="#"><i class="fa fa-plus"></i></a>
                                     </td>
                                   </tr>
@@ -226,8 +202,9 @@
                   </div>
                  
                   <div class="btn-area mb-0">
-                    <a href="cart-page.html" class="btn btn-primary btn-default">Add to cart <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    <a href="cart-page.html" id="add-cart" class="btn btn-primary btn-default">Add to cart <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                   </div>
+                  
 
                   <div class="tabArea d-none">
                     <ul class="nav nav-tabs bar-tabs">
@@ -269,23 +246,13 @@
                   <div class="tabArea">
                     <ul class="nav nav-tabs bar-tabs">
                       <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#OurDetails">Details</a></li>
-                      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#OurSizing">Sizing</a></li>
+                      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#OurSizing">size standard</a></li>
                       <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Reviews">Reviews</a></li>
                       <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#OurShipping">shipping</a></li>
                     </ul>
                     <div class="tab-content">
                       <div id="OurDetails" class="tab-pane fade show active">
-                        <p>LContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
-                          Latin
-                          liter ature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
-                          Hampden-Sydney
-                          College in Virginia.</p>
-                        <ul class="list-unstyled">
-                          <li>Black, Crew Neck</li>
-                          <li>75% Cotton, 25% Rayon</li>
-                          <li>Waterbased Ink</li>
-                          <li>Wash Cold, dry low</li>
-                        </ul>
+                        ${goodsBean.goods_content}
                       </div>
 
                       <div id="OurSizing" class="tab-pane fade">
@@ -295,19 +262,34 @@
                               <table class="table">
                                 <thead>
                                   <tr>
-                                    <th>총장</th>
-                                    <th>어깨너비</th>
-                                    <th>가슴단면</th>
-                                    <th>소매길이</th>
+                                  	<th>구분</th>
+                                  	<th>S</th>
+                                    <th>M</th>
+                                    <th>L</th>
+                                    <th>XL</th>
                                   </tr>
                                 </thead>
-
                                 <tbody>
 																	<tr>
-                                    <td class="">1</td>
-                                    <td class="">2</td>
-                                    <td class="">3</td>
-                                    <td class="">4</td>
+																		<td>한국</td>
+                                    <td class="">85</td>
+                                    <td class="">90</td>
+                                    <td class="">95</td>
+                                    <td class="">100</td>
+																	</tr>
+																	<tr>
+																		<td>미국</td>
+                                    <td class="">85-90</td>
+                                    <td class="">90-95</td>
+                                    <td class="">95-100</td>
+                                    <td class="">100-105</td>
+																	</tr>
+																	<tr>
+																		<td>일본</td>
+                                    <td class="">38</td>
+                                    <td class="">40</td>
+                                    <td class="">42</td>
+                                    <td class="">44</td>
 																	</tr>
                                 </tbody>
                               </table>
@@ -321,7 +303,7 @@
                           <img class="mr-4 rounded rounded-circle" src="${root}/assets/img/blog/blog-small2-01.jpg" alt="Generic placeholder image">
                           <div class="media-body">
                             <h4 class="mt-0 mb-2">Lorem ipsum dolor</h4>
-
+                            
                             <ul class="text-warning d-flex mb-1">
                               <li class="mr-1"><i class="fa fa-star" aria-hidden="true"></i></li>
                               <li class="mr-1"><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -681,6 +663,14 @@
 		<script src="${root}/assets/plugins/rateyo/jquery.rateyo.min.js"></script>
 		<script src="${root}/assets/js/custom.js"></script>
 
+
+		<script>
+		
+			//add to cart 누르면 ajax로 장바구니에 추가
+			$(function(){
+				
+			});
+		</script>
 	</body>
 </html>
 
