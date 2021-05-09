@@ -1,12 +1,20 @@
 package com.project.shopping.controller;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.project.shopping.beans.UserBean;
 
 @Controller
 @RequestMapping("/account")
 public class AccountController {
+	
+	@Resource(name = "loginUserBean")
+	private UserBean loginUserBean;
 
 	@GetMapping("/profile")
 	public String profile() {
@@ -24,7 +32,8 @@ public class AccountController {
 	}
 	
 	@GetMapping("/cartpage")
-	public String cartPage() {
+	public String cartPage(Model model) {
+		model.addAttribute("user_id",loginUserBean.getUser_id());
 		return "account/cartpage";
 	}
 	

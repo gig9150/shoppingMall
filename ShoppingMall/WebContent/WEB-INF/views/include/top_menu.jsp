@@ -43,30 +43,33 @@
               <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-cart"></i>$0</a>
               <ul class="dropdown-menu dropdown-menu-right">
                 <li>Item(s) in your cart</li>
-                <li>
-                  <a href="single-product.html">
-                    <div class="media">
-                      <img class="media-left media-object" src="${root}/assets/img/home/cart-items/cart-item-01.jpg" alt="cart-Image">
-                      <div class="media-body">
-                        <h5 class="media-heading">INCIDIDUNT UT <br><span>2 X $199</span></h5>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="single-product.html">
-                    <div class="media">
-                      <img class="media-left media-object" src="${root}/assets/img/home/cart-items/cart-item-01.jpg" alt="cart-Image">
-                      <div class="media-body">
-                        <h5 class="media-heading">INCIDIDUNT UT <br><span>2 X $199</span></h5>
-                      </div>
-                    </div>
-                  </a>
-                </li>
+                <c:set var="break" value=""></c:set>
+                <c:forEach items="${sessionScope.cartList}" var="obj">
+                	<c:if test="${obj.user_id == sessionScope.userId}">
+		                <li>
+		                  <a href="single-product.html">
+		                    <div class="media">
+		                      <img class="media-left media-object" src="${root}/upload/${obj.goods_file}" alt="cart-Image" width="120" height="70">
+		                      <div class="media-body">
+		                        <h5 class="media-heading">${obj.goods_name} <br><span>${obj.goods_quantity} X ${obj.goods_price}</span></h5>
+		                      </div>
+		                    </div>
+		                  </a>
+		                </li>
+                	</c:if>
+                </c:forEach>
                 <li>
                   <div class="btn-group" role="group" aria-label="...">
-                    <button type="button" class="btn btn-default" onclick="location.href='cart-page.html';">Shopping Cart</button>
-                    <button type="button" class="btn btn-default" onclick="location.href='checkout-step-1.html';">Checkout</button>
+                  <c:choose>
+	                  <c:when test="${sessionScope.userId != null}">
+	                  	<button type="button" class="btn btn-default" onclick="location.href='${root}/account/cartpage';">Shopping Cart</button>
+	                    <button type="button" class="btn btn-default" onclick="location.href='checkout-step-1.html';">Checkout</button>
+	                  </c:when>
+	                  <c:otherwise>
+		                  <button type="button" class="btn btn-default" onclick="alert('로그인 후 이용해주세요')">Shopping Cart</button>
+	                    <button type="button" class="btn btn-default" onclick="alert('로그인 후 이용해주세요')">Checkout</button>
+	                  </c:otherwise>
+                  </c:choose>
                   </div>
                 </li>
               </ul>

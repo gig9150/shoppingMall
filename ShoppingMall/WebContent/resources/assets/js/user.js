@@ -36,5 +36,8 @@ function resetUserIdExist(){
 	$("#userIdExist").val("false");
 }
 
+//로그인 안되어있으면 장바구니 확인불가
+$("")
+
 
 

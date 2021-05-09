@@ -9,6 +9,12 @@ public class GoodsBean {
 	private String goods_price;
 	private String goods_file;
 	
+	//장바구니에 담을 property
+	private String goods_size;
+	private int goods_quantity;
+	//로그인 빈의 아이디와 비교할 장바구니 아이디 property
+	private String user_id;
+	
 	public int getGoods_idx() {
 		return goods_idx;
 	}
@@ -45,6 +51,27 @@ public class GoodsBean {
 	public void setGoods_file(String goods_file) {
 		this.goods_file = goods_file;
 	}
+	public String getGoods_size() {
+		return goods_size;
+	}
+	public void setGoods_size(String goods_size) {
+		this.goods_size = goods_size;
+	}
+	
+	public int getGoods_quantity() {
+		return goods_quantity;
+	}
+	public void setGoods_quantity(int goods_quantity) {
+		this.goods_quantity = goods_quantity;
+	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+	
+	
 	
 	
 }

@@ -25,10 +25,10 @@ public interface UserMapper {
 	void addUserInfo(UserBean joinUserBean);
 	
 	//로그인 정보 저장
-	@Select("SELECT USER_IDX,USER_NAME,USER_ID,USER_EMAIL,USER_PW " +
-			"FROM USER_INFO " +
-			"WHERE USER_ID = #{user_id} " +
-			"AND USER_PW = #{user_pw}")
+		@Select("SELECT USER_IDX,USER_NAME,USER_ID,USER_EMAIL,USER_PW " +
+				"FROM USER_INFO " +
+				"WHERE USER_ID = #{user_id} " +
+				"AND USER_PW = #{user_pw}")
 	UserBean getLoginUserInfo(UserBean temporaryLoginUserBean);
 	
 	@Select("SELECT USER_NAME,USER_ID,USER_EMAIL " +

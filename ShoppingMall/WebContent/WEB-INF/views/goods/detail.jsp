@@ -188,7 +188,7 @@
                                   <tr class="border-0">
                                     <td class="count-input border-0 p-0">
                                       <a class="incr-btn" data-action="decrease" href="#"><i class="fa fa-minus"></i></a>
-                                      <input name = "quantity" class="quantity" type="text" value="1">
+                                      <input id = "quantity" name="quantity" class="quantity" type="text" value="1">
                                       <a class="incr-btn" data-action="increase" href="#"><i class="fa fa-plus"></i></a>
                                     </td>
                                   </tr>
@@ -202,7 +202,7 @@
                   </div>
                  
                   <div class="btn-area mb-0">
-                    <a href="cart-page.html" id="add-cart" class="btn btn-primary btn-default">Add to cart <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    <button id="add-cart" type="button" class="btn btn-primary btn-default" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="fa fa-angle-right" aria-hidden="true"></i>ADD CART</button> 
                   </div>
                   
 
@@ -662,14 +662,27 @@
 		<script src="${root}/assets/plugins/velocity/velocity.min.js"></script>
 		<script src="${root}/assets/plugins/rateyo/jquery.rateyo.min.js"></script>
 		<script src="${root}/assets/js/custom.js"></script>
-
-
+		
 		<script>
 		
 			//add to cart 누르면 ajax로 장바구니에 추가
 			$(function(){
-				
+
+				$("#add-cart").on('click',function(){
+					let goods_idx = ${goodsBean.goods_idx};
+					let guiest_id3 = $("#guiest_id3").val();
+					let quantity = $("#quantity").val();
+					$.ajax({
+						url : "${root}/account/goodsAddCart/" +
+								goods_idx+"/"+guiest_id3+"/"+quantity,
+						type:"get",
+						success:function(data){
+							
+						}
+					});
+				});
 			});
+			
 		</script>
 	</body>
 </html>

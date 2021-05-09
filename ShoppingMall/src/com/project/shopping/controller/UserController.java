@@ -112,7 +112,7 @@ public class UserController {
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		//로그인 해제
-		session.invalidate();
+		session.removeAttribute("userId");
 		loginUserBean.setUserLogin(false);
 		return "user/logout";
 	}
