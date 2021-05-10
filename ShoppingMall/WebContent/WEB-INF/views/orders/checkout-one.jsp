@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cart Page - BIGBAG Store</title>
+    <title>Step # 01 - BIGBAG Store</title>
 
     <!-- PLUGINS CSS STYLE -->
     <link href="${root}/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -50,137 +50,163 @@
       <c:import url="/WEB-INF/views/include/top_menu.jsp" />
 
       <!-- LIGHT SECTION -->
-      <section class="lightSection clearfix pageHeaderImage">
+      <section class="lightSection clearfix pageHeader">
         <div class="container">
-          <div class="tableBlock">
-            <div class="row tableInner">
-              <div class="col-sm-12">
-                <div class="page-title">
-                  <h2>cart</h2>
-                  <ol class="breadcrumb">
-                    <li>
-                      <a href="index.html">Home</a>
-                    </li>
-                    <li class="active">cart</li>
-                  </ol>
-                </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="page-title">
+                <h2>billing &amp; Shipping address</h2>
               </div>
+            </div>
+            <div class="col-md-6">
+              <ol class="breadcrumb">
+                <li>
+                  <a href="index.html">Home</a>
+                </li>
+                <li>
+                  <a href="#">shop</a>
+                </li>
+                <li class="active">Shipping Information</li>
+              </ol>
             </div>
           </div>
         </div>
       </section>
 
       <!-- MAIN CONTENT SECTION -->
-      <section class="mainContent clearfix cartListWrapper">
+      <section class="mainContent clearfix stepsWrapper">
         <div class="container">
           <div class="row">
-            <div class="col-12">
-              <div class="cartListInner">
-                <form action="#">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th></th>
-                          <th>Product Name</th>
-                          <th>Price</th>
-                          <th>Quantity</th>
-                          <th>Size</th>
-                          <th>Sub Total</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      <!-- 합을 구하기 위해 변수 선언  -->
-                      <c:set var="totalPrice" value="0"/>
-                      	<c:forEach items="${sessionScope.cartList}" var="obj">
-	                      	<c:if test="${obj.user_id == sessionScope.userId}">
-	                      		<tr id="cart-content">
-		                          <td class="">
-		                            <button type="button" class="close cart-delete" data-dismiss="alert" aria-label="Close" data-goods-idx="${obj.goods_idx}" data-goods-size="${obj.goods_size}"><span aria-hidden="true">&times;</span></button>
-		                            <span class="cartImage"><img width="150" height="150" src="${root}/upload/${obj.goods_file}" alt="image"></span>
-		                          </td>
-		                          <td class="">${obj.goods_name }</td>
-		                          <td class="">${obj.goods_price }</td>
-		                          <td class="count-input">
-									              <a class="incr-btn" data-action="decrease" href="#"><i class="fa fa-minus"></i></a>
-									              <input class="quantity" type="text" value="${obj.goods_quantity}">
-									              <a class="incr-btn" data-action="increase" href="#"><i class="fa fa-plus"></i></a>
-		                          </td>
-		                          <td class="">${obj.goods_size}</td>
-		                          <td class="">${obj.goods_price * obj.goods_quantity}</td>
-		                          <c:set var="totalPrice" value="${totalPrice + obj.goods_price * obj.goods_quantity}"/>
-	                        	</tr>
-	                      	</c:if>
-                      	</c:forEach>
-                      </tbody>
-                    </table>
+            <div class="col-md-8">
+              <div class="innerWrapper clearfix stepsPage">
+                <div class="row progress-wizard" style="border-bottom:0;">
+                  <div class="col-4 progress-wizard-step active">
+                    <div class="text-center progress-wizard-stepnum">Shipping Method</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="checkout-step-1.html" class="progress-wizard-dot"></a>
                   </div>
-                  <div class="row totalAmountArea">
-                    <div class="col-sm-4 ml-sm-auto">
-                      <ul class="list-unstyled">
-                        <li>total Price : <span class="grandTotal"><c:out value="${totalPrice}"/></span></li>
-                      </ul>
+
+                  <div class="col-4 progress-wizard-step disabled">
+                    <div class="text-center progress-wizard-stepnum">Payment Method</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="checkout-step-2.html" class="progress-wizard-dot"></a>
+                  </div>
+
+                  <div class="col-4 progress-wizard-step disabled">
+                    <div class="text-center progress-wizard-stepnum">Review</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="checkout-step-3.html" class="progress-wizard-dot"></a>
+                  </div>
+                </div>
+
+                <form action="${root}/orders/checkout-two" class="row" method="POST" role="form">
+                	<input type="hidden" name="totalPrice" value="${totalPrice}">
+                  <div class="col-12">
+                    <div class="page-header">
+                      <h4>Shipping Address</h4>
                     </div>
                   </div>
-                  <div class="checkBtnArea">
-                    <a href="${root}/orders/checkout-one?totalPrice=${totalPrice}" class="btn btn-primary btn-default">checkout<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                  <div class="form-group col-md-6 col-12">
+                    <label for="">Name</label>
+                    <input type="text" class="form-control" name="userName" value="${loginUserBean.user_name}">
+                  </div>
+                  <div class="form-group col-md-6 col-12">
+                    <label for="">ID</label>
+                    <input type="text" class="form-control" name="userId"  value="${loginUserBean.user_id}">
+                  </div>
+                  <div class="form-group col-md-6 col-12">
+                    <label for="">Email</label>
+                    <input type="email" class="form-control" name="userEmail" value="${loginUserBean.user_email}">
+                  </div>
+                  <div class="form-group col-md-6 col-12">
+                    <label for="">Phone</label>
+                    <input type="text" class="form-control" name="userPhone">
+                  </div>
+                  <div class="form-group col-md-12 col-12">
+                    <label for="">Address</label>
+                    <input type="text" class="form-control" name="userAddress">
+                  </div>
+                  <div class="col-12">
+                    <div class="well well-lg clearfix">
+                      <button type="submit" class="btn btn-default btn-primary">Send message</button>
+                    </div>
                   </div>
                 </form>
               </div>
             </div>
+            <div class="col-md-4">
+              <div class="summery-box">
+                <h4>Order Summery</h4>
+                <p>Excepteur sint occaecat cupidat non proi dent sunt.officia.</p>
+                <ul class="list-unstyled">
+                  <li class="d-flex justify-content-between">
+                    <span class="tag">price</span>
+                    <span class="val">${totalPrice} WON</span>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <span class="tag">Shipping & Handling</span>
+                    <span class="val">2,500 WON </span>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <span class="tag">Total</span>
+                    <span class="val">${totalPrice + 2500} WON </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-      
-       <!-- LIGHT SECTION -->
+
+      <!-- LIGHT SECTION -->
       <section class="lightSection clearfix">
-        <div class="container">
-          <div class="owl-carousel partnersLogoSlider">
-            <div class="slide">
-              <div class="partnersLogo clearfix">
-                <img src="${root}/assets/img/home/partners/partner-01.png" alt="partner-img">
-              </div>
+      <div class="container">
+        <div class="owl-carousel partnersLogoSlider">
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <img src="${root}/assets/img/home/partners/partner-01.png" alt="partner-img">
             </div>
-            <div class="slide">
-              <div class="partnersLogo clearfix">
-                <img src="${root}/assets/img/home/partners/partner-02.png" alt="partner-img">
-              </div>
+          </div>
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <img src="${root}/assets/img/home/partners/partner-02.png" alt="partner-img">
             </div>
-            <div class="slide">
-              <div class="partnersLogo clearfix">
-                <img src="${root}/assets/img/home/partners/partner-03.png" alt="partner-img">
-              </div>
+          </div>
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <img src="${root}/assets/img/home/partners/partner-03.png" alt="partner-img">
             </div>
-            <div class="slide">
-              <div class="partnersLogo clearfix">
-                <img src="${root}/assets/img/home/partners/partner-04.png" alt="partner-img">
-              </div>
+          </div>
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <img src="${root}/assets/img/home/partners/partner-04.png" alt="partner-img">
             </div>
-            <div class="slide">
-              <div class="partnersLogo clearfix">
-                <img src="${root}/assets/img/home/partners/partner-05.png" alt="partner-img">
-              </div>
+          </div>
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <img src="${root}/assets/img/home/partners/partner-05.png" alt="partner-img">
             </div>
-            <div class="slide">
-              <div class="partnersLogo clearfix">
-                <img src="${root}/assets/img/home/partners/partner-01.png" alt="partner-img">
-              </div>
+          </div>
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <img src="${root}/assets/img/home/partners/partner-01.png" alt="partner-img">
             </div>
-            <div class="slide">
-              <div class="partnersLogo clearfix">
-                <img src="${root}/assets/img/home/partners/partner-02.png" alt="partner-img">
-              </div>
+          </div>
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <img src="${root}/assets/img/home/partners/partner-02.png" alt="partner-img">
             </div>
-            <div class="slide">
-              <div class="partnersLogo clearfix">
-                <img src="${root}/assets/img/home/partners/partner-03.png" alt="partner-img">
-              </div>
+          </div>
+          <div class="slide">
+            <div class="partnersLogo clearfix">
+              <img src="${root}/assets/img/home/partners/partner-03.png" alt="partner-img">
             </div>
           </div>
         </div>
-      </section>
-      
-      <c:import url="/WEB-INF/views/include/footer.jsp" />
+      </div>
+    </section>
+    
+    <c:import url="/WEB-INF/views/include/footer.jsp" />
 
 		<!-- LOGIN MODAL -->
 		<div class="modal fade login-modal" id="login" tabindex="-1" role="dialog">
@@ -273,7 +299,7 @@
 									</select>
 								</span>
 								<div class="btn-area">
-									<a href="" class="btn btn-primary btn-block">Add to cart <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+									<a href="#" class="btn btn-primary btn-block">Add to cart <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 								</div>
 							</div>
 						</div>
@@ -297,27 +323,6 @@
 		<script src="${root}/assets/plugins/velocity/velocity.min.js"></script>
 		<script src="${root}/assets/plugins/rateyo/jquery.rateyo.min.js"></script>
 		<script src="${root}/assets/js/custom.js"></script>
-	
-	<script>
-	
-		$(function(){
-			//장바구니 데이터를 지우기(session에서 제거 / 요소 제거 )
-			$(".cart-delete").click(function(){
-				//데이터를 속성으로 받아주기
-				const goods_size = $(this).data("goodsSize");
-				const goods_idx = $(this).data("goodsIdx");
-				$.ajax({
-					url:"${root}/account/goodsDeleteCart/"+goods_idx+"/"+goods_size,
-					type:"get",
-					success:function(data){
-						console.log(data);
-					}
-				});
-				$(this).parent().parent().remove();
-			});
-		});
-		
-	</script>
+
 	</body>
-	
 </html>

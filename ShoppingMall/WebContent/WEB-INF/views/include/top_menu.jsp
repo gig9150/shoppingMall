@@ -47,11 +47,11 @@
                 <c:forEach items="${sessionScope.cartList}" var="obj">
                 	<c:if test="${obj.user_id == sessionScope.userId}">
 		                <li>
-		                  <a href="single-product.html">
+		                  <a href="${root}/goods/detail?goods_idx=${obj.goods_idx}">
 		                    <div class="media">
 		                      <img class="media-left media-object" src="${root}/upload/${obj.goods_file}" alt="cart-Image" width="120" height="70">
 		                      <div class="media-body">
-		                        <h5 class="media-heading">${obj.goods_name} <br><span>${obj.goods_quantity} X ${obj.goods_price}</span></h5>
+		                        <h5 class="media-heading">${obj.goods_name} <br><span>${obj.goods_size} X ${obj.goods_quantity} X ${obj.goods_price} </span></h5>
 		                      </div>
 		                    </div>
 		                  </a>

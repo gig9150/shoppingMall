@@ -70,7 +70,7 @@
       </section>
 
       <!-- MAIN CONTENT SECTION -->
-      <section class="mainContent clearfix userProfile">
+      <section class="mainCoWntent clearfix userProfile">
         <div class="container">
           <div class="row">
             <div class="col-12">

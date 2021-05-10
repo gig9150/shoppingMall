@@ -48,7 +48,7 @@ public class GoodsController {
 	@GetMapping("/detail")
 	public String detail(@RequestParam("goods_idx")int goods_idx,
 						@RequestParam(value = "page",defaultValue = "1")int page,
-						@RequestParam("goods_category_idx")int goods_category_idx,
+						@RequestParam(value = "goods_category_idx", defaultValue = "1")int goods_category_idx,
 						Model model) {
 		//상품정보 
 		GoodsBean goodsBean = goodsService.getGoodsInfo(goods_idx);

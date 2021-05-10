@@ -4,6 +4,7 @@ import java.util.Properties;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -15,6 +16,7 @@ public class RootAppContext {
 	// 로그인 정보를 관리하는 객체
 	@Bean(name = "loginUserBean")
 	@SessionScope
+	@Scope("singleton")
 	public UserBean loginUserBean() {
 		return new UserBean();
 	}

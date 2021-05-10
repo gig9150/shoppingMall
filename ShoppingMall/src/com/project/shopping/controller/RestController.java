@@ -60,7 +60,6 @@ public class RestController {
 		//장바구니에 동일한 상품이 존재하면 갯수만 늘리기
 		if(list != null) {
 			for(GoodsBean bean : list) {
-				System.out.println(goodsBean.getUser_id());
 				if(bean.getUser_id().equals(goodsBean.getUser_id()) 
 						&& bean.getGoods_idx() == goodsBean.getGoods_idx()
 						&& bean.getGoods_size().equals(goodsBean.getGoods_size())) {
@@ -80,6 +79,26 @@ public class RestController {
 		session.setAttribute("cartList", list);
 		
 		return "true";
+	}
+	
+	@GetMapping("/account/goodsDeleteCart/{goods_idx}/{goods_size}")
+	public String goodsDeleteCart(@PathVariable String goods_idx,
+									@PathVariable String goods_size,
+									HttpSession session) {
+		
+		String userId = (String)session.getAttribute("userId");
+		List<GoodsBean> list = (List)session.getAttribute("cartList");
+		
+		for(GoodsBean bean : list) {
+			if(bean.getUser_id().equals(userId) 
+					&& bean.getGoods_idx() == Integer.parseInt(goods_idx)
+					&& bean.getGoods_size().equals(goods_size)) {
+				list.remove(bean);
+				break;
+			}
+		}
+		
+		return "ture";
 	}
 	
 }

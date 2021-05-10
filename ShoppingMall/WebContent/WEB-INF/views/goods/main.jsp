@@ -112,7 +112,7 @@
 	                    <ul class="list-inline btn-group" role="group">
 	                      <li><a class="btn btn-default btn-wishlist"><i class="fa fa-heart-o"></i></a></li>
 	                      <li><a class="btn btn-default" href="${root}/goods/detail?goods_idx=${obj.goods_idx}&page=${requestScope.page}&goods_category_idx=${goods_category_idx} " ><i class="fa fa-eye"></i></a></li>
-	                    </ul>
+	                    </ul>	
 	                  </div>
 	                </div>
 	                <div class="productCaption clearfix">

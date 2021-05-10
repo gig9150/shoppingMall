@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cart Page - BIGBAG Store</title>
+    <title>Step # 02 - BIGBAG Store</title>
 
     <!-- PLUGINS CSS STYLE -->
     <link href="${root}/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -46,93 +46,181 @@
   <body id="body" class="body-wrapper version1 up-scroll">
 
     <div class="main-wrapper">
-
+    
       <c:import url="/WEB-INF/views/include/top_menu.jsp" />
-
+      
       <!-- LIGHT SECTION -->
-      <section class="lightSection clearfix pageHeaderImage">
+      <section class="lightSection clearfix pageHeader">
         <div class="container">
-          <div class="tableBlock">
-            <div class="row tableInner">
-              <div class="col-sm-12">
-                <div class="page-title">
-                  <h2>cart</h2>
-                  <ol class="breadcrumb">
-                    <li>
-                      <a href="index.html">Home</a>
-                    </li>
-                    <li class="active">cart</li>
-                  </ol>
-                </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="page-title">
+                <h2>Shipping method</h2>
               </div>
+            </div>
+            <div class="col-md-6">
+              <ol class="breadcrumb float-right">
+                <li>
+                  <a href="index.html">Home</a>
+                </li>
+                <li class="active">Shipping method</li>
+              </ol>
             </div>
           </div>
         </div>
       </section>
 
       <!-- MAIN CONTENT SECTION -->
-      <section class="mainContent clearfix cartListWrapper">
+      <section class="mainContent clearfix stepsWrapper">
         <div class="container">
           <div class="row">
-            <div class="col-12">
-              <div class="cartListInner">
-                <form action="#">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th></th>
-                          <th>Product Name</th>
-                          <th>Price</th>
-                          <th>Quantity</th>
-                          <th>Size</th>
-                          <th>Sub Total</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      <!-- 합을 구하기 위해 변수 선언  -->
-                      <c:set var="totalPrice" value="0"/>
-                      	<c:forEach items="${sessionScope.cartList}" var="obj">
-	                      	<c:if test="${obj.user_id == sessionScope.userId}">
-	                      		<tr id="cart-content">
-		                          <td class="">
-		                            <button type="button" class="close cart-delete" data-dismiss="alert" aria-label="Close" data-goods-idx="${obj.goods_idx}" data-goods-size="${obj.goods_size}"><span aria-hidden="true">&times;</span></button>
-		                            <span class="cartImage"><img width="150" height="150" src="${root}/upload/${obj.goods_file}" alt="image"></span>
-		                          </td>
-		                          <td class="">${obj.goods_name }</td>
-		                          <td class="">${obj.goods_price }</td>
-		                          <td class="count-input">
-									              <a class="incr-btn" data-action="decrease" href="#"><i class="fa fa-minus"></i></a>
-									              <input class="quantity" type="text" value="${obj.goods_quantity}">
-									              <a class="incr-btn" data-action="increase" href="#"><i class="fa fa-plus"></i></a>
-		                          </td>
-		                          <td class="">${obj.goods_size}</td>
-		                          <td class="">${obj.goods_price * obj.goods_quantity}</td>
-		                          <c:set var="totalPrice" value="${totalPrice + obj.goods_price * obj.goods_quantity}"/>
-	                        	</tr>
-	                      	</c:if>
-                      	</c:forEach>
-                      </tbody>
-                    </table>
+            <div class="col-md-8">
+              <div class="innerWrapper clearfix stepsPage">
+                <div class="row progress-wizard" style="border-bottom:0;">
+                  <div class="col-4 progress-wizard-step complete fullBar">
+                    <div class="text-center progress-wizard-stepnum">Shipping Method</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="checkout-step-1.html" class="progress-wizard-dot"></a>
                   </div>
-                  <div class="row totalAmountArea">
-                    <div class="col-sm-4 ml-sm-auto">
-                      <ul class="list-unstyled">
-                        <li>total Price : <span class="grandTotal"><c:out value="${totalPrice}"/></span></li>
+
+                  <div class="col-4 progress-wizard-step active">
+                    <div class="text-center progress-wizard-stepnum">Payment Method</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="checkout-step-2.html" class="progress-wizard-dot"></a>
+                  </div>
+
+                  <div class="col-4 progress-wizard-step disabled">
+                    <div class="text-center progress-wizard-stepnum">Review</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="checkout-step-3.html" class="progress-wizard-dot"></a>
+                  </div>
+                </div>
+
+                <div class="page-header">
+                  <h4>Shipping Information</h4>
+                </div>
+
+                <div class="row shipping-info">
+                  <div class="col-6">
+                    <h5>Shipping Address</h5>
+                    <address>
+                      Sn Dalim <br>
+                      Shamoli, Dhaka 120, Bangladesh <br>
+                      415-555-2671 <br>
+                      example78@gmail.com <br>
+                    </address>
+                  </div>
+                  <div class="col-6">
+                    <h5>Shipping Method</h5>
+                    <p>
+                      ${ordersUserBean.userId}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="page-header">
+                  <h4>Billing Information</h4>
+                </div>
+                <form action="" class="row" method="POST" role="form">
+                  <div class=" checkboxArea card-check">
+                    <div class="col-sm-12 mb-2">
+                      <input id="checkbox1" type="radio" name="checkbox" value="1" >
+                      <label for="checkbox1"><span></span>Pay with Paypal</label>
+                    </div>
+                    <div class="col-sm-12 mb-2">
+                      <input id="checkbox2" type="radio" name="checkbox" value="1" checked="checked">
+                      <label for="checkbox2"><span></span>Credit Card</label>
+                      <small class="mb-2 d-block">We accept following credit card</small>
+                      <ul class="list-unstyled list-inline">
+                        <li><img src="${root}/assets/img/products/card1.jpg" alt=""><!--  --></li>
+                        <li><img src="${root}/assets/img/products/card2.jpg" alt=""><!--  --></li>
+                        <li><img src="${root}/assets/img/products/card3.jpg" alt=""><!--  --></li>
+                        <li><img src="${root}/assets/img/products/card4.jpg" alt=""><!--  --></li>
+                      </ul>
+                      <div class="form-group row my-3 ml-3">
+                        <div class="col-md-6">
+                          <label for="" class="col-form-label">Name on Card</label>
+                          <input class="form-control" type="text" >
+                        </div>
+
+                        <div class="col-md-6">
+                          <label for="" class="col-form-label">Card Number</label>
+                          <input class="form-control" type="text" >
+                        </div>
+                        <div class="col-md-6 col-12 mb-4 mb-md-0">
+                          <label for="">Expiration Date</label>
+                          <span class="step-drop">
+                            <select name="guiest_id3"  class="select-drop">
+                              <option value="0">Year</option>
+                              <option value="1">Choose 1</option>
+                              <option value="2">Choose 2</option>
+                              <option value="3">Choose 3</option>
+                            </select>
+                          <!-- </span>
+                          <span class="step-drop"> -->
+                            <select name="guiest_id3"  class="select-drop">
+                              <option value="0">Month</option>
+                              <option value="1">January</option>
+                              <option value="2">February</option>
+                              <option value="3">March</option>
+                            </select>
+                          </span>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="" class="">CVC/CVV</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" aria-label="" placeholder="1234">
+                            <span class="input-group-addon"><i class="fa fa-question-circle"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 mb-2">
+                      <input id="checkbox1" type="radio" name="checkbox" value="1" >
+                      <label for="checkbox1"><span></span>Reward Points</label>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12">
+                    <div class="well well-lg clearfix">
+                      <ul class="pager">
+                      <li class="previous float-left"><a class="btn btn-secondary btn-default float-left" href="checkout-step-1.html">back</a></li>
+                        <li class="next"><a class="btn btn-primary btn-default float-right" href="checkout-step-3.html">Continue <i class="fa fa-angle-right"></i></a></li>
                       </ul>
                     </div>
                   </div>
-                  <div class="checkBtnArea">
-                    <a href="${root}/orders/checkout-one?totalPrice=${totalPrice}" class="btn btn-primary btn-default">checkout<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-                  </div>
                 </form>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="summery-box">
+                <h4>Order Summery</h4>
+                <p>Excepteur sint occaecat cupidat non proi dent sunt.officia.</p>
+                <ul class="list-unstyled">
+                  <li class="d-flex justify-content-between">
+                    <span class="tag">Subtotal</span>
+                    <span class="val">$237.00</span>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <span class="tag">Shipping & Handling</span>
+                    <span class="val">$12.00 </span>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <span class="tag">Estimated Tax</span>
+                    <span class="val">$0.00 </span>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <span class="tag">Total</span>
+                    <span class="val">USD  $249.00 </span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
-      
-       <!-- LIGHT SECTION -->
+
+      <!-- LIGHT SECTION -->
       <section class="lightSection clearfix">
         <div class="container">
           <div class="owl-carousel partnersLogoSlider">
@@ -179,8 +267,8 @@
           </div>
         </div>
       </section>
-      
-      <c:import url="/WEB-INF/views/include/footer.jsp" />
+     
+    <c:import url="/WEB-INF/views/include/footer.jsp" />
 
 		<!-- LOGIN MODAL -->
 		<div class="modal fade login-modal" id="login" tabindex="-1" role="dialog">
@@ -273,7 +361,7 @@
 									</select>
 								</span>
 								<div class="btn-area">
-									<a href="" class="btn btn-primary btn-block">Add to cart <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+									<a href="#" class="btn btn-primary btn-block">Add to cart <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 								</div>
 							</div>
 						</div>
@@ -297,27 +385,7 @@
 		<script src="${root}/assets/plugins/velocity/velocity.min.js"></script>
 		<script src="${root}/assets/plugins/rateyo/jquery.rateyo.min.js"></script>
 		<script src="${root}/assets/js/custom.js"></script>
-	
-	<script>
-	
-		$(function(){
-			//장바구니 데이터를 지우기(session에서 제거 / 요소 제거 )
-			$(".cart-delete").click(function(){
-				//데이터를 속성으로 받아주기
-				const goods_size = $(this).data("goodsSize");
-				const goods_idx = $(this).data("goodsIdx");
-				$.ajax({
-					url:"${root}/account/goodsDeleteCart/"+goods_idx+"/"+goods_size,
-					type:"get",
-					success:function(data){
-						console.log(data);
-					}
-				});
-				$(this).parent().parent().remove();
-			});
-		});
-		
-	</script>
+
 	</body>
-	
 </html>
+
