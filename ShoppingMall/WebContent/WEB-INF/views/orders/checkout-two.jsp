@@ -131,7 +131,7 @@
                       <input id="checkbox2" type="radio" name="checkbox" value="1" checked="checked">
                       <label for="checkbox2"><span></span>Credit Card</label>
                       <small class="mb-2 d-block">We accept following credit card</small>
-                      <ul class="list-unstyled list-inline">
+                      <ul class="list-unstyled list-inline">  
                         <li><img src="${root}/assets/img/products/card1.jpg" alt=""><!--  --></li>
                         <li><img src="${root}/assets/img/products/card2.jpg" alt=""><!--  --></li>
                         <li><img src="${root}/assets/img/products/card3.jpg" alt=""><!--  --></li>
