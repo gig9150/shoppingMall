@@ -8,8 +8,8 @@ import org.apache.ibatis.session.RowBounds;
 import com.project.shopping.beans.GoodsBean;
 import com.project.shopping.beans.GoodsSizeBean;
 
-public interface goodsMapper {
-
+public interface GoodsMapper {
+	
 	@Select("SELECT GOODS_CATEGORY_NAME " +
 			"FROM GOODS_CATEGORY " +
 			"WHERE GOODS_CATEGORY_IDX = #{goods_category_idx}")
@@ -61,7 +61,5 @@ public interface goodsMapper {
 			"WHERE GOODS_IDX = #{goods_idx} " +
 			"ORDER BY GOODS_SIZE_NUM ASC")
 	List<GoodsSizeBean> getGoodsSizeList(int goods_idx);
-	
-	
 	
 }

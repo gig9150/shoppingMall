@@ -120,15 +120,15 @@
                   </div>
                   <div class="form-group col-md-6 col-12">
                     <label for="">Phone</label>
-                    <input type="text" class="form-control" name="userPhone">
+                    <input type="text" class="form-control" name="userPhone" required="required">
                   </div>
                   <div class="form-group col-md-12 col-12">
                     <label for="">Address</label>
-                    <input type="text" class="form-control" name="userAddress">
+                    <input type="text" class="form-control" name="userAddress" required="required">
                   </div>
                   <div class="col-12">
                     <div class="well well-lg clearfix">
-                      <button type="submit" class="btn btn-default btn-primary">Send message</button>
+                      <button type="submit" class="btn btn-default btn-primary float-right">continue</button>
                     </div>
                   </div>
                 </form>
@@ -145,7 +145,7 @@
                   </li>
                   <li class="d-flex justify-content-between">
                     <span class="tag">Shipping & Handling</span>
-                    <span class="val">2,500 WON </span>
+                    <span class="val">2500 WON </span>
                   </li>
                   <li class="d-flex justify-content-between">
                     <span class="tag">Total</span>

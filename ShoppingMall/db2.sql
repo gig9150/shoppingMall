@@ -213,3 +213,6 @@ CREATE TABLE goods_size
 	PRIMARY KEY (goods_size_idx)
 );
 
+--자료형 추가
+
+ALTER TABLE orders ADD orders_date date;

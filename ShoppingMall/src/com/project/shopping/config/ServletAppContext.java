@@ -27,6 +27,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.project.shopping.beans.UserBean;
 import com.project.shopping.interceptor.CheckLoginInterceptor;
 import com.project.shopping.interceptor.TopMenuInterceptor;
+import com.project.shopping.mapper.GoodsMapper;
+import com.project.shopping.mapper.OrdersMapper;
 import com.project.shopping.mapper.TopMenuMapper;
 import com.project.shopping.mapper.UserMapper;
 import com.project.shopping.service.TopMenuService;
@@ -100,12 +102,25 @@ public class ServletAppContext implements WebMvcConfigurer {
 	}
 	
 	@Bean
+	public MapperFactoryBean<GoodsMapper> getGoodsMapper(SqlSessionFactory factory){
+		MapperFactoryBean<GoodsMapper> factoryBean = new MapperFactoryBean<GoodsMapper>(GoodsMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	
+	@Bean
+	public MapperFactoryBean<OrdersMapper> getOrdersMapper(SqlSessionFactory factory){
+		MapperFactoryBean<OrdersMapper> factoryBean = new MapperFactoryBean<OrdersMapper>(OrdersMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	
+	@Bean
 	public MapperFactoryBean<TopMenuMapper> getTopMenuMapper(SqlSessionFactory factory){
 		MapperFactoryBean<TopMenuMapper> factoryBean = new MapperFactoryBean<TopMenuMapper>(TopMenuMapper.class);
 		factoryBean.setSqlSessionFactory(factory);
 		return factoryBean;
 	}
-
 
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {

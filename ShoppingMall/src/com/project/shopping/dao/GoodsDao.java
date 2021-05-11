@@ -8,13 +8,13 @@ import org.springframework.stereotype.Repository;
 
 import com.project.shopping.beans.GoodsBean;
 import com.project.shopping.beans.GoodsSizeBean;
-import com.project.shopping.mapper.goodsMapper;
+import com.project.shopping.mapper.GoodsMapper;
 
 @Repository
 public class GoodsDao {
 
 	@Autowired
-	private goodsMapper goodsMapper;
+	private GoodsMapper goodsMapper;
 	
 	public String getBoardInfoName(int goods_category_idx) {
 		return goodsMapper.getBoardInfoName(goods_category_idx);

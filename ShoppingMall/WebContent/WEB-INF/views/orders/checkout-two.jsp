@@ -71,6 +71,7 @@
       </section>
 
       <!-- MAIN CONTENT SECTION -->
+      <form method="POST" action="${root}/orders/checkout-three">
       <section class="mainContent clearfix stepsWrapper">
         <div class="container">
           <div class="row">
@@ -101,117 +102,54 @@
                 </div>
 
                 <div class="row shipping-info">
-                  <div class="col-6">
+                  <div class="col-12">
                     <h5>Shipping Address</h5>
                     <address>
-                      Sn Dalim <br>
-                      Shamoli, Dhaka 120, Bangladesh <br>
-                      415-555-2671 <br>
-                      example78@gmail.com <br>
+                     	${ordersUserBean.userName} <br>
+                      ${ordersUserBean.userAddress} <br>
+                      ${ordersUserBean.userPhone} <br>
+                      ${ordersUserBean.userEmail} <br>
                     </address>
-                  </div>
-                  <div class="col-6">
-                    <h5>Shipping Method</h5>
-                    <p>
-                      ${ordersUserBean.userId}
-                    </p>
                   </div>
                 </div>
 
                 <div class="page-header">
                   <h4>Billing Information</h4>
                 </div>
-                <form action="" class="row" method="POST" role="form">
                   <div class=" checkboxArea card-check">
-                    <div class="col-sm-12 mb-2">
-                      <input id="checkbox1" type="radio" name="checkbox" value="1" >
-                      <label for="checkbox1"><span></span>Pay with Paypal</label>
-                    </div>
                     <div class="col-sm-12 mb-2">
                       <input id="checkbox2" type="radio" name="checkbox" value="1" checked="checked">
                       <label for="checkbox2"><span></span>Credit Card</label>
-                      <small class="mb-2 d-block">We accept following credit card</small>
-                      <ul class="list-unstyled list-inline">  
-                        <li><img src="${root}/assets/img/products/card1.jpg" alt=""><!--  --></li>
-                        <li><img src="${root}/assets/img/products/card2.jpg" alt=""><!--  --></li>
-                        <li><img src="${root}/assets/img/products/card3.jpg" alt=""><!--  --></li>
-                        <li><img src="${root}/assets/img/products/card4.jpg" alt=""><!--  --></li>
-                      </ul>
-                      <div class="form-group row my-3 ml-3">
-                        <div class="col-md-6">
-                          <label for="" class="col-form-label">Name on Card</label>
-                          <input class="form-control" type="text" >
-                        </div>
-
-                        <div class="col-md-6">
-                          <label for="" class="col-form-label">Card Number</label>
-                          <input class="form-control" type="text" >
-                        </div>
-                        <div class="col-md-6 col-12 mb-4 mb-md-0">
-                          <label for="">Expiration Date</label>
-                          <span class="step-drop">
-                            <select name="guiest_id3"  class="select-drop">
-                              <option value="0">Year</option>
-                              <option value="1">Choose 1</option>
-                              <option value="2">Choose 2</option>
-                              <option value="3">Choose 3</option>
-                            </select>
-                          <!-- </span>
-                          <span class="step-drop"> -->
-                            <select name="guiest_id3"  class="select-drop">
-                              <option value="0">Month</option>
-                              <option value="1">January</option>
-                              <option value="2">February</option>
-                              <option value="3">March</option>
-                            </select>
-                          </span>
-                        </div>
-                        <div class="col-md-6">
-                          <label for="" class="">CVC/CVV</label>
-                          <div class="input-group">
-                            <input type="text" class="form-control" aria-label="" placeholder="1234">
-                            <span class="input-group-addon"><i class="fa fa-question-circle"></i></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-12 mb-2">
-                      <input id="checkbox1" type="radio" name="checkbox" value="1" >
-                      <label for="checkbox1"><span></span>Reward Points</label>
                     </div>
                   </div>
 
                   <div class="col-sm-12">
                     <div class="well well-lg clearfix">
                       <ul class="pager">
-                      <li class="previous float-left"><a class="btn btn-secondary btn-default float-left" href="checkout-step-1.html">back</a></li>
-                        <li class="next"><a class="btn btn-primary btn-default float-right" href="checkout-step-3.html">Continue <i class="fa fa-angle-right"></i></a></li>
+	                      <li class="previous float-left"><a class="btn btn-secondary btn-default float-left" href="${root}/orders/checkout-one?totalPrice=${ordersUserBean.totalPrice}">back</a></li>
+	                     	<li class="next"><a id="continue" class="btn btn-primary btn-default float-right" href="${root}/orders/checkout-three?userName=${ordersUserBean.userName}&userId=${orderUserBean.userId}
+	                     	&userAddress=${ordersUserBean.userAddress}&userPhone=${ordersUserBean.userPhone}&userEmail=${ordersUserBean.userEmail}&totalPrice=${ordersUserBean.totalPrice}">Continue <i class="fa fa-angle-right"></i></a></li>
                       </ul>
                     </div>
                   </div>
-                </form>
               </div>
             </div>
             <div class="col-md-4">
               <div class="summery-box">
                 <h4>Order Summery</h4>
-                <p>Excepteur sint occaecat cupidat non proi dent sunt.officia.</p>
+                <p>주문 금액 입니다.</p>
                 <ul class="list-unstyled">
                   <li class="d-flex justify-content-between">
-                    <span class="tag">Subtotal</span>
-                    <span class="val">$237.00</span>
+                    <span class="tag">price</span>
+                    <span class="val">${ordersUserBean.totalPrice} WON</span>
                   </li>
                   <li class="d-flex justify-content-between">
                     <span class="tag">Shipping & Handling</span>
-                    <span class="val">$12.00 </span>
-                  </li>
-                  <li class="d-flex justify-content-between">
-                    <span class="tag">Estimated Tax</span>
-                    <span class="val">$0.00 </span>
+                    <span class="val">2500 WON </span>
                   </li>
                   <li class="d-flex justify-content-between">
                     <span class="tag">Total</span>
-                    <span class="val">USD  $249.00 </span>
+                    <span class="val">${ordersUserBean.totalPrice + 2500} WON</span>
                   </li>
                 </ul>
               </div>
@@ -219,6 +157,7 @@
           </div>
         </div>
       </section>
+      </form>
 
       <!-- LIGHT SECTION -->
       <section class="lightSection clearfix">
@@ -270,106 +209,6 @@
      
     <c:import url="/WEB-INF/views/include/footer.jsp" />
 
-		<!-- LOGIN MODAL -->
-		<div class="modal fade login-modal" id="login" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header justify-content-center">
-						<h3 class="modal-title">log in</h3>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">
-						<form action="" method="POST" role="form">
-							<div class="form-group">
-								<label for="">Enter Email</label>
-								<input type="email" class="form-control">
-							</div>
-							<div class="form-group">
-								<label for="">Password</label>
-								<input type="password" class="form-control">
-							</div>
-							<div class="checkbox">
-								<input id="checkbox-1" class="checkbox-custom form-check-input" name="checkbox-1" type="checkbox" checked>
-								<label for="checkbox-1" class="checkbox-custom-label form-check-label">Remember me</label>
-							</div>
-							<button type="submit" class="btn btn-primary btn-block">log in</button>
-							<button type="button" class="btn btn-link btn-block">Forgot Password?</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- SIGN UP MODAL -->
-		<div class="modal fade " id="signup" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header justify-content-center">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h3 class="modal-title">Create an account</h3>
-					</div>
-					<div class="modal-body">
-						<form action="" method="POST" role="form">
-							<div class="form-group">
-								<label for="">Enter Email</label>
-								<input type="email" class="form-control">
-							</div>
-							<div class="form-group">
-								<label for="">Password</label>
-								<input type="password" class="form-control">
-							</div>
-							<div class="form-group">
-								<label for="">Confirm Password</label>
-								<input type="password" class="form-control">
-							</div>
-							<button type="submit" class="btn btn-primary btn-block">Sign up</button>
-							<button type="button" class="btn btn-link btn-block">New User?</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- PORDUCT QUICK VIEW MODAL -->
-		<div class="modal fade quick-view" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-body">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<div class="media flex-wrap">
-							<div class="media-left px-0">
-								<img class="media-object" src="${root}/assets/img/products/quick-view/quick-view-01.jpg" alt="Image">
-							</div>
-							<div class="media-body">
-								<h2>Old Skool Navy</h2>
-								<h3>$149</h3>
-								<p>Classic sneaker from Vans. Cotton canvas and suede upper. Textile lining with heel stabilizer and ankle support. Contrasting laces. Sits on a classic waffle rubber sole.</p>
-								<span class="quick-drop">
-									<select name="guiest_id3" id="guiest_id3" class="select-drop">
-										<option value="0">Size</option>
-										<option value="1">Size 1</option>
-										<option value="2">Size 2</option>
-										<option value="3">Size 3</option>
-									</select>
-								</span>
-								<span class="quick-drop resizeWidth">
-									<select name="guiest_id4" id="guiest_id4" class="select-drop">
-										<option value="0">Qty</option>
-										<option value="1">Qty 1</option>
-										<option value="2">Qty 2</option>
-										<option value="3">Qty 3</option>
-									</select>
-								</span>
-								<div class="btn-area">
-									<a href="#" class="btn btn-primary btn-block">Add to cart <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<script src="${root}/assets/plugins/jquery/jquery.min.js"></script>
 		<script src="${root}/assets/plugins/jquery/jquery-migrate-3.0.0.min.js"></script>
 		<script src="${root}/assets/plugins/jquery-ui/jquery-ui.js"></script>
@@ -385,6 +224,7 @@
 		<script src="${root}/assets/plugins/velocity/velocity.min.js"></script>
 		<script src="${root}/assets/plugins/rateyo/jquery.rateyo.min.js"></script>
 		<script src="${root}/assets/js/custom.js"></script>
+		
 
 	</body>
 </html>
