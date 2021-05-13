@@ -24,10 +24,10 @@ public interface OrdersMapper {
 	
 	//주문목록에 필요한 데이터 뽑아가기
 	@Select("SELECT S.ORDERS_STATUS_NAME,G.GOODS_PRICE," +
-			"O.ORDERS_IDX,O.ORDERS_QUANTITY,O.ORDERS_DATE " +
+			"O.ORDERS_IDX,O.ORDERS_QUANTITY,TO_CHAR(O.ORDERS_DATE,'YYYY/MM/DD') AS ORDERS_DATE " +
 			"FROM ORDERS O,GOODS G, ORDERS_STATUS S " +
 			"WHERE O.GOODS_IDX = G.GOODS_IDX " +
 			"AND O.ORDERS_STATUS_IDX = S.ORDERS_STATUS_IDX " +
 			"AND O.USER_IDX = #{userIdx}")
-	List<HashMap<String, Object>> getOrdersList(int userIdx);
+	List<HashMap<Object, Object>> getOrdersList(int userIdx);
 }

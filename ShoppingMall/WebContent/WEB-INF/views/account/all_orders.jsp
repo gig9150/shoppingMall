@@ -100,13 +100,13 @@
                         </tr>
                       </thead>
                       <tbody>
-                      <c:forEach items="ordersList" var="obj">
+                      <c:forEach items="${ordersList}" var="obj">
                       	<tr>
-                          <td>#${obj.orders_idx}</td>
-                          <td>${obj.orders_date }</td>
-                          <td>${obj.orders_quantity}</td>
-                          <td>${obj.goods_price}</td>
-                          <td><span class="badge badge-primary">${obj.orders_status_name}</span></td>
+                          <td>${obj.ORDERS_IDX}</td>
+                          <td>${obj.ORDERS_DATE}</td>
+                          <td>${obj.ORDERS_QUANTITY}</td>
+                          <td>${obj.GOODS_PRICE}</td>
+                          <td><span class="badge badge-primary">${obj.ORDERS_STATUS_NAME}</span></td>
                           <td><a href="${root}/account/single_order" class="btn btn-sm btn-secondary-outlined">View</a></td>
                         </tr>
                       </c:forEach>

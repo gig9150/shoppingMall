@@ -24,7 +24,7 @@ public class OrdersService {
 		ordersDao.updateGoodsSell(quantity, goodsIdx);
 	}
 	
-	public List<HashMap<String, Object>> getOrdersList(int userIdx){
+	public List<HashMap<Object, Object>> getOrdersList(int userIdx){
 		return ordersDao.getOrdersList(userIdx);
 	}
 }

@@ -24,7 +24,7 @@ public class OrdersDao {
 		ordersMapper.updateGoodsSell(quantity, goodsIdx);
 	}
 	
-	public List<HashMap<String, Object>> getOrdersList(int userIdx){
+	public List<HashMap<Object, Object>> getOrdersList(int userIdx){
 		return ordersMapper.getOrdersList(userIdx);
 	}
 }

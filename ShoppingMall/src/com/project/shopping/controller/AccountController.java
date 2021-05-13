@@ -31,8 +31,8 @@ public class AccountController {
 	
 	@GetMapping("/all_orders")
 	public String allOrders(Model model) {
-		List<HashMap<String, Object>> ordersList = ordersService.getOrdersList(loginUserBean.getUser_idx());
-		model.addAttribute(ordersList);
+		List<HashMap<Object, Object>> ordersList = ordersService.getOrdersList(loginUserBean.getUser_idx());
+		model.addAttribute("ordersList",ordersList);
 		return "account/all_orders";
 	}
 	
