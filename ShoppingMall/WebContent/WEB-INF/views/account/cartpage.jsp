@@ -102,9 +102,10 @@
 		                          <td class="">${obj.goods_name }</td>
 		                          <td class="">${obj.goods_price }</td>
 		                          <td class="count-input">
-									              <a class="incr-btn" data-action="decrease" href="#"><i class="fa fa-minus"></i></a>
+									              <a class="incr-btn down-btn" data-action="decrease" href="#"><i class="fa fa-minus"></i></a>
+									              <input type="hidden" value="${obj.goods_idx}">
 									              <input class="quantity" type="text" value="${obj.goods_quantity}">
-									              <a class="incr-btn" data-action="increase" href="#"><i class="fa fa-plus"></i></a>
+									              <a class="incr-btn up-btn" data-action="increase" href="#"><i class="fa fa-plus"></i></a>
 		                          </td>
 		                          <td class="">${obj.goods_size}</td>
 		                          <td class="">${obj.goods_price * obj.goods_quantity}</td>
@@ -314,6 +315,34 @@
 					}
 				});
 				$(this).parent().parent().remove();
+			});
+			
+			//장바구니 페이지에서 수량 변경시 ajax로 세션값 변경
+			
+			$('.down-btn').on('click',function(){
+				const goods_idx = $(this).next().val();
+				const quantity = $(this).next().next().val();
+				const goods_size = $(this).parent().next().html();
+				$.ajax({
+					url:'${root}/account/cartQuantity/'+goods_idx+'/'+quantity+'/'+goods_size+'/down',
+					type:'get',
+					success:function(data){
+						console.log(data);
+					}
+				});
+			});
+			
+			$('.up-btn').on('click',function(){
+				const quantity = $(this).prev().val();
+				const goods_idx = $(this).prev().prev().val();
+				const goods_size = $(this).parent().next().html();
+				$.ajax({
+					url:'${root}/account/cartQuantity/'+goods_idx+'/'+quantity+'/'+goods_size+'/up',
+					type:'get',
+					success:function(data){
+						console.log(data);
+					}
+				});
 			});
 		});
 		

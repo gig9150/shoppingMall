@@ -11,6 +11,7 @@ public class OrdersBean {
 	private String ordersPhone;
 	private String ordersAddress;
 	private int ordersQuantity;
+	private String ordersSize;
 	private Date ordersDate;
 	public int getOrderIdx() {
 		return orderIdx;
@@ -59,6 +60,12 @@ public class OrdersBean {
 	}
 	public void setOrdersDate(Date ordersDate) {
 		this.ordersDate = ordersDate;
+	}
+	public String getOrdersSize() {
+		return ordersSize;
+	}
+	public void setOrdersSize(String ordersSize) {
+		this.ordersSize = ordersSize;
 	}
 	
 	

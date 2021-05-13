@@ -1,5 +1,8 @@
 package com.project.shopping.dao;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,7 +21,10 @@ public class OrdersDao {
 	}
 	
 	public void updateGoodsSell(int quantity,int goodsIdx) {
-		System.out.println("dao:"+quantity);
 		ordersMapper.updateGoodsSell(quantity, goodsIdx);
+	}
+	
+	public List<HashMap<String, Object>> getOrdersList(int userIdx){
+		return ordersMapper.getOrdersList(userIdx);
 	}
 }

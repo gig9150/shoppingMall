@@ -213,6 +213,14 @@ CREATE TABLE goods_size
 	PRIMARY KEY (goods_size_idx)
 );
 
---자료형 추가
+--orders 자료형 추가
 
 ALTER TABLE orders ADD orders_date date;
+ALTER TABLE orders ADD orders_size varchar2(10) not null;
+
+-- GOODS_SIZE 데이터 추가
+
+insert into goods_size values(5,180,'L',1,1,1,1,1);
+insert into goods_size values(6,180,'XL',2,2,2,2,2);
+insert into goods_size values(7,180,'XXL',3,3,3,3,3);
+insert into goods_size values(8,180,'XXXL',4,4,4,4,4);

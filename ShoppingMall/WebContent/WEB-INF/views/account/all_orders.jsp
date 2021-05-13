@@ -100,46 +100,16 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>#451231</td>
-                          <td>March 25, 2016</td>
-                          <td>2</td>
-                          <td>$99.00</td>
-                          <td><span class="badge badge-primary">Processing</span></td>
-                          <td><a href="account-single-order.html" class="btn btn-sm btn-secondary-outlined">View</a></td>
+                      <c:forEach items="ordersList" var="obj">
+                      	<tr>
+                          <td>#${obj.orders_idx}</td>
+                          <td>${obj.orders_date }</td>
+                          <td>${obj.orders_quantity}</td>
+                          <td>${obj.goods_price}</td>
+                          <td><span class="badge badge-primary">${obj.orders_status_name}</span></td>
+                          <td><a href="${root}/account/single_order" class="btn btn-sm btn-secondary-outlined">View</a></td>
                         </tr>
-                        <tr>
-                          <td>#451231</td>
-                          <td>March 25, 2016</td>
-                          <td>3</td>
-                          <td>$150.00</td>
-                          <td><span class="badge badge-success">Completed</span></td>
-                          <td><a href="account-single-order.html" class="btn btn-sm btn-secondary-outlined">View</a></td>
-                        </tr>
-                        <tr>
-                          <td>#451231</td>
-                          <td>March 25, 2016</td>
-                          <td>3</td>
-                          <td>$150.00</td>
-                          <td><span class="badge badge-danger">Canceled</span></td>
-                          <td><a href="account-single-order.html" class="btn btn-sm btn-secondary-outlined">View</a></td>
-                        </tr>
-                        <tr>
-                          <td>#451231</td>
-                          <td>March 25, 2016</td>
-                          <td>2</td>
-                          <td>$99.00</td>
-                          <td><span class="badge badge-info">On Hold</span></td>
-                          <td><a href="account-single-order.html" class="btn btn-sm btn-secondary-outlined">View</a></td>
-                        </tr>
-                        <tr>
-                          <td>#451231</td>
-                          <td>March 25, 2016</td>
-                          <td>3</td>
-                          <td>$150.00</td>
-                          <td><span class="badge badge-warning">Pending</span></td>
-                          <td><a href="account-single-order.html" class="btn btn-sm btn-secondary-outlined">View</a></td>
-                        </tr>
+                      </c:forEach>
                       </tbody>
                     </table>
                   </div>

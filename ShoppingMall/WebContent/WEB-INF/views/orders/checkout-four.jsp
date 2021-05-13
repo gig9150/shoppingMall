@@ -81,10 +81,10 @@
                     <h2>Thank You For Your Order</h2>
                     <span>주문해 주셔서 감사합니다.</span>
                     <p class="">
-                      Your order confirmation and receipt is sent to: abdus@bigbag.com <br>
+                      Your order confirmation and receipt is sent to: gig9150@WoongMall.com <br>
                       Your order will be shipped to: ${userAddress}
                     </p>
-                    <a href="index.html" class="btn btn-primary btn-default">Back to shop</a>
+                    <a href="${root}" class="btn btn-primary btn-default">Back to shop</a>
                   </div>
                 </div>
               </div>

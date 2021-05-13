@@ -1,5 +1,6 @@
 package com.project.shopping.controller;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -42,7 +43,12 @@ public class OrdersController {
 	}
 	
 	@PostMapping("/checkout-two")
-	public String checkoutTwo(@ModelAttribute OrdersUserBean ordersUserBean){
+	public String checkoutTwoPost(@ModelAttribute OrdersUserBean ordersUserBean){
+		return "orders/checkout-two";
+	}
+	
+	@GetMapping("/checkout-two")
+	public String checkoutTwoGet(@ModelAttribute OrdersUserBean ordersUserBean) {
 		return "orders/checkout-two";
 	}
 	
@@ -55,24 +61,31 @@ public class OrdersController {
 	@GetMapping("/checkout-four")
 	public String checkoutFour(@RequestParam String userAddress,
 								@RequestParam String userPhone,
-								HttpSession session){
+								HttpSession session,
+								Model model){
 		List<GoodsBean> list = (List)session.getAttribute("cartList");
-		//db에 주문목록 저장
-		for(GoodsBean bean : list) {
-			if(bean.getUser_id().equals(loginUserBean.getUser_id())) {
-				OrdersBean ordersBean = new OrdersBean();
-				ordersBean.setUserIdx(loginUserBean.getUser_idx());
-				ordersBean.setGoodsIdx(bean.getGoods_idx());
-				ordersBean.setOrdersAddress(userAddress);
-				ordersBean.setOrdersPhone(userPhone);
-				ordersBean.setOrdersQuantity(bean.getGoods_quantity());
-				ordersService.addOrdersInfo(ordersBean);
-				// 상품이 판매될때마다 판매량 집계하기위해 수량 추가
-				System.out.println("quantity:"+bean.getGoods_quantity());
-				System.out.println("goods_idx:"+bean.getGoods_quantity());
-				ordersService.updateGoodsSell(bean.getGoods_quantity(), bean.getGoods_idx());
-			}
+		
+		//db에 주문목록 저장 / session에서 장바구니 상품 삭제
+		Iterator<GoodsBean> iter = list.iterator();
+		while(iter.hasNext()) {
+			GoodsBean bean = iter.next();
+				if(bean.getUser_id().equals(loginUserBean.getUser_id())) {
+					OrdersBean ordersBean = new OrdersBean();
+					ordersBean.setUserIdx(loginUserBean.getUser_idx());
+					ordersBean.setGoodsIdx(bean.getGoods_idx());
+					ordersBean.setOrdersAddress(userAddress);
+					ordersBean.setOrdersPhone(userPhone);
+					ordersBean.setOrdersQuantity(bean.getGoods_quantity());
+					ordersBean.setOrdersSize(bean.getGoods_size());
+					ordersService.addOrdersInfo(ordersBean);
+					// 상품이 판매될때마다 판매량 집계하기위해 수량 추가
+					ordersService.updateGoodsSell(bean.getGoods_quantity(), bean.getGoods_idx());
+					// 상품이 판매되면 세션에서 상품 지우기 
+					iter.remove();
+				}
 		}
+		
+		model.addAttribute("userAddress",userAddress);
 		
 		return "orders/checkout-four";
 	}

@@ -1,13 +1,18 @@
 package com.project.shopping.controller;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.shopping.beans.UserBean;
+import com.project.shopping.service.OrdersService;
 
 @Controller
 @RequestMapping("/account")
@@ -15,6 +20,9 @@ public class AccountController {
 	
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
+	
+	@Autowired
+	private OrdersService ordersService;
 
 	@GetMapping("/profile")
 	public String profile() {
@@ -22,8 +30,15 @@ public class AccountController {
 	}
 	
 	@GetMapping("/all_orders")
-	public String allOrders() {
+	public String allOrders(Model model) {
+		List<HashMap<String, Object>> ordersList = ordersService.getOrdersList(loginUserBean.getUser_idx());
+		model.addAttribute(ordersList);
 		return "account/all_orders";
+	}
+	
+	@GetMapping("/single_order")
+	public String singleOrder() {
+		return "account/single_order";
 	}
 	
 	@GetMapping("/wishlist")

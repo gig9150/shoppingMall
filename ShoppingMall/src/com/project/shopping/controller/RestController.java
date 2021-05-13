@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.shopping.beans.GoodsBean;
 import com.project.shopping.beans.UserBean;
@@ -81,6 +82,7 @@ public class RestController {
 		return "true";
 	}
 	
+	// 카트에있는 값 지우기 
 	@GetMapping("/account/goodsDeleteCart/{goods_idx}/{goods_size}")
 	public String goodsDeleteCart(@PathVariable String goods_idx,
 									@PathVariable String goods_size,
@@ -99,6 +101,32 @@ public class RestController {
 		}
 		
 		return "ture";
+	}
+	
+	//장바구니에서 상품 수량을 변경했을때의 처리 
+	@GetMapping("/account/cartQuantity/{goods_idx}/{quantity}/{goods_size}/{up_down}")
+	public String cartQuantity(@PathVariable int goods_idx,
+								@PathVariable int quantity,
+								@PathVariable String goods_size,
+								@PathVariable String up_down,
+								HttpSession session) {
+		
+		String userId = (String)session.getAttribute("userId");
+		List<GoodsBean> list = (List)session.getAttribute("cartList");
+		
+		for(GoodsBean bean : list) {
+			if(bean.getUser_id().equals(userId) 
+					&& bean.getGoods_idx() == goods_idx
+					&& bean.getGoods_size().equals(goods_size)) {
+				if(up_down.equals("up")) {
+					bean.setGoods_quantity(quantity);
+				}else {
+					bean.setGoods_quantity(quantity);
+				}
+			}
+		}
+		
+		return "d";
 	}
 	
 }
