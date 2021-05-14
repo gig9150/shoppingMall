@@ -30,4 +30,11 @@ public interface OrdersMapper {
 			"AND O.ORDERS_STATUS_IDX = S.ORDERS_STATUS_IDX " +
 			"AND O.USER_IDX = #{userIdx}")
 	List<HashMap<Object, Object>> getOrdersList(int userIdx);
+	
+	@Select("SELECT O.ORDERS_ADDRESS,O.ORDERS_PHONE,TO_CHAR(O.ORDERS_DATE,'YYYY/MM/DD') AS ORDERS_DATE," + 
+			"O.ORDERS_SIZE,O.ORDERS_QUANTITY,G.GOODS_IDX,G.GOODS_NAME,G.GOODS_FILE,G.GOODS_PRICE " + 
+			"FROM ORDERS O,GOODS G " + 
+			"WHERE O.GOODS_IDX = G.GOODS_IDX " + 
+			"AND O.ORDERS_IDX = #{ordersIdx}")
+	HashMap<Object,Object> getOrderDetail(int ordersIdx);
 }

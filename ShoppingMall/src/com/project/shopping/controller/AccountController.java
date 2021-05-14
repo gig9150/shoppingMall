@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.shopping.beans.UserBean;
 import com.project.shopping.service.OrdersService;
@@ -37,7 +38,14 @@ public class AccountController {
 	}
 	
 	@GetMapping("/single_order")
-	public String singleOrder() {
+	public String singleOrder(@RequestParam int ordersIdx,
+								Model model) {
+		HashMap<Object,Object> ordersDetailMap = ordersService.getOrderDetail(ordersIdx);
+		//주문 상세 페이지에 필요한 정보들 담기 
+		model.addAttribute("ordersDetailMap", ordersDetailMap);
+		model.addAttribute("ordersIdx",ordersIdx);
+		model.addAttribute("user_name",loginUserBean.getUser_name());
+		
 		return "account/single_order";
 	}
 	

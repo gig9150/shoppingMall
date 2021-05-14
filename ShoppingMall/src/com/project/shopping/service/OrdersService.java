@@ -27,4 +27,8 @@ public class OrdersService {
 	public List<HashMap<Object, Object>> getOrdersList(int userIdx){
 		return ordersDao.getOrdersList(userIdx);
 	}
+	
+	public HashMap<Object,Object> getOrderDetail(int ordersIdx){
+		return ordersDao.getOrderDetail(ordersIdx);
+	}
 }

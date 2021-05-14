@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="root" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -87,7 +89,7 @@
             <div class="col-12">
               <div class="innerWrapper singleOrder">
                 <div class="orderBox">
-                  <h2>Order #451221</h2>
+                  <h2>Order # ${ordersIdx} / ${ordersDetailMap.ORDERS_DATE}</h2>
                 </div>
                 <div class="row">
                   <div class="col-md-6 col-12">
@@ -97,10 +99,9 @@
                       </div>
                       <div class="panel-body">
                         <address>
-                          <strong>Adam Smith</strong><br>
-                          9/4 C Babor Road, Mohammad pur, <br>
-                          Shyamoli, Dhaka <br>
-                          Bangladesh
+                          <strong>${user_name}</strong><br>
+                          ${ordersDetailMap.ORDERS_ADDRESS} <br>
+                          ${ordersDetailMap.ORDERS_PHONE } <br>
                         </address>
                       </div>
                     </div>
@@ -112,10 +113,9 @@
                       </div>
                       <div class="panel-body">
                         <address>
-                          <strong>Adam Smith</strong><br>
-                          9/4 C Babor Road, Mohammad pur, <br>
-                          Shyamoli, Dhaka <br>
-                          Bangladesh
+                          <strong>${user_name}</strong><br>
+                          ${ordersDetailMap.ORDERS_ADDRESS} <br>
+                          ${ordersDetailMap.ORDERS_PHONE } <br>
                         </address>
                       </div>
                     </div>
@@ -127,7 +127,7 @@
                       </div>
                       <div class="panel-body">
                         <address>
-                          <span>Credit Card - VISA</span>
+                          <span>Credit Card</span>
                         </address>
                       </div>
                     </div>
@@ -147,20 +147,21 @@
                   <div class="col-12">
                     <div class="panel panel-default">
                       <div class="panel-heading">
-                        <h4 class="panel-title">Order Details</h4>
+                        <h4 class="panel-title">Order Goods Details</h4>
                       </div>
                       <div class="panel-body">
                         <div class="row">
                           <div class="col-md-4 col-12">
                             <address>
-                              <a href="#">Email: adamsmith@bigbag.com</a> <br>
-                              <span>Phone: +884 5452 6432</span>
+                            	<img alt="" src="${root}/upload/${ordersDetailMap.GOODS_FILE}" width="200" height="150">
                             </address>
                           </div>
                           <div class="col-md-8 col-12">
                             <address>
-                              <span>Additional Information: </span><br>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
+                              <a href="${root}/goods/${ordersDetailMap.GOODS_IDX}">${ordersDetailMap.GOODS_NAME}</a> <br><br>
+                              <span>수량&nbsp;:&nbsp;</span>&nbsp;&nbsp;${ordersDetailMap.ORDERS_QUANTITY}<br>
+                              <span>사이즈&nbsp;:&nbsp;</span>&nbsp;&nbsp;${ordersDetailMap.ORDERS_SIZE}<br>
+                              <span>가격&nbsp;:&nbsp;</span>&nbsp;&nbsp;${ordersDetailMap.GOODS_PRICE}
                             </address>
                           </div>
                         </div>
@@ -168,10 +169,9 @@
                     </div>
                   </div>
                   <div class="col-12">
-                    <div class="btn-group" role="group" aria-label="...">
-                      <button type="button" class="btn btn-default">Print</button>
-                      <button type="button" class="btn btn-default">Save to pdf</button>
-                      <button type="button" class="btn btn-danger">cancel order</button>
+                    <div>
+                      <a role="button" class="btn btn-primary" href="${root}/account/all_orders">back</a>
+                      <a role="button" class="btn btn-danger" href="${root}/account/all_orders">cancel order</a>
                     </div>
                   </div>
                 </div>
@@ -184,105 +184,7 @@
     	<c:import url="/WEB-INF/views/include/footer.jsp" />
     
 
-		<!-- LOGIN MODAL -->
-		<div class="modal fade login-modal" id="login" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header justify-content-center">
-						<h3 class="modal-title">log in</h3>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">
-						<form action="" method="POST" role="form">
-							<div class="form-group">
-								<label for="">Enter Email</label>
-								<input type="email" class="form-control">
-							</div>
-							<div class="form-group">
-								<label for="">Password</label>
-								<input type="password" class="form-control">
-							</div>
-							<div class="checkbox">
-								<input id="checkbox-1" class="checkbox-custom form-check-input" name="checkbox-1" type="checkbox" checked>
-								<label for="checkbox-1" class="checkbox-custom-label form-check-label">Remember me</label>
-							</div>
-							<button type="submit" class="btn btn-primary btn-block">log in</button>
-							<button type="button" class="btn btn-link btn-block">Forgot Password?</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- SIGN UP MODAL -->
-		<div class="modal fade " id="signup" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header justify-content-center">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h3 class="modal-title">Create an account</h3>
-					</div>
-					<div class="modal-body">
-						<form action="" method="POST" role="form">
-							<div class="form-group">
-								<label for="">Enter Email</label>
-								<input type="email" class="form-control">
-							</div>
-							<div class="form-group">
-								<label for="">Password</label>
-								<input type="password" class="form-control">
-							</div>
-							<div class="form-group">
-								<label for="">Confirm Password</label>
-								<input type="password" class="form-control">
-							</div>
-							<button type="submit" class="btn btn-primary btn-block">Sign up</button>
-							<button type="button" class="btn btn-link btn-block">New User?</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- PORDUCT QUICK VIEW MODAL -->
-		<div class="modal fade quick-view" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-body">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<div class="media flex-wrap">
-							<div class="media-left px-0">
-								<img class="media-object" src="${root}/assets/img/products/quick-view/quick-view-01.jpg" alt="Image">
-							</div>
-							<div class="media-body">
-								<h2>Old Skool Navy</h2>
-								<h3>$149</h3>
-								<p>Classic sneaker from Vans. Cotton canvas and suede upper. Textile lining with heel stabilizer and ankle support. Contrasting laces. Sits on a classic waffle rubber sole.</p>
-								<span class="quick-drop">
-									<select name="guiest_id3" id="guiest_id3" class="select-drop">
-										<option value="0">Size</option>
-										<option value="1">Size 1</option>
-										<option value="2">Size 2</option>
-										<option value="3">Size 3</option>
-									</select>
-								</span>
-								<span class="quick-drop resizeWidth">
-									<select name="guiest_id4" id="guiest_id4" class="select-drop">
-										<option value="0">Qty</option>
-										<option value="1">Qty 1</option>
-										<option value="2">Qty 2</option>
-										<option value="3">Qty 3</option>
-									</select>
-								</span>
-								<div class="btn-area">
-									<a href="#" class="btn btn-primary btn-block">Add to cart <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		
 
 		<script src="${root}/assets/plugins/jquery/jquery.min.js"></script>
 		<script src="${root}/assets/plugins/jquery/jquery-migrate-3.0.0.min.js"></script>

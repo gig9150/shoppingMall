@@ -107,7 +107,7 @@
                           <td>${obj.ORDERS_QUANTITY}</td>
                           <td>${obj.GOODS_PRICE}</td>
                           <td><span class="badge badge-primary">${obj.ORDERS_STATUS_NAME}</span></td>
-                          <td><a href="${root}/account/single_order" class="btn btn-sm btn-secondary-outlined">View</a></td>
+                          <td><a href="${root}/account/single_order?ordersIdx=${obj.ORDERS_IDX}" class="btn btn-sm btn-secondary-outlined">View</a></td>
                         </tr>
                       </c:forEach>
                       </tbody>

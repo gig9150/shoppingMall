@@ -27,4 +27,8 @@ public class OrdersDao {
 	public List<HashMap<Object, Object>> getOrdersList(int userIdx){
 		return ordersMapper.getOrdersList(userIdx);
 	}
+	
+	public HashMap<Object,Object> getOrderDetail(int ordersIdx){
+		return ordersMapper.getOrderDetail(ordersIdx);
+	}
 }
