@@ -2,6 +2,8 @@ package com.project.shopping.controller;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,11 +14,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.project.shopping.beans.GoodsBean;
 import com.project.shopping.beans.GoodsSizeBean;
 import com.project.shopping.beans.PageBean;
+import com.project.shopping.beans.UserBean;
 import com.project.shopping.service.GoodsService;
 
 @Controller
 @RequestMapping("/goods")
 public class GoodsController {
+	
+	@Resource(name = "loginUserBean")
+	private UserBean loginUserBean;
 	
 	@Autowired
 	private GoodsService goodsService;
@@ -37,6 +43,11 @@ public class GoodsController {
 		model.addAttribute("goodsList",goodsList);
 		//페이징 처리에 필요한 정보들 얻어오기 (pageBean)
 		PageBean pageBean =  goodsService.getGoodsCnt(goods_category_idx, page);
+		//위시리스트에 들어있는 상품 정보 뽑아오기
+		if(goodsService.getGoodsInWishList(loginUserBean.getUser_idx()) != null) {
+			List<Integer> wishGoodsIdx = goodsService.getGoodsInWishList(loginUserBean.getUser_idx());
+			model.addAttribute("wishGoodsIdx",wishGoodsIdx);
+		}
 		model.addAttribute("pageBean",pageBean);
 		model.addAttribute("page",page);
 		model.addAttribute("guiest_id1",guiest_id1);

@@ -75,7 +75,6 @@
           <div class="row">
             <div class="col-12">
               <div class="btn-group" role="group" aria-label="...">
-                <a href="${root}/account/profile" class="btn btn-default"><i class="fa fa-user" aria-hidden="true"></i>Profile</a>
                 <a href="${root}/account/all_orders" class="btn btn-default"><i class="fa fa-th" aria-hidden="true"></i>All Orders</a>
                 <a href="${root}/account/wishlist" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Wistlist</a>
                 <a href="${root}/user/delete" class="btn btn-default active"><i class="fa fa-trash" aria-hidden="true"></i>Leave the site</a>
@@ -87,8 +86,10 @@
               <div class="innerWrapper">
                 <div class="orderBox myAddress wishList">
                   <h2>Leave the site</h2>
-                	<a href="${root}/user/delete_pro" style="color:blue">정말 탈퇴하시겟슴니까???</a>
-                	
+                  <p class="h3">
+	                		탈퇴한 이후에는 아이디를 복구 할 수 없습니다.<br>정말 탈퇴하시겠습니까?
+                  </p>
+                  <a class="btn btn-primary" href="${root}/user/delete_pro" role="button">탈퇴하기</a>
                 </div>
               </div>
             </div>

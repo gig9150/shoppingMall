@@ -62,5 +62,9 @@ public class GoodsService {
 		return goodsDao.getGoodsSizeList(goods_idx);
 	}
 	
+	public List<Integer> getGoodsInWishList(int userIdx) {
+		return goodsDao.getGoodsInWishList(userIdx);
+	}
+	
 	
 }

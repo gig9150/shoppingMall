@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.shopping.beans.UserBean;
+import com.project.shopping.service.AccountService;
 import com.project.shopping.service.OrdersService;
 
 @Controller
@@ -24,11 +25,9 @@ public class AccountController {
 	
 	@Autowired
 	private OrdersService ordersService;
-
-	@GetMapping("/profile")
-	public String profile() {
-		return "account/profile";
-	}
+	
+	@Autowired
+	private AccountService accountService;
 	
 	@GetMapping("/all_orders")
 	public String allOrders(Model model) {
@@ -50,7 +49,9 @@ public class AccountController {
 	}
 	
 	@GetMapping("/wishlist")
-	public String wishList() {
+	public String wishList(Model model) {
+		List<HashMap<Object, Object>> wishList = accountService.getWishlist(loginUserBean.getUser_idx());
+		model.addAttribute("wishList",wishList);
 		return "account/wishlist";
 	}
 	
@@ -59,5 +60,12 @@ public class AccountController {
 		model.addAttribute("user_id",loginUserBean.getUser_id());
 		return "account/cartpage";
 	}
+	//주문취소
+	@GetMapping("/cancle_order")
+	public String cancleOrder(@RequestParam int ordersIdx) {
+		return "account/cancle_order";
+	}
+	
+	
 	
 }

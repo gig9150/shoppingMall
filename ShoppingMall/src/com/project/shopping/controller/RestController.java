@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.shopping.beans.GoodsBean;
 import com.project.shopping.beans.UserBean;
+import com.project.shopping.service.AccountService;
 import com.project.shopping.service.GoodsService;
 import com.project.shopping.service.UserService;
 
@@ -26,6 +27,9 @@ public class RestController {
 	
 	@Autowired
 	private GoodsService goodsService;
+	
+	@Autowired
+	private AccountService accountService;
 	
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
@@ -128,5 +132,21 @@ public class RestController {
 		
 		return "d";
 	}
+	
+	//위시리스트 추가 
+	@GetMapping("/account/addWishlist/{goods_idx}")
+	public String addWishlist(@PathVariable int goods_idx) {
+		
+		accountService.addWishlist(loginUserBean.getUser_idx(),goods_idx);
+		return "true";
+	}
+	
+	//위시리스트 삭제
+	@GetMapping("/account/deleteWishlist/{wishlist_idx}")
+	public String deleteWishlist(@PathVariable int wishlist_idx) {
+		accountService.deleteWishlist(wishlist_idx);
+		return "true";
+	}
+	
 	
 }

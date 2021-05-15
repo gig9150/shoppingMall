@@ -70,12 +70,11 @@
       </section>
 
       <!-- MAIN CONTENT SECTION -->
-      <section class="mainCoWntent clearfix userProfile">
+      <section class="mainContent clearfix userProfile">
         <div class="container">
           <div class="row">
             <div class="col-12">
               <div class="btn-group" role="group" aria-label="...">
-                <a href="${root}/account/profile" class="btn btn-default"><i class="fa fa-user" aria-hidden="true"></i>Profile</a>
                 <a href="${root}/account/all_orders" class="btn btn-default"><i class="fa fa-th" aria-hidden="true"></i>All Orders</a>
                 <a href="${root}/account/wishlist" class="btn btn-default active"><i class="fa fa-list" aria-hidden="true"></i>Wistlist</a>
                 <a href="${root}/user/delete" class="btn btn-default"><i class="fa fa-trash" aria-hidden="true"></i>Leave the site</a>
@@ -94,47 +93,26 @@
                           <th></th>
                           <th>Product Name</th>
                           <th>Unit Price</th>
-                          <th>Stock Status</th>
+                          <th>wish Date</th>
                           <th></th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
+                        
+                        <c:forEach items="${wishList}" var="obj">
+                        	<tr>
                           <td class="">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <span class="cartImage"><img src="assets/img/products/cart-image1.jpg" alt="image"></span>
+                            <button type="button" data-wishlist-idx="${obj.WISHLIST_IDX}"  class="close delete-wish" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <span class="cartImage"><img src="${root}/upload/${obj.GOODS_FILE}" width="120" height="120" alt="image"></span>
                           </td>
-                          <td>Italian Winter Hat</td>
-                          <td>$ 99.00</td>
-                          <td>In Stock</td>
+                          <td>${obj.GOODS_NAME}</td>
+                          <td>${obj.GOODS_PRICE}</td>
+                          <td>${obj.WISHLIST_DATE }</td>
                           <td>
-                            <a href="#" class="btn btn-sm btn-secondary-outlined">Add to Cart</a>
+                            <a href="${root}/goods/detail?goods_idx=${obj.GOODS_OBJ}" class="btn btn-sm btn-secondary-outlined">GO TO GOODS</a>
                           </td>
                         </tr>
-                        <tr>
-                          <td class="">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <span class="cartImage"><img src="assets/img/products/cart-image2.jpg" alt="image"></span>
-                          </td>
-                          <td>Italian Winter Hat</td>
-                          <td>$ 99.00</td>
-                          <td>In Stock</td>
-                          <td>
-                            <a href="#" class="btn btn-sm btn-secondary-outlined">Add to Cart</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <span class="cartImage"><img src="assets/img/products/cart-image3.jpg" alt="image"></span>
-                          </td>
-                          <td>Italian Winter Hat</td>
-                          <td>$ 99.00</td>
-                          <td>In Stock</td>
-                          <td>
-                            <a href="#" class="btn btn-sm btn-secondary-outlined">Add to Cart</a>
-                          </td>
-                        </tr>
+                        </c:forEach>
                       </tbody>
                     </table>
                   </div>
@@ -147,105 +125,6 @@
 
       <c:import url="/WEB-INF/views/include/footer.jsp" />
 
-		<!-- LOGIN MODAL -->
-		<div class="modal fade login-modal" id="login" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header justify-content-center">
-						<h3 class="modal-title">log in</h3>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">
-						<form action="" method="POST" role="form">
-							<div class="form-group">
-								<label for="">Enter Email</label>
-								<input type="email" class="form-control">
-							</div>
-							<div class="form-group">
-								<label for="">Password</label>
-								<input type="password" class="form-control">
-							</div>
-							<div class="checkbox">
-								<input id="checkbox-1" class="checkbox-custom form-check-input" name="checkbox-1" type="checkbox" checked>
-								<label for="checkbox-1" class="checkbox-custom-label form-check-label">Remember me</label>
-							</div>
-							<button type="submit" class="btn btn-primary btn-block">log in</button>
-							<button type="button" class="btn btn-link btn-block">Forgot Password?</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- SIGN UP MODAL -->
-		<div class="modal fade " id="signup" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header justify-content-center">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h3 class="modal-title">Create an account</h3>
-					</div>
-					<div class="modal-body">
-						<form action="" method="POST" role="form">
-							<div class="form-group">
-								<label for="">Enter Email</label>
-								<input type="email" class="form-control">
-							</div>
-							<div class="form-group">
-								<label for="">Password</label>
-								<input type="password" class="form-control">
-							</div>
-							<div class="form-group">
-								<label for="">Confirm Password</label>
-								<input type="password" class="form-control">
-							</div>
-							<button type="submit" class="btn btn-primary btn-block">Sign up</button>
-							<button type="button" class="btn btn-link btn-block">New User?</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- PORDUCT QUICK VIEW MODAL -->
-		<div class="modal fade quick-view" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-body">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<div class="media flex-wrap">
-							<div class="media-left px-0">
-								<img class="media-object" src="${root}/assets/img/products/quick-view/quick-view-01.jpg" alt="Image">
-							</div>
-							<div class="media-body">
-								<h2>Old Skool Navy</h2>
-								<h3>$149</h3>
-								<p>Classic sneaker from Vans. Cotton canvas and suede upper. Textile lining with heel stabilizer and ankle support. Contrasting laces. Sits on a classic waffle rubber sole.</p>
-								<span class="quick-drop">
-									<select name="guiest_id3" id="guiest_id3" class="select-drop">
-										<option value="0">Size</option>
-										<option value="1">Size 1</option>
-										<option value="2">Size 2</option>
-										<option value="3">Size 3</option>
-									</select>
-								</span>
-								<span class="quick-drop resizeWidth">
-									<select name="guiest_id4" id="guiest_id4" class="select-drop">
-										<option value="0">Qty</option>
-										<option value="1">Qty 1</option>
-										<option value="2">Qty 2</option>
-										<option value="3">Qty 3</option>
-									</select>
-								</span>
-								<div class="btn-area">
-									<a href="#" class="btn btn-primary btn-block">Add to cart <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 
 		<script src="${root}/assets/plugins/jquery/jquery.min.js"></script>
 		<script src="${root}/assets/plugins/jquery/jquery-migrate-3.0.0.min.js"></script>
@@ -262,6 +141,20 @@
 		<script src="${root}/assets/plugins/velocity/velocity.min.js"></script>
 		<script src="${root}/assets/plugins/rateyo/jquery.rateyo.min.js"></script>
 		<script src="${root}/assets/js/custom.js"></script>
+		<script>
+			$(function(){
+				$('.delete-wish').on('click',function(){
+					const wishlist_idx = $(this).data('wishlist-idx');
+					$.ajax({
+						url:'${root}/account/deleteWishlist/'+wishlist_idx,
+						type:'get',
+						success:function(data){
+							console.log(data);
+						}
+					});
+				});
+			});
+		</script>
 
 	</body>
 </html>

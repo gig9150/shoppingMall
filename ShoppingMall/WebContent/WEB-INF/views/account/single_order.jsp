@@ -158,7 +158,7 @@
                           </div>
                           <div class="col-md-8 col-12">
                             <address>
-                              <a href="${root}/goods/${ordersDetailMap.GOODS_IDX}">${ordersDetailMap.GOODS_NAME}</a> <br><br>
+                              <a href="${root}/goods/main?goods_idx=${ordersDetailMap.GOODS_IDX}">${ordersDetailMap.GOODS_NAME}</a> <br><br>
                               <span>수량&nbsp;:&nbsp;</span>&nbsp;&nbsp;${ordersDetailMap.ORDERS_QUANTITY}<br>
                               <span>사이즈&nbsp;:&nbsp;</span>&nbsp;&nbsp;${ordersDetailMap.ORDERS_SIZE}<br>
                               <span>가격&nbsp;:&nbsp;</span>&nbsp;&nbsp;${ordersDetailMap.GOODS_PRICE}
@@ -171,7 +171,7 @@
                   <div class="col-12">
                     <div>
                       <a role="button" class="btn btn-primary" href="${root}/account/all_orders">back</a>
-                      <a role="button" class="btn btn-danger" href="${root}/account/all_orders">cancel order</a>
+                      <a role="button" class="btn btn-danger" href="${root}/account/cancle_order?ordersIdx=${ordersIdx}">cancel order</a>
                     </div>
                   </div>
                 </div>

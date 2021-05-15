@@ -23,7 +23,7 @@
             		<small>or</small><a href='${root}/user/join'>Create an account</a></span></li>
           		</c:when>
           		<c:otherwise>
-          			<li class="account-login"><span><a href='${root}/account/profile'>마이페이지</a>
+          			<li class="account-login"><span><a href='${root}/account/all_orders'>마이페이지</a>
             		<small>/</small><a href='${root}/user/modify'>수정하기</a>
             		<small>/</small><a href='${root}/user/logout'>로그아웃</a></span></li>
           		</c:otherwise>

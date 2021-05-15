@@ -27,6 +27,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.project.shopping.beans.UserBean;
 import com.project.shopping.interceptor.CheckLoginInterceptor;
 import com.project.shopping.interceptor.TopMenuInterceptor;
+import com.project.shopping.mapper.AccountMapper;
 import com.project.shopping.mapper.GoodsMapper;
 import com.project.shopping.mapper.OrdersMapper;
 import com.project.shopping.mapper.TopMenuMapper;
@@ -118,6 +119,13 @@ public class ServletAppContext implements WebMvcConfigurer {
 	@Bean
 	public MapperFactoryBean<TopMenuMapper> getTopMenuMapper(SqlSessionFactory factory){
 		MapperFactoryBean<TopMenuMapper> factoryBean = new MapperFactoryBean<TopMenuMapper>(TopMenuMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	
+	@Bean
+	public MapperFactoryBean<AccountMapper> getAccountMapper(SqlSessionFactory factory){
+		MapperFactoryBean<AccountMapper> factoryBean = new MapperFactoryBean<AccountMapper>(AccountMapper.class);
 		factoryBean.setSqlSessionFactory(factory);
 		return factoryBean;
 	}

@@ -75,7 +75,6 @@
           <div class="row">
             <div class="col-md-12">
               <div class="btn-group" role="group" aria-label="...">
-                <a href="${root}/account/profile" class="btn btn-default"><i class="fa fa-user" aria-hidden="true"></i>Profile</a>
                 <a href="${root}/account/all_orders" class="btn btn-default active"><i class="fa fa-th" aria-hidden="true"></i>All Orders</a>
                 <a href="${root}/account/wishlist" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Wistlist</a>
                 <a href="${root}/user/delete" class="btn btn-default"><i class="fa fa-trash" aria-hidden="true"></i>Leave the site</a>

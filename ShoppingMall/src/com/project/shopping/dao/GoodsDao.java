@@ -54,4 +54,8 @@ public class GoodsDao {
 	public List<GoodsSizeBean> getGoodsSizeList(int goods_idx){
 		return goodsMapper.getGoodsSizeList(goods_idx);
 	}
+	
+	public List<Integer> getGoodsInWishList(int userIdx) {
+		return goodsMapper.getGoodsInWishList(userIdx);
+	}
 }

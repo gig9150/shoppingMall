@@ -62,4 +62,10 @@ public interface GoodsMapper {
 			"ORDER BY GOODS_SIZE_NUM ASC")
 	List<GoodsSizeBean> getGoodsSizeList(int goods_idx);
 	
+	//위시리스트에 담겨 있는 상품정보 뽑아가기
+	@Select("SELECT GOODS_IDX " + 
+			"FROM WISHLIST " +
+			"WHERE USER_IDX = #{userIdx}")
+	List<Integer> getGoodsInWishList(int userIdx);
+	
 }
