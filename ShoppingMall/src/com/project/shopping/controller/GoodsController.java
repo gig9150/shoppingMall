@@ -47,6 +47,7 @@ public class GoodsController {
 		if(goodsService.getGoodsInWishList(loginUserBean.getUser_idx()) != null) {
 			List<Integer> wishGoodsIdx = goodsService.getGoodsInWishList(loginUserBean.getUser_idx());
 			model.addAttribute("wishGoodsIdx",wishGoodsIdx);
+			
 		}
 		model.addAttribute("pageBean",pageBean);
 		model.addAttribute("page",page);

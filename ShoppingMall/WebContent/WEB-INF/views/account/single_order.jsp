@@ -77,8 +77,6 @@
           <div class="row">
             <div class="col-12">
               <div class="btn-group" role="group" aria-label="...">
-                <a href="account-dashboard.html" class="btn btn-default"><i class="fa fa-th" aria-hidden="true"></i>Account Dashboard</a>
-                <a href="account-profile.html" class="btn btn-default"><i class="fa fa-user" aria-hidden="true"></i>Profile</a>
                 <a href="account-address.html" class="btn btn-default"><i class="fa fa-map-marker" aria-hidden="true"></i>My Address</a>
                 <a href="account-all-orders.html" class="btn btn-default active"><i class="fa fa-list" aria-hidden="true"></i>All Orders</a>
                 <a href="account-wishlist.html" class="btn btn-default"><i class="fa fa-gift" aria-hidden="true"></i>Wishlist</a>
@@ -158,7 +156,7 @@
                           </div>
                           <div class="col-md-8 col-12">
                             <address>
-                              <a href="${root}/goods/main?goods_idx=${ordersDetailMap.GOODS_IDX}">${ordersDetailMap.GOODS_NAME}</a> <br><br>
+                              <a href="${root}/goods/detail?goods_idx=${ordersDetailMap.GOODS_IDX}" style="color:blue">${ordersDetailMap.GOODS_NAME}</a> <br><br>
                               <span>수량&nbsp;:&nbsp;</span>&nbsp;&nbsp;${ordersDetailMap.ORDERS_QUANTITY}<br>
                               <span>사이즈&nbsp;:&nbsp;</span>&nbsp;&nbsp;${ordersDetailMap.ORDERS_SIZE}<br>
                               <span>가격&nbsp;:&nbsp;</span>&nbsp;&nbsp;${ordersDetailMap.GOODS_PRICE}

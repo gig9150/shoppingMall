@@ -110,19 +110,20 @@
 	                  <img src="${root}/upload/${obj.goods_file}" alt="products-img">
 	                  <div class="productMasking">
 	                    <ul class="list-inline btn-group" role="group">
+	                    <c:set var="checkWishList" value="true"/>
 	                    <c:forEach items="${wishGoodsIdx}" var="wishIdx">
-	                      <c:choose>
-	                      	<c:when test="${wishIdx == obj.goods_idx}">
-	                      		<li><a class="btn btn-default btn-wishlist on" data-goods-idx="${obj.goods_idx}">
-	                      		<i class="fa fa-heart"></i></a></li>
-	                      	</c:when>
-	                      	<c:otherwise>
-	                      		<li><a class="btn btn-default btn-wishlist off" data-goods-idx="${obj.goods_idx}">
-	                      		<i class="fa fa-heart-o"></i></a></li>
-	                      	</c:otherwise>
-	                      </c:choose>
+	                     <c:if test="${wishIdx == obj.goods_idx and checkWishList == true}">
+	                      <li><a class="btn btn-default btn-wishlist active" data-goods-idx="${obj.goods_idx}">
+	                      <i class="fa fa-heart-o"></i></a></li>
+	                      <c:set var="checkWishList" value="false"/>
+	                     </c:if>
 	                    </c:forEach>
-	                      <li><a class="btn btn-default" href="${root}/goods/detail?goods_idx=${obj.goods_idx}&page=${requestScope.page}&goods_category_idx=${goods_category_idx}" ><i class="fa fa-eye"></i></a></li>
+                    	<c:if test="${checkWishList == true}">
+                    		<li><a class="btn btn-default btn-wishlist" data-goods-idx="${obj.goods_idx}">
+	                      <i class="fa fa-heart-o"></i></a></li>
+                    	</c:if>
+                    	<c:set var="checkWishList" value="true"/>
+	                    <li><a class="btn btn-default" href="${root}/goods/detail?goods_idx=${obj.goods_idx}&page=${requestScope.page}&goods_category_idx=${goods_category_idx}" ><i class="fa fa-eye"></i></a></li>
 	                    </ul>	
 	                  </div>
 	                </div>
@@ -359,31 +360,33 @@
 		
 		<script>
 			$(function(){
-				$(".btn-wishlist.on").on('click',function(){
+				
+				//위시리스트목록에 추가 
+				$(".btn-wishlist.active").on('click',function(){
 					const goods_idx = $(this).data("goods-idx");
 					$.ajax({
-						url:"${root}/account/addWishlist/"+goods_idx,
+						url:"${root}/account/deleteWishlist/"+goods_idx,
+						type:'get',
+						success:function(data){
+							console.log('삭제');
+						}
+					});
+				});
+				
+				//위시리스트목록에서 제거
+				$(".btn-wishlist").not('.active').on('click',function(){
+					const goods_idx = $(this).data("goods-idx");
+					$.ajax({
+						url:'${root}/account/addWishlist/'+goods_idx,
 						type:'get',
 						success:function(data){
 							console.log(data);
 						}
 					});
-					$(this).removeClass('on');
-					$(this).addClass('off');
 				});
-				$(".btn-wishlist.off").on('click',function(){
-					const goods_idx = $(this).data("goods-idx");
-					$.ajax({
-						url:'${root}/account/deleteWishlist/'+goods_idx,
-						type:'get',
-						success:function(data){
-							console.log(data);
-						}
-					});
-					$(this).removeClass('off');
-					$(this).addClass('on');
-				});
-			})
+			});
+
+			
 		</script>
 
 		

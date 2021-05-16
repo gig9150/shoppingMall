@@ -136,7 +136,6 @@ public class RestController {
 	//위시리스트 추가 
 	@GetMapping("/account/addWishlist/{goods_idx}")
 	public String addWishlist(@PathVariable int goods_idx) {
-		
 		accountService.addWishlist(loginUserBean.getUser_idx(),goods_idx);
 		return "true";
 	}

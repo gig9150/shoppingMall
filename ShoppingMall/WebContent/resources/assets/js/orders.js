@@ -34,6 +34,7 @@ $(function(){
 		        var msg = '결제에 실패하였습니다.';
 		        msg += '에러내용 : ' + rsp.error_msg;
 		    }
+		    console.log('엥ㅇㅇㅇㅇㅇ');
 		    location.href='/ShoppingMall/orders/checkout-four?userAddress='+user_address+'&userPhone='+user_phone;
 
 		});

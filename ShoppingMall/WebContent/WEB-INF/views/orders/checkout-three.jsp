@@ -156,8 +156,7 @@
                   <ul class="pager">
                   <li class="previous float-left"><a class="btn btn-secondary btn-default float-left" href="${root}/orders/checkout-two?userName=${ordersUserBean.userName}&userId=${orderUserBean.userId}
 	                     	&userAddress=${ordersUserBean.userAddress}&userPhone=${ordersUserBean.userPhone}&userEmail=${ordersUserBean.userEmail}&totalPrice=${ordersUserBean.totalPrice}">back</a></li>
-<!--                     <li class="next"><a id="continue" class="btn btn-primary btn-default float-right" href="javascript:void(0)">Continue <i class="fa fa-angle-right"></i></a></li>               -->
-													<li class="next"><a id="continue" class="btn btn-primary btn-default float-right" href="${root}/orders/checkout-four?userAddress=${ordersUserBean.userAddress}&userPhone=${ordersUserBean.userPhone}">Continue <i class="fa fa-angle-right"></i></a></li>
+                    		<li class="next"><a id="continue" class="btn btn-primary btn-default float-right" href="javascript:void(0)">Continue <i class="fa fa-angle-right"></i></a></li>              
                   </ul>
                 </div>
               </div>
@@ -252,6 +251,6 @@
 		<script src="${root}/assets/js/custom.js"></script>
 		<!-- 결제 api 라이브러리 -->
 		<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-<%-- 		<script src="${root}/assets/js/orders.js"></script> --%>
+		<script src="${root}/assets/js/orders.js"></script>
 	</body>
 </html>
