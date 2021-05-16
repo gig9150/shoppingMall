@@ -66,5 +66,9 @@ public class GoodsService {
 		return goodsDao.getGoodsInWishList(userIdx);
 	}
 	
+	public int getGoodsStock(int goodsIdx,String goodsSizeName) {
+		return goodsDao.getGoodsStock(goodsIdx, goodsSizeName);
+	}
+	
 	
 }

@@ -225,7 +225,11 @@ ALTER TABLE orders ADD orders_size varchar2(10) not null;
 
 -- GOODS_SIZE 데이터 추가
 
-insert into goods_size values(5,180,'L',1,1,1,1,1);
-insert into goods_size values(6,180,'XL',2,2,2,2,2);
-insert into goods_size values(7,180,'XXL',3,3,3,3,3);
-insert into goods_size values(8,180,'XXXL',4,4,4,4,4);
+insert into goods_size values(5,180,'L',1,1,1,1,1,10);
+insert into goods_size values(6,180,'XL',2,2,2,2,2,10);
+insert into goods_size values(7,180,'XXL',3,3,3,3,3,10);
+insert into goods_size values(8,180,'XXXL',4,4,4,4,4,10);
+
+--goods_size 컬럼 추가
+
+ALTER TABLE goods_size ADD goods_size_stock number(10) not null;

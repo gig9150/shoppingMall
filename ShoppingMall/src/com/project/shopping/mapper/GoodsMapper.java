@@ -2,6 +2,7 @@ package com.project.shopping.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.session.RowBounds;
 
@@ -56,7 +57,7 @@ public interface GoodsMapper {
 	GoodsBean getGoodsInfo(int goods_idx);
 	
 	@Select("SELECT GOODS_SIZE_NAME,GOODS_SIZE_LENGTH,GOODS_SIZE_SHOULDER, " +
-			"GOODS_SIZE_CHEST,GOODS_SIZE_SLEEVE " +
+			"GOODS_SIZE_CHEST,GOODS_SIZE_SLEEVE,GOODS_SIZE_STOCK " +
 			"FROM GOODS_SIZE " +
 			"WHERE GOODS_IDX = #{goods_idx} " +
 			"ORDER BY GOODS_SIZE_NUM ASC")
@@ -67,5 +68,12 @@ public interface GoodsMapper {
 			"FROM WISHLIST " +
 			"WHERE USER_IDX = #{userIdx}")
 	List<Integer> getGoodsInWishList(int userIdx);
+	
+	//사이즈 재고 뽑아오는 쿼리
+	@Select("SELECT GOODS_SIZE_STOCK " +
+			"FROM GOODS_SIZE " +
+			"WHERE GOODS_IDX = #{goodsIdx} " +
+			"AND GOODS_SIZE_NAME = #{goodsSizeName}")
+	int getGoodsStock(@Param("goodsIdx") int goodsIdx,@Param("goodsSizeName") String goodsSizeName);
 	
 }

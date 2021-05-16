@@ -10,6 +10,7 @@ public class GoodsSizeBean {
 	private int goods_size_shoulder;
 	private int goods_size_chest;
 	private int goods_size_sleeve;
+	private int goods_size_stock;
 	
 	public int getGoods_size_idx() {
 		return goods_size_idx;
@@ -59,7 +60,11 @@ public class GoodsSizeBean {
 	public void setGoods_size_sleeve(int goods_size_sleeve) {
 		this.goods_size_sleeve = goods_size_sleeve;
 	}
-	
-	
+	public int getGoods_size_stock() {
+		return goods_size_stock;
+	}
+	public void setGoods_size_stock(int goods_size_stock) {
+		this.goods_size_stock = goods_size_stock;
+	}
 	
 }

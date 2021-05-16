@@ -58,4 +58,8 @@ public class GoodsDao {
 	public List<Integer> getGoodsInWishList(int userIdx) {
 		return goodsMapper.getGoodsInWishList(userIdx);
 	}
+	
+	public int getGoodsStock(int goodsIdx,String goodsSizeName) {
+		return goodsMapper.getGoodsStock(goodsIdx, goodsSizeName);
+	}
 }

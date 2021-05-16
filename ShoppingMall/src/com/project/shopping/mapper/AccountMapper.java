@@ -16,8 +16,9 @@ public interface AccountMapper {
 	
 	//위시리스트 삭제하기
 	@Delete("DELETE FROM WISHLIST " +
-			"WHERE USER_IDX=#{wishlistIdx}")
-	void deleteWishlist(int wishlistIdx);
+			"WHERE USER_IDX=#{userIdx} " +
+			"AND GOODS_IDX=#{goodsIdx}")
+	void deleteWishlist(@Param("userIdx") int userIdx,@Param("goodsIdx")int goodsIdx);
 	
 	// 위시리스트 리스트 얻어오기
 	@Select("SELECT W.WISHLIST_IDX,TO_CHAR(W.WISHLIST_DATE,'YYYY/MM/DD') AS WISHLIST_DATE,G.GOODS_IDX, " +

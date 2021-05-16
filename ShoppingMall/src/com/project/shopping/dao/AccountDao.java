@@ -22,7 +22,7 @@ public class AccountDao {
 		return accountMapper.getWishlist(userIdx);
 	}
 	
-	public void deleteWishlist(int wishlistIdx) {
-		accountMapper.deleteWishlist(wishlistIdx);
+	public void deleteWishlist(int userIdx,int goodsIdx) {
+		accountMapper.deleteWishlist(userIdx, goodsIdx);
 	}
 }

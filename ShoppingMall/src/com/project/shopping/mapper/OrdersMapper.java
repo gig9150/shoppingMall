@@ -39,5 +39,11 @@ public interface OrdersMapper {
 			"AND O.ORDERS_IDX = #{ordersIdx}")
 	HashMap<Object,Object> getOrderDetail(int ordersIdx);
 	
+	//재고수량 변경
+	@Update("update GOODS_SIZE" +
+			"set GOODS_SIZE_STOCK = GOODS_SIZE_STOCK - #{quantity}" +
+			"where goods_idx=#{goodsIdx}")
+	void updateGoodsStock(@Param("goodsIdx")int goodsIdx,@Param("quantity")int quantity); 
+	
 	
 }

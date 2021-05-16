@@ -3,6 +3,7 @@ package com.project.shopping.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -30,5 +31,9 @@ public class OrdersDao {
 	
 	public HashMap<Object,Object> getOrderDetail(int ordersIdx){
 		return ordersMapper.getOrderDetail(ordersIdx);
+	}
+	
+	public void updateGoodsStock(int goodsIdx,int quantity) {
+		ordersMapper.updateGoodsStock(goodsIdx, quantity);
 	}
 }

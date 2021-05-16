@@ -22,7 +22,7 @@ public class AccountService {
 		return accountDao.getWishlist(userIdx);
 	}
 	
-	public void deleteWishlist(int wishlistIdx) {
-		accountDao.deleteWishlist(wishlistIdx);
+	public void deleteWishlist(int userIdx,int goodsIdx) {
+		accountDao.deleteWishlist(userIdx, goodsIdx);
 	}
 }

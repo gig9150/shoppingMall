@@ -31,4 +31,8 @@ public class OrdersService {
 	public HashMap<Object,Object> getOrderDetail(int ordersIdx){
 		return ordersDao.getOrderDetail(ordersIdx);
 	}
+	
+	public void updateGoodsStock(int goodsIdx,int quantity) {
+		ordersDao.updateGoodsStock(goodsIdx, quantity);
+	}
 }

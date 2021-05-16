@@ -151,6 +151,7 @@
 												<th>어깨너비</th>
 												<th>가슴단면</th>
 												<th>소매길이</th>
+												<th>수량</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -162,6 +163,7 @@
 													<td>${obj.goods_size_shoulder }</td>
 													<td>${obj.goods_size_chest }</td>
 													<td>${obj.goods_size_sleeve }</td>
+													<td>${obj.goods_size_stock }</td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -169,12 +171,15 @@
                   <div class="row">
                     <div class="col-12">
                       <span class="quick-drop resizeWidth quantityWidth single-quick-drop">
-                        <select name="guiest_id3" id="guiest_id3" class="select-drop">
+                        <select name="guiest_id3" id="guiest_id3" style="width:300px;height:30px" data-goods-idx="${goodsBean.goods_idx}">
                           <c:forEach items="${sizeList}" var="obj">
                           	<option value="${obj.goods_size_name}">${obj.goods_size_name}</option>
                           </c:forEach>
                         </select>
                       </span>
+                    </div>
+                    <div class="col-12">
+                    	<span style="display:none;" id="goodsStock" style="color:red">SOLD OUT</span>
                     </div>
 
                     <div class="col-12">
@@ -681,6 +686,27 @@
 						}
 					});
 				});
+				
+				// 재고 소진시 주문 불가능하게 막음 
+				$('#guiest_id3').on('change',function(){
+					$('#add-cart').attr('disabled',false);
+					$('#goodsStock').css('display','none');
+					let size_option = $('#guiest_id3 option:selected').attr('value');
+					let goods_idx = $(this).data('goods-idx');
+					console.log(size_option)
+					console.log()
+					$.ajax({
+						url:'${root}/goods/checkStock/'+goods_idx+'/'+size_option,
+						type:'get',
+						success:function(data){
+							if(data <= 0){
+								$('#goodsStock').css('display','inline-block');
+								$('#add-cart').attr('disabled',true);
+							}
+						}
+					});
+				});
+				
 			});
 			
 		</script>

@@ -141,10 +141,18 @@ public class RestController {
 	}
 	
 	//위시리스트 삭제
-	@GetMapping("/account/deleteWishlist/{wishlist_idx}")
-	public String deleteWishlist(@PathVariable int wishlist_idx) {
-		accountService.deleteWishlist(wishlist_idx);
+	@GetMapping("/account/deleteWishlist/{goods_idx}")
+	public String deleteWishlist(@PathVariable int goods_idx) {
+		accountService.deleteWishlist(loginUserBean.getUser_idx(),goods_idx);
 		return "true";
+	}
+	
+	//남은 재고수량 파악하기
+	@GetMapping("/goods/checkStock/{goods_idx}/{size_option}")
+	public int checkStock(@PathVariable int goods_idx,
+							@PathVariable String size_option) {
+		int goodsStock =  goodsService.getGoodsStock(goods_idx, size_option);
+		return goodsStock;
 	}
 	
 	

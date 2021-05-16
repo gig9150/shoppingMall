@@ -511,29 +511,6 @@ jQuery(document).ready(function() {
 		iziToast.show(h);
 	});
 
-
-	$('.btn-wishlist').on('click', function() {
-		var b = $(this).data('iteration') || 1,
-			c = {
-				title: 'Product',
-				animateInside: !1,
-				position: 'topRight',
-				progressBar: !1,
-				timeout: 3200,
-				transitionIn: 'fadeInLeft',
-				transitionOut: 'fadeOut',
-				transitionInMobile: 'fadeIn',
-				transitionOutMobile: 'fadeOut'
-			};
-		switch (b) {
-			case 1:
-				$(this).addClass('active'), c.class = 'iziToast-info', c.message = 'added to your wishlist!', c.icon = 'icon-bell';
-				break;
-			case 2:
-				$(this).removeClass('active'), c.class = 'iziToast-danger', c.message = 'removed from your wishlist!', c.icon = 'icon-ban';
-		}
-		iziToast.show(c), b++, b > 2 && (b = 1), $(this).data('iteration', b);
-	});
 	//============================== SELECT BOX =========================
 	$('.select-drop').selectbox();
 	
