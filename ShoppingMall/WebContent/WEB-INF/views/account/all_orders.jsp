@@ -108,7 +108,7 @@
                           <td>${obj.GOODS_PRICE}</td>
                           <td><span class="badge badge-primary">${obj.ORDERS_STATUS_NAME}</span></td>
                           <c:choose>
-                          	<c:when test="${obj.ORDERS_STATUS_NAME == '배송 완료'}">
+                          	<c:when test="${obj.ORDERS_STATUS_NAME == '배송 완료' and obj.ORDERS_REVIEW == '0' }">
                           		<td style="text-align:center"><a id="review-btn" href="${root}/account/review?ordersIdx=${obj.ORDERS_IDX}" class="btn btn-sm btn-secondary-outlined">리뷰 작성</a></td>
                           	</c:when>
                           	<c:otherwise>

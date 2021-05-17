@@ -43,6 +43,7 @@ public class RestController {
 		return userService.checkuserIdExist(user_id) + "";
 	}
 	
+	//장바구니에 상품정보추가
 	@GetMapping("/account/goodsAddCart/{goods_idx}/{guiest_id3}/{quantity}")
 	public String goodsAddCart(@PathVariable int goods_idx,
 								@PathVariable String guiest_id3,

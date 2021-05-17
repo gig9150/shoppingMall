@@ -30,5 +30,13 @@ public class AccountService {
 	public void addReivew(HashMap<Object,Object> map) {
 		accountDao.addReivew(map);
 	}
+	
+	public List<HashMap<Object, Object>> getReviewList(int goodsIdx){
+		return accountDao.getReviewList(goodsIdx);
+	}
+	
+	public void updateOrdersReview(int ordersIdx) {
+		accountDao.updateOrdersReview(ordersIdx);
+	}
 
 }

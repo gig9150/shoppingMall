@@ -1,5 +1,6 @@
 package com.project.shopping.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -15,6 +16,7 @@ import com.project.shopping.beans.GoodsBean;
 import com.project.shopping.beans.GoodsSizeBean;
 import com.project.shopping.beans.PageBean;
 import com.project.shopping.beans.UserBean;
+import com.project.shopping.service.AccountService;
 import com.project.shopping.service.GoodsService;
 
 @Controller
@@ -26,6 +28,9 @@ public class GoodsController {
 	
 	@Autowired
 	private GoodsService goodsService;
+	
+	@Autowired
+	private AccountService accountService; 
 
 	@GetMapping("/main")
 	public String main(@RequestParam("goods_category_idx")int goods_category_idx,
@@ -71,6 +76,9 @@ public class GoodsController {
 		//상품에 대한 사이즈정보
 		List<GoodsSizeBean> sizeList = goodsService.getGoodsSizeList(goods_idx);
 		model.addAttribute("sizeList",sizeList);
+		//상품에 대한 리뷰정보
+		List<HashMap<Object,Object>> reviewList = accountService.getReviewList(goods_idx);
+		model.addAttribute("reviewList",reviewList);
 		
 		return "goods/detail";
 	}

@@ -113,6 +113,7 @@
 						   <label for="exampleFormControlTextarea1"><strong>review</strong></label>
 						   <textarea class="form-control" name="review_content" id="exampleFormControlTextarea1"  rows="5"></textarea>
 						   <input type="hidden" name="goods_idx" value="${orderDetailMap.GOODS_IDX}">
+						   <input type="hidden" name="orders_idx" value="${ordersIdx}">
 	        		</div>
   					</div>
   					

@@ -34,5 +34,16 @@ public interface AccountMapper {
 			"VALUES(REVIEW_SEQ.NEXTVAL,#{goodsIdx},#{userIdx},#{reviewContent},sysdate)")
 	void addReivew(HashMap<Object,Object> map);
 	
+	//리뷰 정보
+	@Select("SELECT R.REVIEW_CONTENT,U.USER_NAME " +
+			"FROM REVIEW R,USER_INFO U " +
+			"WHERE GOODS_IDX = #{goodsIdx} " +
+			"AND R.USER_IDX = U.USER_IDX ")
+	List<HashMap<Object, Object>> getReviewList(@Param("goodsIdx") int goodsIdx);
 	
+	//주문 테이블 리뷰작성 업데이트(리뷰 작성되면 '1'로 update)
+	@Update("UPDATE ORDERS " +
+			"SET ORDERS_REVIEW = '1' " +
+			"WHERE ORDERS_IDX = #{ordersIdx}")
+	void updateOrdersReview(@Param("ordersIdx") int ordersIdx);
 }

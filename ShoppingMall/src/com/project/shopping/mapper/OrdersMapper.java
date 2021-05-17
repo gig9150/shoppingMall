@@ -15,7 +15,7 @@ public interface OrdersMapper {
 
 	@Insert("INSERT INTO ORDERS " +
 			"VALUES(ORDERS_SEQ.NEXTVAL,1,#{userIdx},#{goodsIdx},#{ordersPhone},#{ordersAddress}," +
-			"#{ordersQuantity},sysdate,#{ordersSize})")
+			"#{ordersQuantity},sysdate,#{ordersSize},'0')")
 	void addOrdersInfo(OrdersBean ordersBean);
 	
 	@Update("UPDATE GOODS " +
@@ -24,7 +24,7 @@ public interface OrdersMapper {
 	void updateGoodsSell(@Param("quantity")int quantity,@Param("goodsIdx")int goodsIdx);
 	
 	//주문목록에 필요한 데이터 뽑아가기
-	@Select("SELECT S.ORDERS_STATUS_NAME,G.GOODS_PRICE," +
+	@Select("SELECT S.ORDERS_STATUS_NAME,G.GOODS_PRICE,O.ORDERS_REVIEW, " +
 			"O.ORDERS_IDX,O.ORDERS_QUANTITY,TO_CHAR(O.ORDERS_DATE,'YYYY/MM/DD') AS ORDERS_DATE " +
 			"FROM ORDERS O,GOODS G, ORDERS_STATUS S " +
 			"WHERE O.GOODS_IDX = G.GOODS_IDX " +
@@ -42,9 +42,9 @@ public interface OrdersMapper {
 	HashMap<Object,Object> getOrderDetail(int ordersIdx);
 	
 	//재고수량 변경
-	@Update("update GOODS_SIZE" +
-			"set GOODS_SIZE_STOCK = GOODS_SIZE_STOCK - #{quantity}" +
-			"where goods_idx=#{goodsIdx} " +
+	@Update("update GOODS_SIZE " +
+			"set GOODS_SIZE_STOCK = GOODS_SIZE_STOCK - #{quantity} " +
+			"where goods_idx = #{goodsIdx} " +
 			"AND GOODS_SIZE_NAME = #{goodsSizeName}")
 	void updateGoodsStock(@Param("quantity")int quantity,
 							@Param("goodsIdx")int goodsIdx,
@@ -70,7 +70,7 @@ public interface OrdersMapper {
 	@Update("UPDATE GOODS_SIZE " +
 			"SET GOODS_SIZE_STOCK = GOODS_SIZE_STOCK - #{quantity} " +
 			"WHERE GOODS_IDX = #{goodsIdx} " +
-			"AND GOODS_SIZE_NAME = #{goodsSizeName}")
+			"AND GOODS_SIZE_NAME = #{goodsSizeName,jdbcType = VARCHAR}")
 	void subUpdateGoodsStock(@Param("quantity")int quantity,
 							@Param("goodsIdx")int goodsIdx,
 							@Param("goodsSizeName")String goodsSizeName);

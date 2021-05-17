@@ -76,4 +76,5 @@ public interface GoodsMapper {
 			"AND GOODS_SIZE_NAME = #{goodsSizeName}")
 	int getGoodsStock(@Param("goodsIdx") int goodsIdx,@Param("goodsSizeName") String goodsSizeName);
 	
+	
 }

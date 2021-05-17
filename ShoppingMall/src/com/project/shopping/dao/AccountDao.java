@@ -30,5 +30,13 @@ public class AccountDao {
 	public void addReivew(HashMap<Object,Object> map) {
 		accountMapper.addReivew(map);
 	}
+	
+	public List<HashMap<Object, Object>> getReviewList(int goodsIdx){
+		return accountMapper.getReviewList(goodsIdx);
+	}
+	
+	public void updateOrdersReview(int ordersIdx) {
+		accountMapper.updateOrdersReview(ordersIdx);
+	}
 
 }

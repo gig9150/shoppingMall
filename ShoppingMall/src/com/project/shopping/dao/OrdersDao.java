@@ -33,8 +33,8 @@ public class OrdersDao {
 		return ordersMapper.getOrderDetail(ordersIdx);
 	}
 	
-	public void updateGoodsStock(int goodsIdx,int quantity,String goodsSizeName) {
-		ordersMapper.updateGoodsStock(goodsIdx, quantity,goodsSizeName);
+	public void updateGoodsStock(int quantity,int goodsIdx,String goodsSizeName) {
+		ordersMapper.updateGoodsStock(quantity,goodsIdx,goodsSizeName);
 	}
 	
 	public void deleteOrders(@Param("ordersIdx") int ordersIdx) {

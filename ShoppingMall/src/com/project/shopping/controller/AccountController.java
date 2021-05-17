@@ -32,8 +32,10 @@ public class AccountController {
 	
 	@GetMapping("/all_orders")
 	public String allOrders(Model model) {
+		
 		List<HashMap<Object, Object>> ordersList = ordersService.getOrdersList(loginUserBean.getUser_idx());
 		model.addAttribute("ordersList",ordersList);
+		
 		return "account/all_orders";
 	}
 	
@@ -100,18 +102,23 @@ public class AccountController {
 						Model model) {
 		HashMap<Object,Object> orderDetailMap = ordersService.getOrderDetail(ordersIdx);
 		model.addAttribute("orderDetailMap",orderDetailMap);
+		model.addAttribute("ordersIdx",ordersIdx);
 		return "account/review";
 	}
 	
 	@PostMapping("/review_pro")
 	public String reviewPro(@RequestParam String review_content,
-							@RequestParam int goods_idx) {
+							@RequestParam int goods_idx,
+							@RequestParam int orders_idx) {
 		//리뷰 내용을 map 담아서 db에 저장 
 		HashMap<Object,Object> map = new HashMap<Object,Object>();
 		map.put("goodsIdx", goods_idx);
 		map.put("userIdx",loginUserBean.getUser_idx());
 		map.put("reviewContent",review_content);
 		accountService.addReivew(map);
+		
+		//리뷰가 작성되면 orders테이블에 리뷰 작성여부 컬럼 변경
+		accountService.updateOrdersReview(orders_idx);
 		
 		return "account/review_success";
 	}
