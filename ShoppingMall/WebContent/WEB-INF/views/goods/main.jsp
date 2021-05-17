@@ -361,6 +361,13 @@
 		<script>
 			$(function(){
 				$(".btn-wishlist").on('click',function(){
+					
+					//로그인 되어있지 않으면 로그인 창으로 이동 
+					if(${sessionScope.userId == null}){
+						alert('로그인 후 이용해주세요');
+						location.href="${root}/user/login";
+					}
+					
 					const goods_idx = $(this).data("goods-idx");
 					if($(".btn-wishlist").hasClass('active')){
 						$.ajax({

@@ -96,6 +96,7 @@
                           <th>Total Price</th>
                           <th>Status</th>
                           <th></th>
+                          <th></th>
                         </tr>
                       </thead>
                       <tbody>
@@ -106,7 +107,15 @@
                           <td>${obj.ORDERS_QUANTITY}</td>
                           <td>${obj.GOODS_PRICE}</td>
                           <td><span class="badge badge-primary">${obj.ORDERS_STATUS_NAME}</span></td>
-                          <td><a href="${root}/account/single_order?ordersIdx=${obj.ORDERS_IDX}" class="btn btn-sm btn-secondary-outlined">View</a></td>
+                          <c:choose>
+                          	<c:when test="${obj.ORDERS_STATUS_NAME == '배송 완료'}">
+                          		<td style="text-align:center"><a id="review-btn" href="${root}/account/review?ordersIdx=${obj.ORDERS_IDX}" class="btn btn-sm btn-secondary-outlined">리뷰 작성</a></td>
+                          	</c:when>
+                          	<c:otherwise>
+                          		<td><a id="review-btn" style="display:none" href="${root}/account/review?ordersIdx=${obj.ORDERS_IDX}" class="btn btn-sm btn-secondary-outlined">리뷰 작성</a></td>
+                          	</c:otherwise>
+                          </c:choose>
+                          	<td><a href="${root}/account/single_order?ordersIdx=${obj.ORDERS_IDX}" class="btn btn-sm btn-secondary-outlined">View</a></td>
                         </tr>
                       </c:forEach>
                       </tbody>
@@ -120,106 +129,6 @@
       </section>
 
       <c:import url="/WEB-INF/views/include/footer.jsp" />
-
-		<!-- LOGIN MODAL -->
-		<div class="modal fade login-modal" id="login" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header justify-content-center">
-						<h3 class="modal-title">log in</h3>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">
-						<form action="" method="POST" role="form">
-							<div class="form-group">
-								<label for="">Enter Email</label>
-								<input type="email" class="form-control">
-							</div>
-							<div class="form-group">
-								<label for="">Password</label>
-								<input type="password" class="form-control">
-							</div>
-							<div class="checkbox">
-								<input id="checkbox-1" class="checkbox-custom form-check-input" name="checkbox-1" type="checkbox" checked>
-								<label for="checkbox-1" class="checkbox-custom-label form-check-label">Remember me</label>
-							</div>
-							<button type="submit" class="btn btn-primary btn-block">log in</button>
-							<button type="button" class="btn btn-link btn-block">Forgot Password?</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- SIGN UP MODAL -->
-		<div class="modal fade " id="signup" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header justify-content-center">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h3 class="modal-title">Create an account</h3>
-					</div>
-					<div class="modal-body">
-						<form action="" method="POST" role="form">
-							<div class="form-group">
-								<label for="">Enter Email</label>
-								<input type="email" class="form-control">
-							</div>
-							<div class="form-group">
-								<label for="">Password</label>
-								<input type="password" class="form-control">
-							</div>
-							<div class="form-group">
-								<label for="">Confirm Password</label>
-								<input type="password" class="form-control">
-							</div>
-							<button type="submit" class="btn btn-primary btn-block">Sign up</button>
-							<button type="button" class="btn btn-link btn-block">New User?</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- PORDUCT QUICK VIEW MODAL -->
-		<div class="modal fade quick-view" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-body">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<div class="media flex-wrap">
-							<div class="media-left px-0">
-								<img class="media-object" src="${root}/assets/img/products/quick-view/quick-view-01.jpg" alt="Image">
-							</div>
-							<div class="media-body">
-								<h2>Old Skool Navy</h2>
-								<h3>$149</h3>
-								<p>Classic sneaker from Vans. Cotton canvas and suede upper. Textile lining with heel stabilizer and ankle support. Contrasting laces. Sits on a classic waffle rubber sole.</p>
-								<span class="quick-drop">
-									<select name="guiest_id3" id="guiest_id3" class="select-drop">
-										<option value="0">Size</option>
-										<option value="1">Size 1</option>
-										<option value="2">Size 2</option>
-										<option value="3">Size 3</option>
-									</select>
-								</span>
-								<span class="quick-drop resizeWidth">
-									<select name="guiest_id4" id="guiest_id4" class="select-drop">
-										<option value="0">Qty</option>
-										<option value="1">Qty 1</option>
-										<option value="2">Qty 2</option>
-										<option value="3">Qty 3</option>
-									</select>
-								</span>
-								<div class="btn-area">
-									<a href="#" class="btn btn-primary btn-block">Add to cart <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 
 		<script src="${root}/assets/plugins/jquery/jquery.min.js"></script>
 		<script src="${root}/assets/plugins/jquery/jquery-migrate-3.0.0.min.js"></script>
@@ -236,6 +145,7 @@
 		<script src="${root}/assets/plugins/velocity/velocity.min.js"></script>
 		<script src="${root}/assets/plugins/rateyo/jquery.rateyo.min.js"></script>
 		<script src="${root}/assets/js/custom.js"></script>
+		
 
 	</body>
 </html>

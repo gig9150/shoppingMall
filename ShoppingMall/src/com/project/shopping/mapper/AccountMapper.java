@@ -29,5 +29,10 @@ public interface AccountMapper {
 			"AND W.USER_IDX = #{userIdx}")
 	List<HashMap<Object,Object>> getWishlist(int userIdx);
 	
+	// 리뷰 저장 
+	@Insert("INSERT INTO REVIEW " +
+			"VALUES(REVIEW_SEQ.NEXTVAL,#{goodsIdx},#{userIdx},#{reviewContent},sysdate)")
+	void addReivew(HashMap<Object,Object> map);
+	
 	
 }

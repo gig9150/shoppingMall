@@ -169,7 +169,7 @@
                   <div class="col-12">
                     <div>
                       <a role="button" class="btn btn-primary" href="${root}/account/all_orders">back</a>
-                      <a role="button" class="btn btn-danger" href="${root}/account/cancle_order?ordersIdx=${ordersIdx}&orders_date=${ordersDetailMap.ORDERS_DATE}&orders_quantity=${ordersDetailMap.ORDERS_QUANTITY}
+                      <a role="button" class="btn btn-danger cancle-btn" href="${root}/account/cancle_order?ordersIdx=${ordersIdx}&orders_date=${ordersDetailMap.ORDERS_DATE}&orders_quantity=${ordersDetailMap.ORDERS_QUANTITY}
                       &goods_price=${ordersDetailMap.GOODS_PRICE}&goods_idx=${ordersDetailMap.GOODS_IDX}">cancel order</a>
                     </div>
                   </div>
@@ -200,7 +200,17 @@
 		<script src="${root}/assets/plugins/velocity/velocity.min.js"></script>
 		<script src="${root}/assets/plugins/rateyo/jquery.rateyo.min.js"></script>
 		<script src="${root}/assets/js/custom.js"></script>
-
+		
+		<script>
+			$(function(){
+				$('.cancle-btn').on('click',function(e){
+					if(${ordersDetailMap.ORDERS_STATUS_IDX != 1}){
+						alert('상품이 이미 발송되어 취소가 어렵습니다.');
+						e.preventDefault();
+					}
+				});
+			});
+		</script>
 	</body>
 </html>
 

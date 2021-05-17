@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -94,6 +95,26 @@ public class AccountController {
 		return "account/cartpage";
 	}
 	
+	@GetMapping("/review")
+	public String review(@RequestParam int ordersIdx,
+						Model model) {
+		HashMap<Object,Object> orderDetailMap = ordersService.getOrderDetail(ordersIdx);
+		model.addAttribute("orderDetailMap",orderDetailMap);
+		return "account/review";
+	}
+	
+	@PostMapping("/review_pro")
+	public String reviewPro(@RequestParam String review_content,
+							@RequestParam int goods_idx) {
+		//리뷰 내용을 map 담아서 db에 저장 
+		HashMap<Object,Object> map = new HashMap<Object,Object>();
+		map.put("goodsIdx", goods_idx);
+		map.put("userIdx",loginUserBean.getUser_idx());
+		map.put("reviewContent",review_content);
+		accountService.addReivew(map);
+		
+		return "account/review_success";
+	}
 	
 	
 }

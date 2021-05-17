@@ -26,5 +26,9 @@ public class AccountService {
 	public void deleteWishlist(int userIdx,int goodsIdx) {
 		accountDao.deleteWishlist(userIdx, goodsIdx);
 	}
+	
+	public void addReivew(HashMap<Object,Object> map) {
+		accountDao.addReivew(map);
+	}
 
 }

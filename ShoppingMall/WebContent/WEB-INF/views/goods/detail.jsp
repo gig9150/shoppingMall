@@ -669,8 +669,7 @@
 		<script src="${root}/assets/js/custom.js"></script>
 		
 		<script>
-		
-			//add to cart 누르면 ajax로 장바구니에 추가
+			
 			$(function(){
 				
 				$('#add-cart').attr('disabled',false);
@@ -690,6 +689,13 @@
 
 				//장바구니에 상품 담기 
 				$("#add-cart").on('click',function(){
+					
+					//로그인 되어있지 않으면 로그인 창으로 이동 
+					if(${sessionScope.userId == null}){
+						alert('로그인 후 이용해주세요');
+						location.href="${root}/user/login";
+					}
+					
 					let goods_idx = ${goodsBean.goods_idx};
 					let guiest_id3 = $("#guiest_id3").val();
 					let quantity = $("#quantity").val();

@@ -167,6 +167,11 @@ start with 0
 increment by 1
 minvalue 0;
 
+create sequence REVIEW_SEQ
+start with 0
+increment by 1
+minvalue 0;
+
 --배송 상태 INSERT
 
 INSERT INTO ORDERS_STATUS VALUES(1,'발송 준비중');
