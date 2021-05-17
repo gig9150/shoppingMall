@@ -77,9 +77,9 @@
           <div class="row">
             <div class="col-12">
               <div class="btn-group" role="group" aria-label="...">
-                <a href="account-address.html" class="btn btn-default"><i class="fa fa-map-marker" aria-hidden="true"></i>My Address</a>
-                <a href="account-all-orders.html" class="btn btn-default active"><i class="fa fa-list" aria-hidden="true"></i>All Orders</a>
-                <a href="account-wishlist.html" class="btn btn-default"><i class="fa fa-gift" aria-hidden="true"></i>Wishlist</a>
+                <a href="${root}/account/all_orders" class="btn btn-default active"><i class="fa fa-th" aria-hidden="true"></i>All Orders</a>
+                <a href="${root}/account/wishlist" class="btn btn-default"><i class="fa fa-list" aria-hidden="true"></i>Wistlist</a>
+                <a href="${root}/user/delete" class="btn btn-default"><i class="fa fa-trash" aria-hidden="true"></i>Leave the site</a>
               </div>
             </div>
           </div>
@@ -169,7 +169,8 @@
                   <div class="col-12">
                     <div>
                       <a role="button" class="btn btn-primary" href="${root}/account/all_orders">back</a>
-                      <a role="button" class="btn btn-danger" href="${root}/account/cancle_order?ordersIdx=${ordersIdx}">cancel order</a>
+                      <a role="button" class="btn btn-danger" href="${root}/account/cancle_order?ordersIdx=${ordersIdx}&orders_date=${ordersDetailMap.ORDERS_DATE}&orders_quantity=${ordersDetailMap.ORDERS_QUANTITY}
+                      &goods_price=${ordersDetailMap.GOODS_PRICE}&goods_idx=${ordersDetailMap.GOODS_IDX}">cancel order</a>
                     </div>
                   </div>
                 </div>

@@ -48,6 +48,39 @@ public class AccountController {
 		return "account/single_order";
 	}
 	
+	//주문취소
+	@GetMapping("/cancle_order")
+	public String cancleOrder(@RequestParam int ordersIdx,
+							@RequestParam String orders_date,
+							@RequestParam int orders_quantity,
+							@RequestParam String goods_price,
+							@RequestParam int goods_idx,
+							Model model) {
+		
+		model.addAttribute("orders_date",orders_date);
+		model.addAttribute("orders_quantity",orders_quantity);
+		model.addAttribute("goods_price",goods_price);
+		model.addAttribute("ordersIdx",ordersIdx);
+		model.addAttribute("goods_idx",goods_idx);
+		return "account/cancle_order";
+	}
+	
+	@GetMapping("/cancle_order_pro")
+	public String cancleOrderPro(@RequestParam int ordersIdx,
+								@RequestParam int goodsIdx,
+								@RequestParam int quantity) {
+		
+		// 판매량 수정
+		ordersService.subUpdateGoodsSell(quantity,goodsIdx);
+		//재고 수정 
+		String goodsSizeName = ordersService.getOrdersSize(ordersIdx);
+		ordersService.subUpdateGoodsStock(quantity, goodsIdx, goodsSizeName);
+		//주문 목록 취소
+		ordersService.deleteOrders(ordersIdx);
+		
+		return "account/cancle_order_success";
+	}
+	
 	@GetMapping("/wishlist")
 	public String wishList(Model model) {
 		List<HashMap<Object, Object>> wishList = accountService.getWishlist(loginUserBean.getUser_idx());
@@ -59,11 +92,6 @@ public class AccountController {
 	public String cartPage(Model model) {
 		model.addAttribute("user_id",loginUserBean.getUser_id());
 		return "account/cartpage";
-	}
-	//주문취소
-	@GetMapping("/cancle_order")
-	public String cancleOrder(@RequestParam int ordersIdx) {
-		return "account/cancle_order";
 	}
 	
 	

@@ -33,7 +33,23 @@ public class OrdersDao {
 		return ordersMapper.getOrderDetail(ordersIdx);
 	}
 	
-	public void updateGoodsStock(int goodsIdx,int quantity) {
-		ordersMapper.updateGoodsStock(goodsIdx, quantity);
+	public void updateGoodsStock(int goodsIdx,int quantity,String goodsSizeName) {
+		ordersMapper.updateGoodsStock(goodsIdx, quantity,goodsSizeName);
+	}
+	
+	public void deleteOrders(@Param("ordersIdx") int ordersIdx) {
+		ordersMapper.deleteOrders(ordersIdx);
+	}
+	
+	public void subUpdateGoodsSell(int quantity_idx,int goodsIdx) {
+		ordersMapper.subUpdateGoodsSell(quantity_idx, goodsIdx);
+	}
+	
+	public String getOrdersSize(int ordersIdx) {
+		return ordersMapper.getOrdersSize(ordersIdx);
+	}
+	
+	public void subUpdateGoodsStock(int quantity,int goodsIdx,String goodsSizeName) {
+		ordersMapper.subUpdateGoodsStock(quantity, goodsIdx, goodsSizeName);
 	}
 }

@@ -3,6 +3,7 @@ package com.project.shopping.service;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,4 +26,5 @@ public class AccountService {
 	public void deleteWishlist(int userIdx,int goodsIdx) {
 		accountDao.deleteWishlist(userIdx, goodsIdx);
 	}
+
 }

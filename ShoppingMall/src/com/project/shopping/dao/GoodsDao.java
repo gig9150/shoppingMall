@@ -2,6 +2,7 @@ package com.project.shopping.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -62,4 +63,5 @@ public class GoodsDao {
 	public int getGoodsStock(int goodsIdx,String goodsSizeName) {
 		return goodsMapper.getGoodsStock(goodsIdx, goodsSizeName);
 	}
+	
 }

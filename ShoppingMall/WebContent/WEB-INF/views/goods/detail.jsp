@@ -672,7 +672,23 @@
 		
 			//add to cart 누르면 ajax로 장바구니에 추가
 			$(function(){
+				
+				$('#add-cart').attr('disabled',false);
+				$('#goodsStock').css('display','none');
+				let size_option = $('#guiest_id3 option:selected').attr('value');
+				let goods_idx = $('#guiest_id3').data('goods-idx');
+				$.ajax({
+					url:'${root}/goods/checkStock/'+goods_idx+'/'+size_option,
+					type:'get',
+					success:function(data){
+						if(data <= 0){
+							$('#goodsStock').css('display','inline-block');
+							$('#add-cart').attr('disabled',true);
+						}
+					}
+				});
 
+				//장바구니에 상품 담기 
 				$("#add-cart").on('click',function(){
 					let goods_idx = ${goodsBean.goods_idx};
 					let guiest_id3 = $("#guiest_id3").val();
@@ -693,8 +709,6 @@
 					$('#goodsStock').css('display','none');
 					let size_option = $('#guiest_id3 option:selected').attr('value');
 					let goods_idx = $(this).data('goods-idx');
-					console.log(size_option)
-					console.log()
 					$.ajax({
 						url:'${root}/goods/checkStock/'+goods_idx+'/'+size_option,
 						type:'get',

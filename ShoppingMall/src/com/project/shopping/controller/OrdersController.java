@@ -81,7 +81,8 @@ public class OrdersController {
 					// 상품이 판매될때마다 판매량 집계하기위해 수량 추가
 					ordersService.updateGoodsSell(bean.getGoods_quantity(), bean.getGoods_idx());
 					// 상품이 판매될때마다 재고 수량 조정
-					ordersService.updateGoodsStock(bean.getGoods_idx(),bean.getGoods_quantity());
+					String goodsSizeName =  ordersService.getOrdersSize(bean.getGoods_idx());
+					ordersService.updateGoodsStock(bean.getGoods_idx(),bean.getGoods_quantity(),goodsSizeName);
 					// 상품이 판매되면 세션에서 상품 지우기 
 					iter.remove();
 				}

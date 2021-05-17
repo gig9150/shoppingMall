@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 public interface AccountMapper {
 	
@@ -27,4 +28,6 @@ public interface AccountMapper {
 			"WHERE W.GOODS_IDX = G.GOODS_IDX " +
 			"AND W.USER_IDX = #{userIdx}")
 	List<HashMap<Object,Object>> getWishlist(int userIdx);
+	
+	
 }

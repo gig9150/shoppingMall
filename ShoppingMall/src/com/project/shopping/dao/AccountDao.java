@@ -3,6 +3,7 @@ package com.project.shopping.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -25,4 +26,5 @@ public class AccountDao {
 	public void deleteWishlist(int userIdx,int goodsIdx) {
 		accountMapper.deleteWishlist(userIdx, goodsIdx);
 	}
+
 }
