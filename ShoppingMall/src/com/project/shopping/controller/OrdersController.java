@@ -2,6 +2,7 @@ package com.project.shopping.controller;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -63,7 +64,14 @@ public class OrdersController {
 								HttpSession session,
 								Model model){
 		List<GoodsBean> list = (List)session.getAttribute("cartList");
-		
+		//주문번호 생성
+		Random rd = new Random();
+		String ordersNumber = "";
+		for(int i=0;i<10;i++) {
+			ordersNumber += (rd.nextInt(9)+1);
+		}
+		System.out.println(ordersNumber);
+
 		//db에 주문목록 저장 / session에서 장바구니 상품 삭제
 		Iterator<GoodsBean> iter = list.iterator();
 		while(iter.hasNext()) {
@@ -76,6 +84,8 @@ public class OrdersController {
 					ordersBean.setOrdersPhone(userPhone);
 					ordersBean.setOrdersQuantity(bean.getGoods_quantity());
 					ordersBean.setOrdersSize(bean.getGoods_size());
+					ordersBean.setOrdersNumber(Integer.parseInt(ordersNumber));
+					//주문 리스트에 상품 추가 
 					ordersService.addOrdersInfo(ordersBean);
 					// 상품이 판매될때마다 판매량 집계하기위해 수량 추가
 					ordersService.updateGoodsSell(bean.getGoods_quantity(), bean.getGoods_idx());

@@ -115,7 +115,7 @@
                           		<td><a id="review-btn" style="display:none" href="${root}/account/review?ordersIdx=${obj.ORDERS_IDX}" class="btn btn-sm btn-secondary-outlined">리뷰 작성</a></td>
                           	</c:otherwise>
                           </c:choose>
-                          	<td><a href="${root}/account/single_order?ordersIdx=${obj.ORDERS_IDX}" class="btn btn-sm btn-secondary-outlined">View</a></td>
+                          	<td><a href="${root}/account/single_order?ordersNumber=${obj.ORDERS_NUMBER}" class="btn btn-sm btn-secondary-outlined">View</a></td>
                         </tr>
                       </c:forEach>
                       </tbody>

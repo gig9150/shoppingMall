@@ -15,7 +15,7 @@ public interface OrdersMapper {
 
 	@Insert("INSERT INTO ORDERS " +
 			"VALUES(ORDERS_SEQ.NEXTVAL,1,#{userIdx},#{goodsIdx},#{ordersPhone},#{ordersAddress}," +
-			"#{ordersQuantity},sysdate,#{ordersSize},'0')")
+			"#{ordersQuantity},sysdate,#{ordersSize},'0',#{ordersNumber})")
 	void addOrdersInfo(OrdersBean ordersBean);
 	
 	@Update("UPDATE GOODS " +
@@ -24,7 +24,7 @@ public interface OrdersMapper {
 	void updateGoodsSell(@Param("quantity")int quantity,@Param("goodsIdx")int goodsIdx);
 	
 	//주문목록에 필요한 데이터 뽑아가기
-	@Select("SELECT S.ORDERS_STATUS_NAME,G.GOODS_PRICE,O.ORDERS_REVIEW, " +
+	@Select("SELECT S.ORDERS_STATUS_NAME,G.GOODS_PRICE,O.ORDERS_REVIEW,O.ORDERS_NUMBER " +
 			"O.ORDERS_IDX,O.ORDERS_QUANTITY,TO_CHAR(O.ORDERS_DATE,'YYYY/MM/DD') AS ORDERS_DATE " +
 			"FROM ORDERS O,GOODS G, ORDERS_STATUS S " +
 			"WHERE O.GOODS_IDX = G.GOODS_IDX " +
@@ -38,8 +38,16 @@ public interface OrdersMapper {
 			"O.ORDERS_SIZE,O.ORDERS_QUANTITY,O.ORDERS_STATUS_IDX,G.GOODS_IDX,G.GOODS_NAME,G.GOODS_FILE,G.GOODS_PRICE " + 
 			"FROM ORDERS O,GOODS G " + 
 			"WHERE O.GOODS_IDX = G.GOODS_IDX " + 
+			"AND O.ORDERS_NUMBER = #{ORDERS_NUMBER}")
+	List<HashMap<Object,Object>> getOrdersDetail(int ORDERS_NUMBER);
+	
+	// 리뷰페이지에 뿌려질 상품 정보 
+	@Select("SELECT O.ORDERS_ADDRESS,O.ORDERS_PHONE,TO_CHAR(O.ORDERS_DATE,'YYYY/MM/DD') AS ORDERS_DATE," + 
+			"O.ORDERS_SIZE,O.ORDERS_QUANTITY,O.ORDERS_STATUS_IDX,G.GOODS_IDX,G.GOODS_NAME,G.GOODS_FILE,G.GOODS_PRICE " + 
+			"FROM ORDERS O,GOODS G " + 
+			"WHERE O.GOODS_IDX = G.GOODS_IDX " + 
 			"AND O.ORDERS_IDX = #{ordersIdx}")
-	HashMap<Object,Object> getOrderDetail(int ordersIdx);
+	HashMap<Object,Object> getReviewDetail(int ordersIdx);
 	
 	//재고수량 변경
 	@Update("update GOODS_SIZE " +

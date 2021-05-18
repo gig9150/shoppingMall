@@ -29,8 +29,8 @@ public class OrdersService {
 		return ordersDao.getOrdersList(userIdx);
 	}
 	
-	public HashMap<Object,Object> getOrderDetail(int ordersIdx){
-		return ordersDao.getOrderDetail(ordersIdx);
+	public List<HashMap<Object,Object>> getOrdersDetail(int ordersIdx){
+		return ordersDao.getOrdersDetail(ordersIdx);
 	}
 	
 	public void updateGoodsStock(int quantity,int goodsIdx,String goodsSizeName) {
@@ -51,5 +51,9 @@ public class OrdersService {
 	
 	public void subUpdateGoodsStock(int quantity,int goodsIdx,String goodsSizeName) {
 		ordersDao.subUpdateGoodsStock(quantity, goodsIdx, goodsSizeName);
+	}
+	
+	public HashMap<Object,Object> getReviewDetail(int ordersIdx){
+		return ordersDao.getReviewDetail(ordersIdx);
 	}
 }

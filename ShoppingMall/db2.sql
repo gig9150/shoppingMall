@@ -228,6 +228,7 @@ CREATE TABLE goods_size
 ALTER TABLE orders ADD orders_date date;
 ALTER TABLE orders ADD orders_size varchar2(10) not null;
 ALTER TABLE orders ADD orders_review char(5) not null;
+ALTER TABLE orders ADD orders_number number(20) not null;
 ALTER TABLE orders MODIFY orders_review VARCHAR2(5);
 
 -- GOODS_SIZE 데이터 추가

@@ -40,12 +40,12 @@ public class AccountController {
 	}
 	
 	@GetMapping("/single_order")
-	public String singleOrder(@RequestParam int ordersIdx,
+	public String singleOrder(@RequestParam int ordersNumber,
 								Model model) {
-		HashMap<Object,Object> ordersDetailMap = ordersService.getOrderDetail(ordersIdx);
+		List<HashMap<Object,Object>> ordersDetailList = ordersService.getOrdersDetail(ordersNumber);
 		//주문 상세 페이지에 필요한 정보들 담기 
-		model.addAttribute("ordersDetailMap", ordersDetailMap);
-		model.addAttribute("ordersIdx",ordersIdx);
+		model.addAttribute("ordersDetailList", ordersDetailList);
+		model.addAttribute("ordersNumber",ordersNumber);
 		model.addAttribute("user_name",loginUserBean.getUser_name());
 		
 		return "account/single_order";
@@ -100,7 +100,7 @@ public class AccountController {
 	@GetMapping("/review")
 	public String review(@RequestParam int ordersIdx,
 						Model model) {
-		HashMap<Object,Object> orderDetailMap = ordersService.getOrderDetail(ordersIdx);
+		HashMap<Object,Object> orderDetailMap = ordersService.getReviewDetail(ordersIdx);
 		model.addAttribute("orderDetailMap",orderDetailMap);
 		model.addAttribute("ordersIdx",ordersIdx);
 		return "account/review";

@@ -29,8 +29,8 @@ public class OrdersDao {
 		return ordersMapper.getOrdersList(userIdx);
 	}
 	
-	public HashMap<Object,Object> getOrderDetail(int ordersIdx){
-		return ordersMapper.getOrderDetail(ordersIdx);
+	public List<HashMap<Object,Object>> getOrdersDetail(int ordersIdx){
+		return ordersMapper.getOrdersDetail(ordersIdx);
 	}
 	
 	public void updateGoodsStock(int quantity,int goodsIdx,String goodsSizeName) {
@@ -51,5 +51,9 @@ public class OrdersDao {
 	
 	public void subUpdateGoodsStock(int quantity,int goodsIdx,String goodsSizeName) {
 		ordersMapper.subUpdateGoodsStock(quantity, goodsIdx, goodsSizeName);
+	}
+	
+	public HashMap<Object,Object> getReviewDetail(int ordersIdx){
+		return ordersMapper.getReviewDetail(ordersIdx);
 	}
 }

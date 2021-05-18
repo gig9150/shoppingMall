@@ -87,7 +87,7 @@
             <div class="col-12">
               <div class="innerWrapper singleOrder">
                 <div class="orderBox">
-                  <h2>Order # ${ordersIdx} / ${ordersDetailMap.ORDERS_DATE}</h2>
+                  <h2>Order # ${ordersNumber}</h2>
                 </div>
                 <div class="row">
                   <div class="col-md-6 col-12">
