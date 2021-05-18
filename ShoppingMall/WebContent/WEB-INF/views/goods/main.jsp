@@ -107,7 +107,7 @@
 	            <div class="col-md-4 ">
 	              <div class="productBox">
 	                <div class="productImage clearfix">
-	                  <img src="${root}/upload/${obj.goods_file}" alt="products-img">
+	                  <img src="${root}/upload/${obj.goods_file}" height="200" alt="products-img">
 	                  <div class="productMasking">
 	                    <ul class="list-inline btn-group" role="group">
 	                    <c:set var="checkWishList" value="true"/>

@@ -1,5 +1,6 @@
 package com.project.shopping.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -10,6 +11,24 @@ import com.project.shopping.beans.GoodsBean;
 import com.project.shopping.beans.GoodsSizeBean;
 
 public interface GoodsMapper {
+	
+	//main page 인기상품 (3개)
+	@Select("SELECT * FROM (SELECT GOODS_IDX AS GOODS_IDX,GOODS_FILE AS GOODS_FILE, " +
+			"GOODS_NAME AS GOODS_NAME, GOODS_PRICE AS GOODS_PRICE " +
+			"FROM GOODS " +  
+			"ORDER BY GOODS_SELL DESC) " +
+            "WHERE ROWNUM < 4")
+	List<HashMap<Object,Object>> getMainGoodsBestList();
+	
+	//main page 신상품 (3개)
+	
+	@Select("SELECT * FROM (SELECT GOODS_IDX AS GOODS_IDX,GOODS_FILE AS GOODS_FILE, " + 
+			"GOODS_NAME AS GOODS_NAME, GOODS_PRICE AS GOODS_PRICE " +
+			"FROM GOODS " +  
+			"ORDER BY GOODS_DATE DESC) " +
+            "WHERE ROWNUM < 4")
+	List<HashMap<Object,Object>> getMainGoodsNeweList();
+	
 	
 	@Select("SELECT GOODS_CATEGORY_NAME " +
 			"FROM GOODS_CATEGORY " +
@@ -75,6 +94,41 @@ public interface GoodsMapper {
 			"WHERE GOODS_IDX = #{goodsIdx} " +
 			"AND GOODS_SIZE_NAME = #{goodsSizeName}")
 	int getGoodsStock(@Param("goodsIdx") int goodsIdx,@Param("goodsSizeName") String goodsSizeName);
+	
+	//상품 검색 기능 관련 쿼리
+	//전체글 갯수
+	@Select("SELECT COUNT(*) " +
+			"FROM GOODS " +
+			"WHERE GOODS_NAME like '%'||#{search}||'%' ")
+	int getSearchGoodsCnt(String search);
+	
+	//상품정보 얻어오기(기본)
+	@Select("SELECT GOODS_IDX,GOODS_NAME,GOODS_PRICE,GOODS_FILE " +
+			"FROM GOODS " +
+			"WHERE GOODS_NAME like '%'||#{search}||'%' " +
+			"ORDER BY GOODS_IDX ASC")
+	List<GoodsBean> getSearchGoodsList(String search,RowBounds rowBounds);
+	
+	//상품정보 얻어오기(인기순)
+	@Select("SELECT GOODS_IDX,GOODS_NAME,GOODS_PRICE,GOODS_FILE " +
+			"FROM GOODS " +
+			"WHERE GOODS_NAME like '%' ||#{search}|| '%' " +
+			"ORDER BY GOODS_SELL DESC ")
+	List<GoodsBean> getSearchPopuGoodsList(String search,RowBounds rowBounds);
+	
+	//상품정보 얻어오기(날짜순)
+	@Select("SELECT GOODS_IDX,GOODS_NAME,GOODS_PRICE,GOODS_FILE " +
+			"FROM GOODS " +
+			"WHERE GOODS_NAME like '%'||#{search}||'%' " +
+			"ORDER BY GOODS_DATE DESC ")
+	List<GoodsBean> getSearchNeweGoodsList(String search,RowBounds rowBounds);
+	
+	//상품정보 얻어오기(가격순)
+	@Select("SELECT GOODS_IDX,GOODS_NAME,GOODS_PRICE,GOODS_FILE " +
+			"FROM GOODS " +
+			"WHERE GOODS_NAME like '%'|| #{search} '||%' " +
+			"ORDER BY GOODS_PRICE DESC ")
+	List<GoodsBean> getSearchPriceGoodsList(String search,RowBounds rowBounds);
 	
 	
 }

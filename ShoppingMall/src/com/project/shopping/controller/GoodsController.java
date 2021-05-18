@@ -62,6 +62,35 @@ public class GoodsController {
 		
 	}
 	
+	@GetMapping("/search")
+	public String search(@RequestParam("search")String search,
+						@RequestParam(value="page",defaultValue = "1")int page,
+						@RequestParam(value="guiest_id1",defaultValue = "0")int guiest_id1,
+						Model model) {
+		
+		
+		int searchCnt = goodsService.getSearchCnt(search);
+		model.addAttribute("goodsCategoryName", "검색된 결과 : " + searchCnt);
+		//상품 목록 뽑아오기
+		List<GoodsBean> goodsList = goodsService.getSearchGoodsList(search, page,guiest_id1);
+		model.addAttribute("goodsList",goodsList);
+		//페이징 처리에 필요한 정보들 얻어오기 (pageBean)
+		PageBean pageBean =  goodsService.getSearchGoodsCnt(search, page);
+		//위시리스트에 들어있는 상품 정보 뽑아오기
+		if(goodsService.getGoodsInWishList(loginUserBean.getUser_idx()) != null) {
+			List<Integer> wishGoodsIdx = goodsService.getGoodsInWishList(loginUserBean.getUser_idx());
+			model.addAttribute("wishGoodsIdx",wishGoodsIdx);
+		}
+		model.addAttribute("pageBean",pageBean);
+		model.addAttribute("page",page);
+		model.addAttribute("guiest_id1",guiest_id1);
+		
+		return "goods/main";
+		
+	}
+	
+	
+	
 	@GetMapping("/detail")
 	public String detail(@RequestParam("goods_idx")int goods_idx,
 						@RequestParam(value = "page",defaultValue = "1")int page,

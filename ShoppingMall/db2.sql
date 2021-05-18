@@ -240,3 +240,6 @@ insert into goods_size values(8,180,'XXXL',4,4,4,4,4,10);
 --goods_size 컬럼 추가
 
 ALTER TABLE goods_size ADD goods_size_stock number(10) not null;
+
+--review 테이블 컬럼 추가
+ALTER TABLE review ADD goods_size varchar2(10) not null;

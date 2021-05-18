@@ -115,6 +115,9 @@ public class AccountController {
 		map.put("goodsIdx", goods_idx);
 		map.put("userIdx",loginUserBean.getUser_idx());
 		map.put("reviewContent",review_content);
+		//상품 사이즈정보
+		String goodsSize = ordersService.getOrdersSize(orders_idx);
+		map.put("goodsSize",goodsSize);
 		accountService.addReivew(map);
 		
 		//리뷰가 작성되면 orders테이블에 리뷰 작성여부 컬럼 변경

@@ -1,5 +1,6 @@
 package com.project.shopping.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -62,6 +63,39 @@ public class GoodsDao {
 	
 	public int getGoodsStock(int goodsIdx,String goodsSizeName) {
 		return goodsMapper.getGoodsStock(goodsIdx, goodsSizeName);
+	}
+	
+	public List<HashMap<Object,Object>> getMainGoodsBestList(){
+		return goodsMapper.getMainGoodsBestList();
+	}
+	
+	public List<HashMap<Object,Object>> getMainGoodsNeweList(){
+		return goodsMapper.getMainGoodsNeweList();
+	}
+	
+	//페이징을 위한 전체 글 갯수 
+	public int getSearchGoodsCnt(String search) {
+		return goodsMapper.getSearchGoodsCnt(search);
+	}
+	
+	//메인페이지 상품정보 얻어오기 
+	public List<GoodsBean> getSearchGoodsList(String search,RowBounds rowBounds){
+		return goodsMapper.getSearchGoodsList(search, rowBounds);
+	}
+	
+	//메인페이지 상품정보(인기순)
+	public List<GoodsBean> getSearchPopuGoodsList(String search,RowBounds rowBounds){
+		return goodsMapper.getSearchPopuGoodsList(search, rowBounds);
+	}
+	
+	//메인페이지 상품정보(날짜순)
+	public List<GoodsBean> getSearchNeweGoodsList(String search,RowBounds rowBounds){
+		return goodsMapper.getSearchNeweGoodsList(search, rowBounds);
+	}
+	
+	//메인페이지 상품정보(가격순)
+	public List<GoodsBean> getSearchPriceGoodsList(String search,RowBounds rowBounds){
+		return goodsMapper.getSearchPriceGoodsList(search, rowBounds);
 	}
 	
 }

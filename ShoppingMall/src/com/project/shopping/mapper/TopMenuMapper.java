@@ -17,4 +17,7 @@ public interface TopMenuMapper {
 			"from goods_category " +
 			"order by goods_category_idx asc")
 	List<GoodsCategoryBean> getTopMenuList();
+	
+	
+	
 }

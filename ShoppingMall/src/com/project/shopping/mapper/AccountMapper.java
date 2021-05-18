@@ -31,14 +31,16 @@ public interface AccountMapper {
 	
 	// 리뷰 저장 
 	@Insert("INSERT INTO REVIEW " +
-			"VALUES(REVIEW_SEQ.NEXTVAL,#{goodsIdx},#{userIdx},#{reviewContent},sysdate)")
+			"VALUES(REVIEW_SEQ.NEXTVAL,#{goodsIdx},#{userIdx},#{reviewContent},sysdate,#{goodsSize})")
 	void addReivew(HashMap<Object,Object> map);
 	
 	//리뷰 정보
-	@Select("SELECT R.REVIEW_CONTENT,U.USER_NAME " +
-			"FROM REVIEW R,USER_INFO U " +
-			"WHERE GOODS_IDX = #{goodsIdx} " +
-			"AND R.USER_IDX = U.USER_IDX ")
+	@Select("SELECT R.REVIEW_CONTENT,U.USER_ID,G.GOODS_NAME,R.GOODS_SIZE " +
+			"FROM REVIEW R,USER_INFO U,GOODS G " +
+			"WHERE R.GOODS_IDX = #{goodsIdx} " +
+			"AND R.USER_IDX = U.USER_IDX " +
+			"AND R.GOODS_IDX = G.GOODS_IDX " +
+			"AND ROWNUM < 6")
 	List<HashMap<Object, Object>> getReviewList(@Param("goodsIdx") int goodsIdx);
 	
 	//주문 테이블 리뷰작성 업데이트(리뷰 작성되면 '1'로 update)

@@ -32,10 +32,12 @@
               <a href="#"><i class="fa fa-search"></i></a>
               <ul class="dropdown-menu dropdown-menu-right">
                 <li>
+                	<form action="${root}/goods/search" type="get">
                   <span class="input-group">
-                    <input type="text" class="form-control" placeholder="Search…" aria-describedby="basic-addon2">
-                    <button type="submit" class="input-group-addon">Submit</button>
+	                    <input type="text" name="search" class="form-control" placeholder="찾으시는 상품을 입력해주세요." aria-describedby="basic-addon2">
+	                    <button type="submit" class="input-group-addon">Submit</button>
                   </span>
+                  </form>
                 </li>
               </ul>
             </li>
@@ -99,7 +101,7 @@
        <path class="logo-pf" fill-rule="evenodd"  opacity="0.6" fill="rgb(71, 186, 193)"
         d="M6.000,10.334 L6.000,14.000 L6.000,16.000 C6.000,17.103 6.896,18.000 8.000,18.000 C9.104,18.000 10.000,17.103 10.000,16.000 L10.000,14.000 L10.000,10.000 L10.000,8.000 C10.000,5.791 11.791,4.000 14.000,4.000 C16.209,4.000 18.000,5.791 18.000,8.000 L18.000,10.000 L18.000,14.000 L18.000,16.000 C18.000,17.103 18.896,18.000 20.000,18.000 C21.103,18.000 22.000,17.103 22.000,16.000 L22.000,14.000 L22.000,10.000 L22.000,8.000 C22.000,3.582 18.418,-0.000 14.000,-0.000 C9.582,-0.000 6.000,3.582 6.000,8.000 L6.000,10.000 "/>
        </svg>
-      </a>
+     </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-controls="navbar-ex1-collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="fa fa-bars"></span>
       </button>
@@ -157,180 +159,4 @@
   </nav>
 </div>
 
-<script type="text/javascript">
-// // <![CDATA[
-// var colours=new Array('#F08080', '#F08080', '#F08080', '#F08080', '#F08080', '#F08080');
-// var minisize=15; // smallest size of hearts in pixels
-// var maxisize=20; // biggest size of hearts in pixels
-// var hearts=50; // maximum number of hearts on screen
-// var over_or_under="over";
- 
-// /*****************************
-// *JavaScript Love Heart Cursor*
-// *  (c)2013+ mf2fm web-design *
-// *   http://www.mf2fm.com/rv  *
-// *  DON'T EDIT BELOW THIS BOX *
-// *****************************/
-// var x=ox=400;
-// var y=oy=300;
-// var swide=800;
-// var shigh=600;
-// var sleft=sdown=0;
-// var herz=new Array();
-// var herzx=new Array();
-// var herzy=new Array();
-// var herzs=new Array();
-// var kiss=false;
- 
-// if (typeof('addRVLoadEvent')!='function') function addRVLoadEvent(funky) {
-//   var oldonload=window.onload;
-//   if (typeof(oldonload)!='function') window.onload=funky;
-//   else window.onload=function() {
-//     if (oldonload) oldonload();
-//     funky();
-//   }
-// }
- 
-// addRVLoadEvent(mwah);
- 
-// function mwah() { if (document.getElementById) {
-//   var i, heart;
-//   for (i=0; i<hearts; i++) {
-//     heart=createDiv("auto", "auto");
-//     heart.style.visibility="hidden";
-//     heart.style.zIndex=(over_or_under=="over")?"1001":"0";
-//     heart.style.color=colours[i%colours.length];
-//     heart.style.pointerEvents="none";
-//     if (navigator.appName=="Microsoft Internet Explorer") heart.style.filter="alpha(opacity=75)";
-//     else heart.style.opacity=0.75;
-//     heart.appendChild(document.createTextNode(String.fromCharCode(9829)));
-//     document.body.appendChild(heart);
-//     herz[i]=heart;
-//     herzy[i]=false;
-//   }
-//   set_scroll();
-//   set_width();
-//   herzle();
-// }}
- 
-// function herzle() {
-//   var c;
-//   if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
-//     ox=x;
-//     oy=y;
-//     for (c=0; c<hearts; c++) if (herzy[c]===false) {
-//       herz[c].firstChild.nodeValue=String.fromCharCode(9829);
-//       herz[c].style.left=(herzx[c]=x-minisize/2)+"px";
-//       herz[c].style.top=(herzy[c]=y-minisize)+"px";
-//       herz[c].style.fontSize=minisize+"px";
-//       herz[c].style.fontWeight='normal';
-//       herz[c].style.visibility='visible';
-//       herzs[c]=minisize;
-//       break;
-//     }
-//   }
-//   for (c=0; c<hearts; c++) if (herzy[c]!==false) blow_me_a_kiss(c);
-//   setTimeout("herzle()", 40);
-// }
- 
-// document.onmousedown=pucker;
-// document.onmouseup=function(){clearTimeout(kiss);};
- 
-// function pucker() {
-//   ox=-1;
-//   oy=-1;
-//   kiss=setTimeout('pucker()', 100);
-// }
- 
-// function blow_me_a_kiss(i) {
-//   herzy[i]-=herzs[i]/minisize+i%2;
-//   herzx[i]+=(i%5-2)/5;
-//   if (herzy[i]<sdown-herzs[i] || herzx[i]<sleft-herzs[i] || herzx[i]>sleft+swide-herzs[i]) {
-//     herz[i].style.visibility="hidden";
-//     herzy[i]=false;
-//   }
-//   else if (herzs[i]>minisize+2 && Math.random()<.5/hearts) break_my_heart(i);
-//   else {
-//     if (Math.random()<maxisize/herzy[i] && herzs[i]<maxisize) herz[i].style.fontSize=(++herzs[i])+"px";
-//     herz[i].style.top=herzy[i]+"px";
-//     herz[i].style.left=herzx[i]+"px";
-//   }
-// }
- 
-// function break_my_heart(i) {
-//   var t;
-//   herz[i].firstChild.nodeValue=String.fromCharCode(9676);
-//   herz[i].style.fontWeight='bold';
-//   herzy[i]=false;
-//   for (t=herzs[i]; t<=maxisize; t++) setTimeout('herz['+i+'].style.fontSize="'+t+'px"', 60*(t-herzs[i]));
-//   setTimeout('herz['+i+'].style.visibility="hidden";', 60*(t-herzs[i]));
-// }
- 
-// document.onmousemove=mouse;
-// function mouse(e) {
-//   if (e) {
-//     y=e.pageY;
-//     x=e.pageX;
-//   }
-//   else {
-//     set_scroll();
-//     y=event.y+sdown;
-//     x=event.x+sleft;
-//   }
-// }
- 
-// window.onresize=set_width;
-// function set_width() {
-//   var sw_min=999999;
-//   var sh_min=999999;
-//   if (document.documentElement && document.documentElement.clientWidth) {
-//     if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
-//     if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
-//   }
-//   if (typeof(self.innerWidth)=='number' && self.innerWidth) {
-//     if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
-//     if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
-//   }
-//   if (document.body.clientWidth) {
-//     if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
-//     if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
-//   }
-//   if (sw_min==999999 || sh_min==999999) {
-//     sw_min=800;
-//     sh_min=600;
-//   }
-//   swide=sw_min;
-//   shigh=sh_min;
-// }
- 
-// window.onscroll=set_scroll;
-// function set_scroll() {
-//   if (typeof(self.pageYOffset)=='number') {
-//     sdown=self.pageYOffset;
-//     sleft=self.pageXOffset;
-//   }
-//   else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
-//     sdown=document.body.scrollTop;
-//     sleft=document.body.scrollLeft;
-//   }
-//   else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
-//     sleft=document.documentElement.scrollLeft;
-//     sdown=document.documentElement.scrollTop;
-//   }
-//   else {
-//     sdown=0;
-//     sleft=0;
-//   }
-// }
- 
-// function createDiv(height, width) {
-//   var div=document.createElement("div");
-//   div.style.position="absolute";
-//   div.style.height=height;
-//   div.style.width=width;
-//   div.style.overflow="hidden";
-//   div.style.backgroundColor="transparent";
-//   return (div);
-// }
-// // ]]>
-</script>
+

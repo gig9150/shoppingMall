@@ -77,60 +77,11 @@
             <div class="col-md-12">
               <div class="media flex-wrap mb-5">
                 <div class="media-left productSlider">
-                  <div id="carousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner SingleProductItem">
-                      <div class="video-icon">
-                        <a class="video-link" data-fancybox href="https://www.youtube.com/embed/g3-VxLQO7do?autoplay=1">
-                          <i class="fa fa-play play-icon" aria-hidden="true"></i>
-                        </a>
-                      </div>
-
-                      <div class="carousel-item active productImage SingleProductImage" data-thumb="0">
-                        <img src="${root}/assets/img/products/signle-product/product-slide-big-01.jpg">
-                        <a data-fancybox="images" href="${root}/assets/img/products/signle-product/product-slide-large-01.jpg" class="product-content">
-                          <div class="MaskingIcon"><i class="fa fa-plus"></i></div>
-                        </a>
-                      </div>
-
-                      <div class="carousel-item SingleProductImage" data-thumb="1">
-                        <img src="${root}/assets/img/products/signle-product/product-slide-big-02.jpg">
-                        <a data-fancybox="images" href="${root}/assets/img/products/signle-product/product-slide-large-02.jpg" class="product-content">
-                          <div class="MaskingIcon"><i class="fa fa-plus"></i></div>
-                        </a>
-                      </div>
-
-                      <div class="carousel-item SingleProductImage" data-thumb="2">
-                        <img src="${root}/assets/img/products/signle-product/product-slide-big-03.jpg">
-                        <a data-fancybox="images" href="${root}/assets/img/products/signle-product/product-slide-large-03.jpg" class="product-content">
-                          <div class="MaskingIcon"><i class="fa fa-plus"></i></div>
-                        </a>
-                      </div>
-
-                      <div class="carousel-item SingleProductImage" data-thumb="3">
-                        <img src="${root}/assets/img/products/signle-product/product-slide-big-04.jpg">
-                        <a data-fancybox="images" href="${root}/assets/img/products/signle-product/product-slide-large-04.jpg" class="product-content">
-                          <div class="MaskingIcon"><i class="fa fa-plus"></i></div>
-                        </a>
-                      </div>
-                    </div>
+                  <div>
+                  	<img src="${root}/upload/${goodsBean.goods_file}" style="width:100%;height:550px;">
                   </div>
                   
-                  <div class="clearfix">
-                    <div id="thumbcarousel" class="carousel slide" data-interval="false">
-                      <div class="carousel-inner">
-                          <div data-target="#carousel" data-slide-to="0" class="thumb"><img src="${root}/assets/img/products/signle-product/product-slide-small-01.jpg"></div>
-                          <div data-target="#carousel" data-slide-to="1" class="thumb"><img src="${root}/assets/img/products/signle-product/product-slide-small-02.jpg"></div>
-                          <div data-target="#carousel" data-slide-to="2" class="thumb"><img src="${root}/assets/img/products/signle-product/product-slide-small-03.jpg"></div>
-                          <div data-target="#carousel" data-slide-to="3" class="thumb"><img src="${root}/assets/img/products/signle-product/product-slide-small-04.jpg"></div>
-                      </div>
-                      <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                      </a>
-                      <a class="right carousel-control" href="#thumbcarousel" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                      </a>
-                    </div>
-                  </div>
+                  
                 </div>
                 <div class="media-body">
                   <ul class="list-inline">
@@ -253,11 +204,10 @@
                       <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#OurDetails">Details</a></li>
                       <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#OurSizing">size standard</a></li>
                       <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Reviews">Reviews</a></li>
-                      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#OurShipping">shipping</a></li>
                     </ul>
                     <div class="tab-content">
                       <div id="OurDetails" class="tab-pane fade show active">
-                        ${goodsBean.goods_content}
+                        <p> ${goodsBean.goods_content} </p>
                       </div>
 
                       <div id="OurSizing" class="tab-pane fade">
@@ -307,82 +257,15 @@
                       	<c:forEach items="${reviewList}" var="obj">
                       		<div class="media mb-5">
 	                          <div class="media-body">
-	                            <h4 class="mt-0 mb-2">${obj.USER_NAME}</h4>
+	                            <h4 class="mt-0 mb-2">${obj.USER_ID}</h4>
 	                            <p class="mt-0 mb-3">${obj.REVIEW_CONTENT}</p>
+                            	<h6 class="mt-0"><em>${obj.GOODS_NAME}&nbsp;/&nbsp;${obj.GOODS_SIZE}</em></h6>
 	                          </div>
                         	</div>
                       	</c:forEach>
                         
                       </div>
 
-                      <div id="OurShipping" class="tab-pane fade">
-                        <div class="SingleCartListWrapper SingleCartShipping">
-                          <div class="cartListInner">
-                            <div class="table-responsive">
-                              <table class="table">
-                                <thead>
-                                  <tr>
-                                    <th>Shipping method</th>
-                                    <th>Estimated Time</th>
-                                    <th>Fees</th>
-                                  </tr>
-                                </thead>
-
-                                <tbody>
-                                  <tr>
-                                    <td class="">
-                                      <div class="custom-control custom-radio single-custom-control">
-                                        <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" checked="">
-                                        <label class="custom-control-label" for="customRadio3"><span class="d-block" style="margin-top: 3px;">Pickup from
-                                            store</span></label>
-                                      </div>
-                                    </td>
-                                  
-                                    <td class="">—</td>
-                                    <td class="">$0</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td class="">
-                                      <div class="custom-control custom-radio single-custom-control">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2"><span class="d-block" style="margin-top: 3px;">Local
-                                            Shipping</span></label>
-                                      </div>
-                                    </td>
-                                  
-                                    <td class="">2-7 days</td>
-                                    <td class="">$4</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td class="">
-                                      <div class="custom-control custom-radio single-custom-control">
-                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio1"><span class="d-block" style="margin-top: 3px;">Courier</span></label>
-                                    </td>
-
-                                    <td class="">3-5 days</td>
-                                    <td class="">$5</td>
-                                  </tr>
-                      
-                                  <tr>
-                                    <td class="">
-                                      <div class="custom-control custom-radio single-custom-control">
-                                        <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio4"><span class="d-block" style="margin-top: 3px;">International Shipping</span></label>
-                                      </div>
-                                    </td>
-                                    
-                                    <td class="">7-15 days</td>
-                                    <td class="">$15</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>

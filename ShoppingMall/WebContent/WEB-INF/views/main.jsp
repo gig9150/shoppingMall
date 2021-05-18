@@ -135,7 +135,7 @@
 							data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
 							data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
 							style="z-index: 6; min-width: 490px; max-width: 490px; white-space: normal; font-size: 46px; line-height: 42px; font-weight: 400; color: #252525; letter-spacing: 0px; font-family: Oxygen, sans-serif; text-transform: capitalize;">
-							Summer hat</div> <!-- LAYER NR. 3 -->
+							인기상품 세일</div>
 						<div class="tp-caption   tp-resizeme" id="slide-74-layer-9"
 							data-x="['left','left','left','left']"
 							data-hoffset="['26','50','50','30']"
@@ -150,7 +150,7 @@
 							data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
 							data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
 							style="z-index: 7; min-width: 490px; max-width: 490px; white-space: normal; font-size: 22px; line-height: 36px; font-weight: 300; color: #704664; letter-spacing: 0px; font-family: Oxygen, sans-serif;">
-							Start From - $59.00</div> <!-- LAYER NR. 4 -->
+							파격 세일</div> <!-- LAYER NR. 4 -->
 						<div class="tp-caption   tp-resizeme" id="slide-74-layer-10"
 							data-x="['left','left','left','left']"
 							data-hoffset="['27','50','50','30']"
@@ -166,8 +166,7 @@
 							data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
 							data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
 							style="z-index: 8; min-width: 490px; max-width: 490px; white-space: normal; font-size: 14px; line-height: 22px; font-weight: 400; color: #252525; letter-spacing: 0px; font-family: Oxygen, sans-serif;">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-							convallis turpis pharetra pretium nec eu sem.</div> <!-- LAYER NR. 5 -->
+							두개사면 하나 더! </div> <!-- LAYER NR. 5 -->
 						<a target="_blank"
 						href="https://wrapbootstrap.com/theme/bigbag-store-elegant-ecommerce-theme-WB0B9JN67"
 						class="tp-caption rev-btn " id="slide-74-layer-13"
@@ -233,7 +232,7 @@
 							data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
 							data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
 							style="z-index: 6; min-width: 490px; max-width: 490px; white-space: normal; font-size: 46px; line-height: 42px; font-weight: 400; color: #252525; letter-spacing: 0px; font-family: Oxygen, sans-serif; text-transform: capitalize;">
-							Ladies backpack</div> <!-- LAYER NR. 8 -->
+							인기 가방 세일!</div> <!-- LAYER NR. 8 -->
 						<div class="tp-caption   tp-resizeme" id="slide-75-layer-9"
 							data-x="['right','right','right','right']"
 							data-hoffset="['100','40','23','13']"
@@ -248,7 +247,7 @@
 							data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
 							data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
 							style="z-index: 7; min-width: 490px; max-width: 490px; white-space: normal; font-size: 22px; line-height: 36px; font-weight: 300; color: #704664; letter-spacing: 0px; font-family: Oxygen, sans-serif;">
-							Start From - $259.00</div> <!-- LAYER NR. 9 -->
+							2,000원부터</div> <!-- LAYER NR. 9 -->
 						<div class="tp-caption   tp-resizeme" id="slide-75-layer-10"
 							data-x="['right','right','right','right']"
 							data-hoffset="['100','40','23','13']"
@@ -264,8 +263,7 @@
 							data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
 							data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
 							style="z-index: 8; min-width: 490px; max-width: 490px; white-space: normal; font-size: 14px; line-height: 22px; font-weight: 400; color: #252525; letter-spacing: 0px; font-family: Oxygen, sans-serif;">
-							There are many variations of passages of Lorem Ipsum available,
-							but the majority have suffered alteration.</div> <!-- LAYER NR. 10 -->
+							2개 사면 하나 더!</div> <!-- LAYER NR. 10 -->
 						<a target="_blank"
 						href="https://wrapbootstrap.com/theme/bigbag-store-elegant-ecommerce-theme-WB0B9JN67"
 						class="tp-caption rev-btn " id="slide-75-layer-13"
@@ -331,7 +329,7 @@
 							data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
 							data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
 							style="z-index: 6; min-width: 490px; max-width: 490px; white-space: normal; font-size: 46px; line-height: 42px; font-weight: 400; color: #252525; letter-spacing: 0px; font-family: Oxygen, sans-serif; text-transform: capitalize;">
-							Canvas Sneaker</div> <!-- LAYER NR. 13 -->
+							인기 슈즈 세일!</div> <!-- LAYER NR. 13 -->
 						<div class="tp-caption   tp-resizeme" id="slide-76-layer-9"
 							data-x="['left','left','left','left']"
 							data-hoffset="['26','50','50','30']"
@@ -346,7 +344,7 @@
 							data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
 							data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
 							style="z-index: 7; min-width: 490px; max-width: 490px; white-space: normal; font-size: 22px; line-height: 36px; font-weight: 300; color: #704664; letter-spacing: 0px; font-family: Oxygen, sans-serif;">
-							Start From - $249.00</div> <!-- LAYER NR. 14 -->
+							2,000원부터</div> <!-- LAYER NR. 14 -->
 						<div class="tp-caption   tp-resizeme" id="slide-76-layer-10"
 							data-x="['left','left','left','left']"
 							data-hoffset="['29','50','50','30']"
@@ -362,8 +360,7 @@
 							data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
 							data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
 							style="z-index: 8; min-width: 490px; max-width: 490px; white-space: normal; font-size: 14px; line-height: 22px; font-weight: 400; color: #252525; letter-spacing: 0px; font-family: Oxygen, sans-serif;">
-							It is a long established fact that a reader will be distracted by
-							the readable content of a page when looking layout.</div> <!-- LAYER NR. 15 -->
+							2개 사면 하나 더!</div> <!-- LAYER NR. 15 -->
 						<a target="_blank"
 						href="https://wrapbootstrap.com/theme/bigbag-store-elegant-ecommerce-theme-WB0B9JN67"
 						class="tp-caption rev-btn " id="slide-76-layer-13"
@@ -393,360 +390,61 @@
 		<!-- MAIN CONTENT SECTION -->
 		<section class="mainContent clearfix">
 			<div class="container">
-
 				<div class="page-header">
-					<h4>Featured Collection</h4>
+					<h4>인기 상품 </h4>
+				</div>
+		
+				<div class="row featuredCollection margin-bottom">
+					<c:forEach items="${bestGoodsList}" var="obj">
+						<div class="col-md-4 col-12">
+							<div class="thumbnail"
+								onclick="${root}/goods/detail?goods_idx=${obj.GOODS_IDX}';">
+								<div class="imageWrapper">
+									<img
+										src="${root}/upload/${obj.GOODS_FILE}"
+										alt="feature-collection-image" height="200">
+									<div class="caption">
+										<h3>${obj.GOODS_NAME}</h3>
+										<small>${obj.GOODS_PRICE}</small>
+									</div>
+									<div class="masking">
+										<a href="${root}/goods/detail?goods_idx=${obj.GOODS_IDX}" class="btn viewBtn">View
+											Products</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+				
+				<div class="page-header">
+					<h4>신상품 </h4>
 				</div>
 
 				<div class="row featuredCollection margin-bottom">
-					<div class="col-md-4 col-12">
-						<div class="thumbnail"
-							onclick="location.href='single-product.html';">
-							<div class="imageWrapper">
-								<img
-									src="${root}/assets/img/home/featured-collection/featured-collection-01.jpg"
-									alt="feature-collection-image">
-								<div class="caption">
-									<h3>Shoes Collections</h3>
-									<small>Start From $59.00</small>
-								</div>
-								<div class="masking">
-									<a href="product-grid-left-sidebar.html" class="btn viewBtn">View
-										Products</a>
+					<c:forEach items="${neweGoodsList}" var="obj">
+						<div class="col-md-4 col-12">
+							<div class="thumbnail"
+								onclick="${root}/goods/detail?goods_idx=${obj.GOODS_IDX}';">
+								<div class="imageWrapper">
+									<img
+										src="${root}/upload/${obj.GOODS_FILE}"
+										alt="feature-collection-image" height="200">
+									<div class="caption">
+										<h3>${obj.GOODS_NAME}</h3>
+										<small>${obj.GOODS_PRICE}</small>
+									</div>
+									<div class="masking">
+										<a href="${root}/goods/detail?goods_idx=${obj.GOODS_IDX}" class="btn viewBtn">View
+											Products</a>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-4 col-12">
-						<div class="thumbnail"
-							onclick="location.href='single-product.html';">
-							<div class="imageWrapper">
-								<img
-									src="${root}/assets/img/home/featured-collection/featured-collection-02.jpg"
-									alt="feature-collection-image">
-								<div class="caption">
-									<h3>Bags BagPacks</h3>
-									<small>Start From $150.00</small>
-								</div>
-								<div class="masking">
-									<a href="product-grid-left-sidebar.html" class="btn viewBtn">View
-										Products</a>
-								</div>
-							</div>
-
-						</div>
-					</div>
-					<div class="col-md-4 col-12">
-						<div class="thumbnail"
-							onclick="location.href='single-product.html';">
-							<div class="imageWrapper">
-								<img
-									src="${root}/assets/img/home/featured-collection/featured-collection-03.jpg"
-									alt="feature-collection-image">
-								<div class="caption">
-									<h3>Glasses Collections</h3>
-									<small>Start From $25.00</small>
-								</div>
-								<div class="masking">
-									<a href="product-grid-left-sidebar.html" class="btn viewBtn">View
-										Products</a>
-								</div>
-							</div>
-
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 
-				<div class="page-header">
-					<h4>Featured Products</h4>
-				</div>
-
-				<div
-					class="row featuredProducts featuredProductsSlider margin-bottom">
-					<div class="slide col-md-3">
-						<div class="productImage clearfix">
-							<img src="${root}/assets/img/home/featured-product/product-01.jpg"
-								alt="featured-product-img">
-							<div class="productMasking">
-								<ul class="list-inline btn-group" role="group">
-									<li><a class="btn btn-default btn-wishlist"><i
-											class="fa fa-heart-o"></i></a></li>
-									<li><a href="javascript:void(0)" class="btn btn-default"
-										data-toast data-toast-type="success"
-										data-toast-position="topRight"
-										data-toast-icon="icon-circle-check" data-toast-title="Product"
-										data-toast-message="successfuly added to cart!"><i
-											class="fa fa-shopping-basket"></i></a></li>
-									<li><a data-toggle="modal" href=".quick-view"
-										class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="productCaption clearfix">
-							<a href="single-product.html">
-								<h4>Nike Sportswear</h4>
-							</a>
-							<h3>$199.00</h3>
-						</div>
-					</div>
-					<div class="slide col-md-3">
-						<div class="productImage">
-							<img src="${root}/assets/img/home/featured-product/product-02.jpg"
-								alt="featured-product-img">
-							<div class="productMasking">
-								<ul class="list-inline btn-group" role="group">
-									<li><a class="btn btn-default btn-wishlist"><i
-											class="fa fa-heart-o"></i></a></li>
-									<li><a href="javascript:void(0)" class="btn btn-default"
-										data-toast data-toast-type="success"
-										data-toast-position="topRight"
-										data-toast-icon="icon-circle-check" data-toast-title="Product"
-										data-toast-message="successfuly added to cart!"
-										class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-									<li><a data-toggle="modal" href=".quick-view"
-										class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="productCaption">
-							<a href="single-product.html">
-								<h4>Dip Dyed Sweater</h4>
-							</a>
-							<h3>$149.00</h3>
-						</div>
-					</div>
-					<div class="slide col-md-3">
-						<div class="productImage">
-							<img src="${root}/assets/img/home/featured-product/product-03.jpg"
-								alt="featured-product-img">
-							<div class="productMasking">
-								<ul class="list-inline btn-group" role="group">
-									<li><a class="btn btn-default btn-wishlist"><i
-											class="fa fa-heart-o"></i></a></li>
-									<li><a href="javascript:void(0)" class="btn btn-default"
-										data-toast data-toast-type="success"
-										data-toast-position="topRight"
-										data-toast-icon="icon-circle-check" data-toast-title="Product"
-										data-toast-message="successfuly added to cart!"
-										class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-									<li><a data-toggle="modal" href=".quick-view"
-										class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="productCaption">
-							<a href="single-product.html">
-								<h4>Scarf Ring Corner</h4>
-							</a>
-							<h3>$79</h3>
-						</div>
-					</div>
-					<div class="slide col-md-3">
-						<div class="productImage">
-							<img src="${root}/assets/img/home/featured-product/product-04.jpg"
-								alt="featured-product-img">
-							<div class="productMasking">
-								<ul class="list-inline btn-group" role="group">
-									<li><a class="btn btn-default btn-wishlist"><i
-											class="fa fa-heart-o"></i></a></li>
-									<li><a href="javascript:void(0)" class="btn btn-default"
-										data-toast data-toast-type="success"
-										data-toast-position="topRight"
-										data-toast-icon="icon-circle-check" data-toast-title="Product"
-										data-toast-message="successfuly added to cart!"
-										class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-									<li><a data-toggle="modal" href=".quick-view"
-										class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="productCaption">
-							<a href="single-product.html">
-								<h4>Sun Buddies</h4>
-							</a>
-							<h3>$109</h3>
-						</div>
-					</div>
-					<div class="slide col-md-3">
-						<div class="productImage">
-							<img src="${root}/assets/img/home/featured-product/product-05.jpg"
-								alt="featured-product-img">
-							<div class="productMasking">
-								<ul class="list-inline btn-group" role="group">
-									<li><a class="btn btn-default btn-wishlist"><i
-											class="fa fa-heart-o"></i></a></li>
-									<li><a href="javascript:void(0)" class="btn btn-default"
-										data-toast data-toast-type="success"
-										data-toast-position="topRight"
-										data-toast-icon="icon-circle-check" data-toast-title="Product"
-										data-toast-message="successfuly added to cart!"
-										class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-									<li><a data-toggle="modal" href=".quick-view"
-										class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="productCaption">
-							<a href="single-product.html">
-								<h4>Scarf Ring Corner</h4>
-							</a>
-							<h3>$79</h3>
-						</div>
-					</div>
-					<div class="slide col-md-3">
-						<div class="productImage">
-							<img src="${root}/assets/img/home/featured-product/product-06.jpg"
-								alt="featured-product-img">
-							<div class="productMasking">
-								<ul class="list-inline btn-group" role="group">
-									<li><a class="btn btn-default btn-wishlist"><i
-											class="fa fa-heart-o"></i></a></li>
-									<li><a href="javascript:void(0)" class="btn btn-default"
-										data-toast data-toast-type="success"
-										data-toast-position="topRight"
-										data-toast-icon="icon-circle-check" data-toast-title="Product"
-										data-toast-message="successfuly added to cart!"
-										class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-									<li><a data-toggle="modal" href=".quick-view"
-										class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="productCaption">
-							<a href="single-product.html">
-								<h4>Scarf Ring Corner</h4>
-							</a>
-							<h3>$79</h3>
-						</div>
-					</div>
-					<div class="slide col-md-3">
-						<div class="productImage">
-							<img src="${root}/assets/img/home/featured-product/product-07.jpg"
-								alt="featured-product-img">
-							<div class="productMasking">
-								<ul class="list-inline btn-group" role="group">
-									<li><a class="btn btn-default btn-wishlist"><i
-											class="fa fa-heart-o"></i></a></li>
-									<li><a href="javascript:void(0)" class="btn btn-default"
-										data-toast data-toast-type="success"
-										data-toast-position="topRight"
-										data-toast-icon="icon-circle-check" data-toast-title="Product"
-										data-toast-message="successfuly added to cart!"
-										class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-									<li><a data-toggle="modal" href=".quick-view"
-										class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="productCaption">
-							<a href="single-product.html">
-								<h4>Scarf Ring Corner</h4>
-							</a>
-							<h3>$79</h3>
-						</div>
-					</div>
-					<div class="slide col-md-3">
-						<div class="productImage">
-							<img src="${root}/assets/img/home/featured-product/product-09.jpg"
-								alt="featured-product-img">
-							<div class="productMasking">
-								<ul class="list-inline btn-group" role="group">
-									<li><a class="btn btn-default btn-wishlist"><i
-											class="fa fa-heart-o"></i></a></li>
-									<li><a href="javascript:void(0)" class="btn btn-default"
-										data-toast data-toast-type="success"
-										data-toast-position="topRight"
-										data-toast-icon="icon-circle-check" data-toast-title="Product"
-										data-toast-message="successfuly added to cart!"
-										class="btn btn-default"><i class="fa fa-shopping-basket"></i></a></li>
-									<li><a data-toggle="modal" href=".quick-view"
-										class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="productCaption">
-							<a href="single-product.html">
-								<h4>Scarf Ring Corner</h4>
-							</a>
-							<h3>$79</h3>
-						</div>
-					</div>
-				</div>
-
-				<div class="page-header">
-					<h4>Latest Articles</h4>
-				</div>
-				<div class="row latestArticles">
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<a href="blog-single-right-sidebar.html"> <img
-								src="${root}/assets/img/home/articles/articles-01.jpg"
-								alt="article-image">
-							</a>
-							<div class="date-holder">
-								<p>08</p>
-								<span>NOV</span>
-							</div>
-							<h5>
-								<a href="blog-single-right-sidebar.html">Leo Vitae Nibh
-									Malesuada.</a>
-							</h5>
-							<span class="meta"> by <a class="pr-1" href="#">Abdus</a>
-								/ <a class="pl-1" href="blog-single-right-sidebar.html">5
-									Comments</a></span>
-							<div class="caption">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Quisque convallis nulla sed turpis pharetra pretium nec eu sem.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<a href="blog-single-right-sidebar.html"> <img
-								src="${root}/assets/img/home/articles/articles-02.jpg"
-								alt="article-image">
-							</a>
-							<div class="date-holder">
-								<p>29</p>
-								<span>OCT</span>
-							</div>
-							<h5>
-								<a href="blog-single-right-sidebar.html">Malesuada Pulvinar
-									Quis Fring.</a>
-							</h5>
-							<span class="meta"> by <a class="pr-1" href="#">Abdus</a>
-								/ <a class="pl-1" href="blog-single-right-sidebar.html">4
-									Comments</a></span>
-							<div class="caption">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Quisque convallis nulla sed turpis pharetra pretium nec eu sem.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<a href="blog-single-right-sidebar.html"> <img
-								src="${root}/assets/img/home/articles/articles-03.jpg"
-								alt="article-image">
-							</a>
-							<div class="date-holder">
-								<p>15</p>
-								<span>Sep</span>
-							</div>
-							<h5>
-								<a href="blog-single-right-sidebar.html">Proin Lectus Sed
-									Tincidunt Auctor.</a>
-							</h5>
-							<span class="meta"> by <a class="pr-1" href="#">Abdus</a>
-								/ <a class="pl-1" href="blog-single-right-sidebar.html">3
-									Comments</a></span>
-							<div class="caption">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Quisque convallis nulla sed turpis pharetra pretium nec eu sem.</p>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 		</section>
 
@@ -807,51 +505,6 @@
 		</section>
 
 		<c:import url="/WEB-INF/views/include/footer.jsp" />
-	</div>
-
-	<!-- PORDUCT QUICK VIEW MODAL -->
-	<div class="modal fade quick-view" tabindex="-1" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">Ã</button>
-					<div class="media flex-wrap">
-						<div class="media-left px-0">
-							<img class="media-object"
-								src="${root}/assets/img/products/quick-view/quick-view-01.jpg"
-								alt="Image">
-						</div>
-						<div class="media-body">
-							<h2>Old Skool Navy</h2>
-							<h3>$149</h3>
-							<p>Classic sneaker from Vans. Cotton canvas and suede upper.
-								Textile lining with heel stabilizer and ankle support.
-								Contrasting laces. Sits on a classic waffle rubber sole.</p>
-							<span class="quick-drop"> <select name="guiest_id3"
-								id="guiest_id3" class="select-drop">
-									<option value="0">Size</option>
-									<option value="1">Size 1</option>
-									<option value="2">Size 2</option>
-									<option value="3">Size 3</option>
-							</select>
-							</span> <span class="quick-drop resizeWidth"> <select
-								name="guiest_id4" id="guiest_id4" class="select-drop">
-									<option value="0">Qty</option>
-									<option value="1">Qty 1</option>
-									<option value="2">Qty 2</option>
-									<option value="3">Qty 3</option>
-							</select>
-							</span>
-							<div class="btn-area">
-								<a href="#" class="btn btn-primary btn-block">Add to cart <i
-									class="fa fa-angle-right" aria-hidden="true"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 
 	<script src="${root}/assets/plugins/jquery/jquery.min.js"></script>

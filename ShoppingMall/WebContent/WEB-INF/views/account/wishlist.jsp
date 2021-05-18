@@ -109,7 +109,7 @@
                           <td>${obj.GOODS_PRICE}</td>
                           <td>${obj.WISHLIST_DATE }</td>
                           <td>
-                            <a href="${root}/goods/detail?goods_idx=${obj.GOODS_OBJ}" class="btn btn-sm btn-secondary-outlined">GO TO GOODS</a>
+                            <a href="${root}/goods/detail?goods_idx=${obj.GOODS_IDX}" class="btn btn-sm btn-secondary-outlined">GO TO GOODS</a>
                           </td>
                         </tr>
                         </c:forEach>
